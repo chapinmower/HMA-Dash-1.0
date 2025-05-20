@@ -1,0 +1,146 @@
+[
+  {
+    "id": "1",
+    "name": "June 18 Event",
+    "description": "Planning and execution of the annual partner event at Wrigley.",
+    "tasks": [
+      { "id": 1, "name": "A List Invite Sent", "startDate": "2025-04-30", "endDate": "2025-04-30", "progress": 100 },
+      { "id": 2, "name": "Re-send invite email to those that did not rsvp", "startDate": "2025-05-05", "endDate": "2025-05-05", "progress": 0 },
+      { "id": 3, "name": "Send invite to B List", "startDate": "2025-05-07", "endDate": "2025-05-07", "progress": 0 },
+      { "id": 4, "name": "re-send invite to B-List", "startDate": "2025-05-14", "endDate": "2025-05-14", "progress": 0 },
+      { "id": 5, "name": "Review Invite List", "progress": 0 }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Monthly Newsletter",
+    "description": "Creation and distribution of monthly marketing newsletters.",
+    "tasks": [
+      { "id": 1, "name": "January Newsletter", "startDate": "2025-01-15", "endDate": "2025-01-15", "progress": 100 },
+      { "id": 2, "name": "February Newsletter", "startDate": "2025-02-20", "endDate": "2025-02-20", "progress": 100 },
+      { "id": 3, "name": "March Newsletter", "startDate": "2025-03-20", "endDate": "2025-03-20", "progress": 100 },
+      { "id": 4, "name": "April Newsletter", "startDate": "2025-04-25", "endDate": "2025-04-25", "progress": 100 },
+      { "id": 5, "name": "May Newsletter", "startDate": "2025-05-20", "endDate": "2025-05-20", "progress": 50 },
+      { "id": 6, "name": "June Newsletter", "progress": 0 },
+      { "id": 7, "name": "July Newsletter", "progress": 0 },
+      { "id": 8, "name": "August Newsletter", "progress": 0 },
+      { "id": 9, "name": "September Newsletter", "progress": 0 },
+      { "id": 10, "name": "October Newsletter", "progress": 0 },
+      { "id": 11, "name": "November Newsletter", "progress": 0 },
+      { "id": 12, "name": "December Newsletter", "progress": 0 }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Review Call Invite Email Blasts",
+    "description": "Overview of review call invite campaigns.",
+    "tasks": [
+      { "id": 1, "name": "February Review Call Invite", "progress": 100 },
+      { "id": 2, "name": "May Review Call Invite", "progress": 50 }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "February Review Call Invite",
+    "description": "Tasks for the February 2025 review call invitations.",
+    "tasks": [
+      { "id": 1, "name": "Round 1 Email Sent", "startDate": "2025-02-21", "endDate": "2025-02-21", "progress": 100 },
+      { "id": 2, "name": "Round 2 Email Sent", "startDate": "2025-02-21", "endDate": "2025-02-21", "progress": 100 }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "May Review Call Invite",
+    "description": "Tasks for the May 2025 review call invitations.",
+    "tasks": [
+      { "id": 1, "name": "Round 1 Email Send", "startDate": "2025-05-02", "endDate": "2025-05-02", "progress": 50 },
+      { "id": 2, "name": "Round 2 Email Send", "startDate": "2025-05-16", "endDate": "2025-05-16", "progress": 0 }
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Grove Client Letter, January 2025",
+    "description": "Mailing campaign with a letter from Grove and the company brochure.",
+    "tasks": [
+      { "id": 1, "name": "Sent to Clients", "startDate": "2025-01-08", "endDate": "2025-01-08", "progress": 100 },
+      { "id": 2, "name": "Sent to Ambassadors & Prospects", "startDate": "2025-01-15", "endDate": "2025-01-15", "progress": 100 }
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Website Re-Vamp",
+    "description": "Major project to redesign and update the company website.",
+    "tasks": [
+      { "id": 1, "name": "Have input ready for the review call", "startDate": "2025-05-12", "endDate": "2025-05-12", "progress": 0 },
+      { "id": 2, "name": "Review Call with Andrea Biel", "startDate": "2025-05-13", "endDate": "2025-05-13", "progress": 0, "details": "9 am to 11 am" }
+    ],
+    "todo": [
+      { "id": 1, "name": "New Office Photos (Photoshoot)" }
+    ],
+    "resources": [
+      { "id": 1, "name": "April 29 Meeting Notes", "path": "../../../Volumes/Crispy Memes LLC/HMA_Marketing_Dashboard/HMA Collateral/April 29 meeting notes.docx" }
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Chapin/Andrea Projects",
+    "description": "Projects involving Chapin and Andrea.",
+    "tasks": [
+      { "id": 1, "name": "Send Clout & Google Anayltics Data", "startDate": "2025-04-28", "endDate": "2025-04-28", "progress": 100 },
+      { "id": 2, "name": "Send HMA White Paper Collateral", "startDate": "2025-04-30", "endDate": "2025-04-30", "progress": 100 },
+      { "id": 3, "name": "Check in HT Marketing, white paper generation", "startDate": "2025-04-28", "endDate": "2025-04-28", "progress": 100 }
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Non-Profit Initiative (Ryan/Grove/Andrea)",
+    "description": "Initiative focused on non-profit activities.",
+    "tasks": []
+  },
+  {
+    "id": "10",
+    "name": "Swag Order",
+    "description": "Ordering company swag.",
+    "tasks": [
+      { "id": 1, "name": "Email Amber at Go Alfie for Onesies and Investmints (giveaway)", "startDate": "2025-04-30", "endDate": "2025-04-30", "progress": 100 },
+      { "id": 2, "name": "Complete Order for Onesies & Mints", "progress": 50 }
+    ],
+    "todo": [
+      { "id": 1, "name": "order polos & quarter zips" },
+      { "id": 2, "name": "Find third party vendor/retailer. Peter Millar?" }
+    ],
+    "budget": 4000
+  },
+  {
+    "id": "11",
+    "name": "Prospect/Happy Hour Event",
+    "description": "Planning for a prospect happy hour event.",
+    "tasks": [
+      { "id": 1, "name": "Email Flight Club rep for quote/RFP", "startDate": "2025-05-01", "endDate": "2025-05-01", "progress": 0 },
+      { "id": 2, "name": "identify invitees", "startDate": "2025-05-02", "endDate": "2025-05-02", "progress": 0 }
+    ],
+    "suggestions": [
+      { "id": 1, "text": "Flight Club? Possible dates: May 28, 29" }
+    ],
+    "budget": 3000
+  },
+  {
+    "id": "12",
+    "name": "New Client Portal",
+    "description": "Development and launch of the new client portal.",
+    "completedDate": "May 1, 2025",
+    "tasks": [
+      { "id": 1, "name": "New Client Portal Email 1", "startDate": "2025-04-15", "endDate": "2025-04-15", "progress": 100 },
+      { "id": 2, "name": "Well-th Vault Primaries Round 2 Email", "startDate": "2025-04-29", "endDate": "2025-04-29", "progress": 100 },
+      { "id": 3, "name": "Client Portal LIVE Email", "startDate": "2025-05-01", "endDate": "2025-05-01", "progress": 100 }
+    ]
+  },
+  {
+    "id": "13",
+    "name": "Pipeline Review",
+    "description": "Recurring monthly review of the pipeline.",
+    "tasks": [
+      { "id": 1, "name": "Monthly Review", "progress": 0 }
+    ]
+  }
+]

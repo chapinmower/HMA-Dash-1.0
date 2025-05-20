@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMA Email Analysis - 30 Days</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #105938;
+        }
+        h1 {
+            border-bottom: 2px solid #105938;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #e8f2ed;
+            font-weight: 600;
+            color: #105938;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .metric-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+            border-top: 4px solid #105938;
+        }
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #105938;
+            margin: 10px 0;
+        }
+        .metric-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .insight {
+            background-color: #e8f2ed;
+            border-left: 4px solid #105938;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .chart-container {
+            margin: 30px 0;
+            height: 400px;
+        }
+        .rate-good {
+            color: #105938;
+        }
+        .rate-medium {
+            color: #fd7e14;
+        }
+        .rate-poor {
+            color: #dc3545;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HMA Email Marketing Analysis</h1>
+        <p>Analysis of email campaigns from the past 30 days (as of May 18, 2025)</p>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Total Recipients</div>
+                <div class="metric-value">1,218</div>
+                <div>Across all campaigns</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Unique Recipients</div>
+                <div class="metric-value">1,152</div>
+                <div>Individual contacts</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Overall Open Rate</div>
+                <div class="metric-value rate-good">56.5%</div>
+                <div>Industry avg: 21.3%</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Overall Click Rate</div>
+                <div class="metric-value rate-good">8.9%</div>
+                <div>Industry avg: 2.5%</div>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <h3>About Engagement Score</h3>
+            <p>The engagement score is a proprietary metric calculated based on recipient interaction with emails. Scores range from 0-50 with the following breakdown:</p>
+            <ul>
+                <li><strong>0 points:</strong> No engagement (did not open email)</li>
+                <li><strong>10 points:</strong> Opened email but did not click</li>
+                <li><strong>30-50 points:</strong> Opened and clicked links (varies based on click count and time spent)</li>
+            </ul>
+            <p>Higher scores indicate deeper engagement with email content. The average across all campaigns is calculated as a weighted average based on recipient count.</p>
+        </div>
+        
+        <h2>Campaign Performance Summary</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Campaign</th>
+                    <th>Date Sent</th>
+                    <th>Recipients</th>
+                    <th>Opens</th>
+                    <th>Open Rate</th>
+                    <th>Clicks</th>
+                    <th>Click Rate</th>
+                    <th>Avg. Engagement</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>April Newsletter</td>
+                    <td>04-25-2025</td>
+                    <td>540</td>
+                    <td>302</td>
+                    <td class="rate-good">56.0%</td>
+                    <td>69</td>
+                    <td class="rate-good">12.8%</td>
+                    <td>12.5</td>
+                </tr>
+                <tr>
+                    <td>ATTN: New Client Portal is Now LIVE</td>
+                    <td>05-01-2025</td>
+                    <td>176</td>
+                    <td>112</td>
+                    <td class="rate-good">63.6%</td>
+                    <td>5</td>
+                    <td class="rate-medium">2.8%</td>
+                    <td>7.1</td>
+                </tr>
+                <tr>
+                    <td>RSVP: June 18 Double Header With HMA!</td>
+                    <td>04-30-2025</td>
+                    <td>103</td>
+                    <td>67</td>
+                    <td class="rate-good">65.0%</td>
+                    <td>34</td>
+                    <td class="rate-good">33.0%</td>
+                    <td>16.5</td>
+                </tr>
+                <tr>
+                    <td>Duplicate of ATTN: New Client Portal is Now LIVE</td>
+                    <td>05-03-2025</td>
+                    <td>148</td>
+                    <td>82</td>
+                    <td class="rate-good">55.4%</td>
+                    <td>0</td>
+                    <td class="rate-poor">0.0%</td>
+                    <td>5.5</td>
+                </tr>
+                <tr>
+                    <td>Well-th Vault Primaries Round 2</td>
+                    <td>05-08-2025</td>
+                    <td>94</td>
+                    <td>42</td>
+                    <td class="rate-good">44.7%</td>
+                    <td>0</td>
+                    <td class="rate-poor">0.0%</td>
+                    <td>4.5</td>
+                </tr>
+                <tr>
+                    <td>Re: RSVP: June 18 Double Header With HMA!</td>
+                    <td>05-07-2025</td>
+                    <td>85</td>
+                    <td>54</td>
+                    <td class="rate-good">63.5%</td>
+                    <td>28</td>
+                    <td class="rate-good">32.9%</td>
+                    <td>15.9</td>
+                </tr>
+                <tr>
+                    <td>HMA Review Call</td>
+                    <td>05-05-2025</td>
+                    <td>72</td>
+                    <td>46</td>
+                    <td class="rate-good">63.9%</td>
+                    <td>0</td>
+                    <td class="rate-poor">0.0%</td>
+                    <td>6.4</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>Recipient Engagement Patterns</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Multi-Campaign Recipients</div>
+                <div class="metric-value">66</div>
+                <div>5.7% of audience engaged with multiple campaigns</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Opened But No Clicks</div>
+                <div class="metric-value">650</div>
+                <div>56.4% of unique recipients</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Clicked At Least Once</div>
+                <div class="metric-value">108</div>
+                <div>9.4% of unique recipients</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Average Engagement Score</div>
+                <div class="metric-value">6.8</div>
+                <div>Scale of 0-50</div>
+            </div>
+        </div>
+        
+        <h2>Key Insights</h2>
+        <div class="insight">
+            <p><strong>Event RSVP campaign was most effective:</strong> The "RSVP: June 18 Double Header With HMA!" campaign had the highest click rate (33.0%) and engagement score (16.5), indicating strong interest in the Wrigley Field event. This suggests clients are highly responsive to event invitations.</p>
+        </div>
+        
+        <div class="insight">
+            <p><strong>Follow-up RSVP campaign was highly effective:</strong> The "Re: RSVP" follow-up campaign achieved an impressive 32.9% click rate, nearly matching the original campaign. This demonstrates the effectiveness of timely follow-up messages for event-based communications.</p>
+        </div>
+        
+        <div class="insight">
+            <p><strong>April Newsletter performed well:</strong> The April Newsletter reached a large audience with good open rates (56%) and an impressive 12.8% click rate, significantly above industry average. This suggests the content and links were compelling to recipients.</p>
+        </div>
+        
+        <div class="insight">
+            <p><strong>Event invitations drive high engagement:</strong> The RSVP campaign showed excellent open rates (65.0%) and exceptional click rates (33.0%). This confirms that clients are highly interested in in-person events, and the June 18 Wrigley Field event is particularly appealing.</p>
+        </div>
+        
+        <div class="insight">
+            <p><strong>Click rates are outstanding:</strong> Overall, email campaigns are driving excellent open rates (56.5%, well above industry average) with impressive click rates (8.9%, more than 3x the industry average). This shows strong engagement with HMA's email content.</p>
+        </div>
+        
+        <div class="insight">
+            <p><strong>Cross-campaign engagement is low:</strong> Only 66 recipients (5.7% of total audience) engaged with multiple campaigns, suggesting opportunity to increase cross-campaign engagement and content relevance.</p>
+        </div>
+        
+        <h2>Recommendations</h2>
+        <ol>
+            <li><strong>Continue event-based marketing:</strong> Build on the success of the Wrigley Field event campaign with more event-focused initiatives, leveraging the 33% click rate.</li>
+            <li><strong>Learn from April Newsletter success:</strong> Apply techniques from the successful April Newsletter to future newsletters. Identify what specific content drove the 12.8% click rate.</li>
+            <li><strong>Continue follow-up RSVP strategy:</strong> The Re: RSVP follow-up email was extremely successful with a 32.9% click rate. Continue this approach for future events.</li>
+            <li><strong>Increase cross-campaign engagement:</strong> Create more cohesive email journeys that encourage engagement across multiple campaigns to boost the 5.7% of recipients who engage with multiple emails.</li>
+            <li><strong>Test different send times:</strong> Experiment with different send times and days to optimize open rates, particularly for campaigns with open rates below 60%.</li>
+            <li><strong>A/B test subject lines:</strong> Test different subject line approaches to improve open rates for campaigns below 60%, particularly the Well-th Vault campaign (44.7%).</li>
+        </ol>
+    </div>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>February Newsletter Performance</title>
+    <style>
+        :root {
+            --primary-dark: #105938;
+            --primary-medium: #1e8b5e;
+            --primary-light: #2ab87b;
+            --background-light: #f4f9f6;
+            --text-dark: #2c3e50;
+            --text-medium: #34495e;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+        }
+        .newsletter-widget {
+            width: 300px;
+            background-color: var(--background-light);
+            border: 1px solid var(--primary-medium);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(16,89,56,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .newsletter-widget:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(16,89,56,0.3);
+        }
+        .widget-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--primary-medium);
+            padding-bottom: 5px;
+        }
+        .widget-stat {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .widget-stat-label {
+            color: var(--text-medium);
+        }
+        .widget-stat-value {
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+        .top-content {
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--text-medium);
+        }
+        #detailsModal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: var(--background-light);
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid var(--primary-medium);
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            max-height: 80%;
+            overflow-y: auto;
+            box-shadow: 0 4px 6px rgba(16,89,56,0.3);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--primary-medium);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .modal-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+        .close-btn {
+            color: var(--text-medium);
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-btn:hover {
+            color: var(--primary-dark);
+        }
+        .content-breakdown {
+            margin-top: 15px;
+        }
+        .content-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            padding: 5px;
+            background-color: white;
+            border-radius: 4px;
+            border-left: 4px solid var(--primary-medium);
+        }
+        .content-name {
+            color: var(--text-dark);
+        }
+        .content-clicks {
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="newsletter-widget" id="widget-trigger">
+        <div class="widget-title">February Newsletter</div>
+        <div class="widget-stat">
+            <span class="widget-stat-label">Total Contacts</span>
+            <span class="widget-stat-value">528</span>
+        </div>
+        <div class="widget-stat">
+            <span class="widget-stat-label">Open Rate</span>
+            <span class="widget-stat-value">60.42%</span>
+        </div>
+        <div class="widget-stat">
+            <span class="widget-stat-label">Click Rate</span>
+            <span class="widget-stat-value">12.12%</span>
+        </div>
+        <div class="top-content">
+            Top Content: Investment Outlook 2025 (47 clicks)
+        </div>
+    </div>
+
+    <div id="detailsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">February Newsletter Details</div>
+                <span class="close-btn" onclick="closeDetails()">&times;</span>
+            </div>
+            <div class="widget-stat">
+                <span class="widget-stat-label">Total Contacts</span>
+                <span class="widget-stat-value">528</span>
+            </div>
+            <div class="widget-stat">
+                <span class="widget-stat-label">Open Rate</span>
+                <span class="widget-stat-value">60.42%</span>
+            </div>
+            <div class="widget-stat">
+                <span class="widget-stat-label">Click Rate</span>
+                <span class="widget-stat-value">12.12%</span>
+            </div>
+            <div class="widget-stat">
+                <span class="widget-stat-label">Total Opens</span>
+                <span class="widget-stat-value">319</span>
+            </div>
+            <div class="widget-stat">
+                <span class="widget-stat-label">Total Clicks</span>
+                <span class="widget-stat-value">64</span>
+            </div>
+            <div class="content-breakdown">
+                <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Content Clicks Breakdown</h3>
+                <div class="content-item">
+                    <span class="content-name">Investment Outlook 2025</span>
+                    <span class="content-clicks">47</span>
+                </div>
+                <div class="content-item">
+                    <span class="content-name">Financial Planning Tips</span>
+                    <span class="content-clicks">15</span>
+                </div>
+                <div class="content-item">
+                    <span class="content-name">Market Trends Report</span>
+                    <span class="content-clicks">11</span>
+                </div>
+                <div class="content-item">
+                    <span class="content-name">Retirement Strategies</span>
+                    <span class="content-clicks">8</span>
+                </div>
+                <div class="content-item">
+                    <span class="content-name">Risk Management Guide</span>
+                    <span class="content-clicks">6</span>
+                </div>
+                <div class="content-item">
+                    <span class="content-name">Economic Outlook</span>
+                    <span class="content-clicks">2</span>
+                </div>
+            </div>
+            <div class="content-breakdown">
+                <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Contact Breakdown</h3>
+                <div class="content-item">
+                    <span class="content-name">Total Sent</span>
+                    <span class="content-clicks">528</span>
+                </div>
+                <div class="content-item">
+                    <span class="content-name">Opened</span>
+                    <span class="content-clicks">319</span>
+                </div>
+                <div class="content-item">
+                    <span class="content-name">Not Opened</span>
+                    <span class="content-clicks">209</span>
+                </div>
+                <div class="content-item">
+                    <span class="content-name">Clicked</span>
+                    <span class="content-clicks">64</span>
+                </div>
+                <div class="content-item">
+                    <span class="content-name">Unique Clicks</span>
+                    <span class="content-clicks">58</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const widget = document.getElementById('widget-trigger');
+        if (widget) {
+            widget.addEventListener('click', showDetails);
+        }
+    });
+
+    function showDetails() {
+        document.getElementById('detailsModal').style.display = 'block';
+    }
+
+    function closeDetails() {
+        document.getElementById('detailsModal').style.display = 'none';
+    }
+
+    // Close modal if user clicks outside of it
+    window.onclick = function(event) {
+        const detailsModal = document.getElementById('detailsModal');
+        
+        if (event.target == detailsModal) {
+            detailsModal.style.display = 'none';
+        }
+    }
+
+    // Escape key to close modal
+    window.onkeydown = function(event) {
+        if (event.key === 'Escape') {
+            document.getElementById('detailsModal').style.display = 'none';
+        }
+    }
+    </script>
+</body>
+</html>

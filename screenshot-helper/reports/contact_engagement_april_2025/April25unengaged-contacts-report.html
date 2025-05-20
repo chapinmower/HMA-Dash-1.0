@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unengaged Contacts - April 2025</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            background-color: #105938;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        h1, h2, h3 {
+            color: #105938;
+        }
+        .dashboard-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .metric-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            flex: 1;
+            min-width: 250px;
+            margin-right: 15px;
+        }
+        .metric-card:last-child {
+            margin-right: 0;
+        }
+        .metric-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #105938;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #105938;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .summary-box {
+            background-color: #e8f5e9;
+            border-left: 5px solid #105938;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        #searchInput {
+            padding: 8px;
+            width: 100%;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .pagination button {
+            background-color: #105938;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .pagination button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .clout-score {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>April 2025 HMA Team Email Engagement Report</h1>
+        <p>Contacts Who Did Not Open Any Emails</p>
+    </div>
+
+    <div class="section">
+        <div class="summary-box">
+            <p>This report shows contacts who did not open or click on any of the four email campaigns in April 2025.</p>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by name or email...">
+        </div>
+
+        <table id="contactsTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Campaigns Received</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- First 50 unengaged contacts -->
+                <tr>
+                    <td>1</td>
+                    <td>Mr. Adelmann</td>
+                    <td>jadelmann@openlands.com</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Neo Ahuja</td>
+                    <td>nishchay.ahuja@togrp.com</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Benjamin Alto</td>
+                    <td>benjamin.alto@schwab.com</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Greg Andricopulos</td>
+                    <td>gandros1@gmail.com</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Wendy Argent</td>
+                    <td>wendyargent@comcast.net</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Gil Arias</td>
+                    <td>gilariasjr2@yahoo.com</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Kate Arias</td>
+                    <td>karias531@yahoo.com</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Joe Arnold</td>
+                    <td>josephcarnold@hotmail.com</td>
+                    <td>April Newsletter, Well-th Vault, RSVP Event</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Tory Arnold</td>
+                    <td>toryarnold@gmail.com</td>
+                    <td>RSVP Event</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Hank Ashforth</td>
+                    <td>hashforth@ashforth.com</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Christine Bader</td>
+                    <td>cbader@colgate.edu</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Trisia Baird</td>
+                    <td>trisiabaird@yahoo.com</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Kimberly Baker</td>
+                    <td>kimbaker@gmail.com</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Tom Barlow</td>
+                    <td>tombarlowsf@gmail.com</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>Tim Barnes</td>
+                    <td>tim.barnes@glenbrook.k12.il.us</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>Michael Bartos</td>
+                    <td>michael.bartos@att.net</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>Sam Bates</td>
+                    <td>samb@uchicago.edu</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>Sally Battersby</td>
+                    <td>battersby.sally@gmail.com</td>
+                    <td>April Newsletter</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>Carol Baxter</td>
+                    <td>baxter.carol@comcast.net</td>
+                    <td>April Newsletter, Client Portal</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>Paul Beck</td>
+                    <td>paulbeck@depaul.edu</td>
+                    <td>April Newsletter</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="pagination">
+            <button id="prevBtn" disabled>Previous</button>
+            <button id="nextBtn">Next</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Unengaged Contacts Summary</h2>
+        <div class="dashboard-container">
+            <div class="metric-card">
+                <div class="metric-header">Total Unengaged</div>
+                <h3>235 Contacts</h3>
+                <p>Did not open or click any emails in April 2025</p>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-header">Opportunity</div>
+                <h3>Re-engagement Campaign</h3>
+                <p>Consider a targeted campaign to re-activate these contacts</p>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-header">Key Insight</div>
+                <h3>List Cleanup</h3>
+                <p>Review contacts with multiple unopened emails for potential list maintenance</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple client-side pagination and search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const contactsTable = document.getElementById('contactsTable');
+            const tableRows = contactsTable.getElementsByTagName('tbody')[0].rows;
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            const rowsPerPage = 10;
+            let currentPage = 1;
+            
+            function showPage(page) {
+                const startIndex = (page - 1) * rowsPerPage;
+                const endIndex = startIndex + rowsPerPage;
+                
+                for (let i = 0; i < tableRows.length; i++) {
+                    tableRows[i].style.display = (i >= startIndex && i < endIndex) ? '' : 'none';
+                }
+                
+                currentPage = page;
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === Math.ceil(tableRows.length / rowsPerPage);
+            }
+            
+            prevBtn.addEventListener('click', function() {
+                if (currentPage > 1) {
+                    showPage(currentPage - 1);
+                }
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                if (currentPage < Math.ceil(tableRows.length / rowsPerPage)) {
+                    showPage(currentPage + 1);
+                }
+            });
+            
+            searchInput.addEventListener('keyup', function() {
+                const searchText = this.value.toLowerCase();
+                
+                for (let i = 0; i < tableRows.length; i++) {
+                    const name = tableRows[i].cells[1].textContent.toLowerCase();
+                    const email = tableRows[i].cells[2].textContent.toLowerCase();
+                    
+                    if (name.includes(searchText) || email.includes(searchText)) {
+                        tableRows[i].style.display = '';
+                    } else {
+                        tableRows[i].style.display = 'none';
+                    }
+                }
+                
+                // Reset pagination when searching
+                prevBtn.disabled = true;
+                nextBtn.disabled = searchText !== '';
+            });
+            
+            // Initialize with first page
+            showPage(1);
+        });
+    </script>
+</body>
+</html>

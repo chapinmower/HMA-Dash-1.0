@@ -1,0 +1,63 @@
+{
+  "summaries": [
+    {
+      "period": "April 2025",
+      "opens": 1568,
+      "clicks": 621,
+      "clickThroughRate": "39.6%",
+      "openRate": "22.3%",
+      "customEngagement": 834,
+      "lastUpdated": "2025-05-20T00:48:09.039Z"
+    },
+    {
+      "period": "March 2025",
+      "opens": 1234,
+      "clicks": 567,
+      "clickThroughRate": "45.9%",
+      "openRate": "20.1%",
+      "customEngagement": 789
+    }
+  ],
+  "campaigns": [
+    {
+      "id": 1,
+      "name": "April Newsletter",
+      "date": "2025-04-15",
+      "opens": 687,
+      "clicks": 234,
+      "ctr": "34.1%",
+      "topLinks": [
+        {
+          "url": "example.com/tax-updates",
+          "clicks": 87
+        },
+        {
+          "url": "example.com/market-insights",
+          "clicks": 65
+        },
+        {
+          "url": "example.com/retirement-planning",
+          "clicks": 42
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "March Newsletter",
+      "date": "2025-03-15",
+      "opens": 532,
+      "clicks": 187,
+      "ctr": "35.2%",
+      "topLinks": [
+        {
+          "url": "example.com/article1",
+          "clicks": 42
+        },
+        {
+          "url": "example.com/article2",
+          "clicks": 37
+        }
+      ]
+    }
+  ]
+}

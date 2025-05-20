@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="HMA Marketing Dashboard"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>HMA Marketing Dashboard</title>
+    
+    <!-- GitHub Pages SPA routing support -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      
+      // This script handles the 404 redirects needed for client-side routing on GitHub Pages
+      
+      var pathSegmentsToKeep = 1; // For repo at /HMA-Marketing-Dashboard/
+      
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/#/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/') +
+        (l.search ? l.search : '') +
+        (l.hash ? l.hash : '')
+      );
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <div style="text-align: center; font-family: Arial, sans-serif; margin-top: 50px;">
+      <h1>HMA Marketing Dashboard</h1>
+      <p>Redirecting to the dashboard...</p>
+      <p>If you are not redirected automatically, please click 
+        <a href="https://chapinmower.github.io/HMA-Marketing-Dashboard/">here</a>.
+      </p>
+    </div>
+  </body>
+</html>
