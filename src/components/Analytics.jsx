@@ -26,6 +26,7 @@ import Alert from '@mui/material/Alert';
 import { supabase } from '../supabaseClient'; // Import Supabase client
 import WebsiteAnalyticsForm from './WebsiteAnalyticsForm'; // Import the form
 import EmailAnalyticsForm from './EmailAnalyticsForm'; // Import the form
+import MonthOverMonthTrends from './MonthOverMonthTrends'; // Import trends component
 
 function Analytics() {
   const [websiteData, setWebsiteData] = useState([]);
@@ -383,6 +384,11 @@ function Analytics() {
                 <Typography>No email analytics data found.</Typography>
               )}
             </Paper>
+          </Grid>
+
+          {/* Month-over-Month Trends Section */}
+          <Grid item xs={12}>
+            <MonthOverMonthTrends />
           </Grid>
         </Grid>
       )}

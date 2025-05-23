@@ -9,11 +9,13 @@ import {
   Paper,
   Button,
   Alert,
+  Divider,
 } from '@mui/material';
 import { ArrowForward as ArrowForwardIcon } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import BlogPerformance from './BlogPerformance';
 import ProjectTimeline from './ProjectTimeline';
+import HistoricalMetricsWidget from './widgets/HistoricalMetricsWidget';
 
 function Dashboard() {
   const [emailMetrics, setEmailMetrics] = useState({
@@ -54,22 +56,51 @@ function Dashboard() {
         if (!websiteResponse.ok) throw new Error('Failed to load website analytics');
         const websiteData = await websiteResponse.json();
         
-        // Update state with the latest data (first item in summaries array)
-        if (emailData.summaries && emailData.summaries.length > 0) {
-          setEmailMetrics(emailData.summaries[0]);
+        // Update state with total metrics or latest data
+        if (emailData.totalMetrics) {
+          setEmailMetrics({
+            opens: emailData.totalMetrics.totalOpens,
+            clicks: emailData.totalMetrics.totalClicks,
+            clickThroughRate: emailData.totalMetrics.overallClickRate,
+            openRate: emailData.totalMetrics.overallOpenRate,
+            customEngagement: emailData.totalMetrics.engagementRate,
+            period: 'Year to Date'
+          });
           
-          // Set last updated timestamp if available
-          if (emailData.summaries[0].lastUpdated) {
-            setLastUpdated(new Date(emailData.summaries[0].lastUpdated));
+          // Set last updated timestamp
+          if (emailData.totalMetrics.lastUpdated) {
+            setLastUpdated(new Date(emailData.totalMetrics.lastUpdated));
+          }
+        } else if (emailData.summaries && emailData.summaries.length > 0) {
+          // Fallback to latest monthly data
+          const latest = emailData.summaries[emailData.summaries.length - 1];
+          setEmailMetrics({
+            opens: latest.opens,
+            clicks: latest.clicks,
+            clickThroughRate: latest.clickThroughRate,
+            openRate: latest.openRate,
+            customEngagement: latest.openRate,
+            period: latest.period
+          });
+          
+          if (latest.lastUpdated) {
+            setLastUpdated(new Date(latest.lastUpdated));
           }
         }
         
         if (websiteData.summaries && websiteData.summaries.length > 0) {
-          setWebsiteMetrics(websiteData.summaries[0]);
+          const latest = websiteData.summaries[websiteData.summaries.length - 1];
+          setWebsiteMetrics({
+            visits: latest.sessions,
+            pageViews: latest.pageViews,
+            avgSessionDuration: latest.avgSessionDuration,
+            bounceRate: latest.bounceRate,
+            period: latest.period
+          });
           
           // If email data doesn't have timestamp but website does, use that
-          if (!lastUpdated && websiteData.summaries[0].lastUpdated) {
-            setLastUpdated(new Date(websiteData.summaries[0].lastUpdated));
+          if (!lastUpdated && latest.lastUpdated) {
+            setLastUpdated(new Date(latest.lastUpdated));
           }
         }
       } catch (err) {
@@ -224,10 +255,32 @@ function Dashboard() {
             View Reports
           </Button>
         </Box>
-        <Typography variant="body1">
-          View detailed reports on contact engagement including email opens, clicks, and interaction metrics.
-          The April 2025 engagement reports are now available.
-        </Typography>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card variant="outlined">
+              <CardContent>
+                <Typography variant="h5" component="div">717</Typography>
+                <Typography color="text.secondary">Total Email Recipients</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card variant="outlined">
+              <CardContent>
+                <Typography variant="h5" component="div">1,949</Typography>
+                <Typography color="text.secondary">Email Opens</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card variant="outlined">
+              <CardContent>
+                <Typography variant="h5" component="div">276</Typography>
+                <Typography color="text.secondary">Link Clicks</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
       </Paper>
 
       {/* Ongoing Projects Section */}
@@ -236,6 +289,53 @@ function Dashboard() {
       <Typography variant="body2" color="text.secondary" sx={{ mt: 4, textAlign: 'center' }}>
         Last updated: {lastUpdated ? lastUpdated.toLocaleString() : new Date().toLocaleDateString()}
       </Typography>
+      {/* Historical Metrics Overview Section */}
+      <Paper sx={{ p: 3, mb: 4 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+          <Typography variant="h6">Historical Performance Metrics</Typography>
+          <Button 
+            component={Link} 
+            to="/analytics" 
+            endIcon={<ArrowForwardIcon />}
+            size="small"
+          >
+            View All Analytics
+          </Button>
+        </Box>
+        
+        <Divider sx={{ mb: 3 }} />
+        
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6} md={3}>
+            <HistoricalMetricsWidget 
+              metricType="email" 
+              metric="openRate" 
+              title="Email Performance" 
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <HistoricalMetricsWidget 
+              metricType="email" 
+              metric="clickRate" 
+              title="Email Clicks" 
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <HistoricalMetricsWidget 
+              metricType="website" 
+              metric="visitors" 
+              title="Website Traffic" 
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <HistoricalMetricsWidget 
+              metricType="engagement" 
+              metric="averageEngagementScore" 
+              title="Contact Engagement" 
+            />
+          </Grid>
+        </Grid>
+      </Paper>
     </Box>
   );
 }

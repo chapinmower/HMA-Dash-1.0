@@ -362,7 +362,7 @@ function Requests() {
     <Box sx={{ p: 3 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
         <Typography variant="h4" component="h1" gutterBottom>
-          {editMode ? 'Edit Request' : 'Task Request System (Coming Soon)'}
+          {editMode ? 'Edit Request' : 'Task Request System'}
         </Typography>
         <Button 
           variant="outlined" 
@@ -374,11 +374,6 @@ function Requests() {
           Refresh
         </Button>
       </Box>
-      
-      <Alert severity="warning" sx={{ mb: 3 }}>
-        <strong>Backend Required</strong> - This feature is a preview and requires backend functionality to store and manage requests. 
-        Currently showing demo UI with simulated functionality. Submitted requests are not actually stored.
-      </Alert>
 
       {/* Request Form */}
       <Paper sx={{ p: 3, mb: 4 }}>

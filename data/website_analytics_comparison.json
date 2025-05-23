@@ -1,0 +1,122 @@
+{
+  "comparisons": [
+    {
+      "period": "April 2025",
+      "yearMonth": "2025-04",
+      "metrics": {
+        "users": 486,
+        "newUsers": 472,
+        "sessions": 615,
+        "pageViews": 1265,
+        "pagesPerSession": 1.94,
+        "avgSessionDuration": 102,
+        "bounceRate": 36.8
+      },
+      "topPages": [
+        {
+          "url": "hummermower.com/",
+          "sessions": 311,
+          "engagement": 48.6
+        },
+        {
+          "url": "hummermower.com/about.html",
+          "sessions": 92,
+          "engagement": 86.2
+        },
+        {
+          "url": "hummermower.com/index.html",
+          "sessions": 58,
+          "engagement": 72.4
+        },
+        {
+          "url": "hummermower.com/grove-mower.html",
+          "sessions": 42,
+          "engagement": 85.7
+        },
+        {
+          "url": "hummermower.com/contact.html",
+          "sessions": 38,
+          "engagement": 79.9
+        }
+      ],
+      "momComparison": {
+        "users": {
+          "current": 486,
+          "previous": 359,
+          "change": 35.4
+        },
+        "newUsers": {
+          "current": 472,
+          "previous": 349,
+          "change": 35.2
+        },
+        "sessions": {
+          "current": 615,
+          "previous": 475,
+          "change": 29.5
+        },
+        "pageViews": {
+          "current": 1265,
+          "previous": 923,
+          "change": 37.1
+        },
+        "pagesPerSession": {
+          "current": 1.94,
+          "previous": 1.73,
+          "change": 12.1
+        },
+        "avgSessionDuration": {
+          "current": 102,
+          "previous": 95,
+          "change": 7.4
+        },
+        "bounceRate": {
+          "current": 36.8,
+          "previous": 38.2,
+          "change": -3.7
+        }
+      }
+    },
+    {
+      "period": "March 2025",
+      "yearMonth": "2025-03",
+      "metrics": {
+        "users": 359,
+        "newUsers": 349,
+        "sessions": 475,
+        "pageViews": 923,
+        "pagesPerSession": 1.73,
+        "avgSessionDuration": 95,
+        "bounceRate": 38.2
+      },
+      "topPages": [
+        {
+          "url": "hummermower.com/",
+          "sessions": 241,
+          "engagement": 42.8
+        },
+        {
+          "url": "hummermower.com/about.html",
+          "sessions": 76,
+          "engagement": 85.1
+        },
+        {
+          "url": "hummermower.com/blogs/insights/march-market-letter",
+          "sessions": 64,
+          "engagement": 81.3
+        },
+        {
+          "url": "hummermower.com/index.html",
+          "sessions": 48,
+          "engagement": 70.6
+        },
+        {
+          "url": "hummermower.com/grove-mower.html",
+          "sessions": 31,
+          "engagement": 83.2
+        }
+      ]
+    }
+  ],
+  "lastUpdated": "2025-05-20T21:40:19.326Z"
+}

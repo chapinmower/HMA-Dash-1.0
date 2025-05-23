@@ -95,9 +95,15 @@ function ProjectTimeline() {
       const allProjects = data.projects || []; // Access projects array
 
       // Separate ongoing, pipeline, and past projects
-      const ongoing = allProjects.filter(project => !project.completedDate && project.status !== 'Planned');
+      const ongoing = allProjects.filter(project => 
+        project.status === 'In Progress' || 
+        (project.status === 'Completed' && project.isRecurring) || 
+        (project.completionPercentage < 100 && project.status !== 'Planned')
+      );
       const pipeline = allProjects.filter(project => project.status === 'Planned');
-      const past = allProjects.filter(project => project.completedDate);
+      const past = allProjects.filter(project => 
+        project.status === 'Completed' && !project.isRecurring
+      );
 
       setOngoingProjects(ongoing);
       setPipelineProjects(pipeline);

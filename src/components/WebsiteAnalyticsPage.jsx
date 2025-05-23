@@ -49,36 +49,6 @@ const MetricCard = ({ title, value }) => (
 
 // --- Static Data Definitions ---
 
-// April 2025 Data
-const april2025OverallStats = {
-  users: '486', usersChange: '+35.2%', comparisonPeriod: 'vs Mar 2025',
-  newUsers: '472', newUsersChange: '+35.2%',
-  pagesPerSession: '1.94', pagesPerSessionChange: '+12.1%',
-  avgEngTimeSeconds: 53, avgEngTimeChange: '+26.2%',
-  sessions: '615', sessionsChange: '+29.6%'
-};
-
-const april2025TopPagesData = [
-  { url: 'hummermower.com/', sessions: 311, engagementRate: '48.6%', eventsPerSession: '5.13' },
-  { url: 'hummermower.com/about.html', sessions: 92, engagementRate: '86.21%', eventsPerSession: '6.85' },
-  { url: 'hummermower.com/blogs/insights/april25-market-letter', sessions: 86, engagementRate: '83.82%', eventsPerSession: '5.75' },
-  { url: 'hummermower.com/events/june-wrigley-event.html', sessions: 79, engagementRate: '91.03%', eventsPerSession: '7.24' },
-  { url: 'hummermower.com/index.html', sessions: 58, engagementRate: '72.41%', eventsPerSession: '5.15' },
-  { url: 'hummermower.com/grove-mower.html', sessions: 42, engagementRate: '85.71%', eventsPerSession: '6.30' },
-  { url: 'hummermower.com/contact.html', sessions: 38, engagementRate: '79.95%', eventsPerSession: '5.56' },
-  { url: 'hummermower.com/blogs/insights/q125-market-letter', sessions: 31, engagementRate: '80.65%', eventsPerSession: '5.38' },
-  { url: 'hummermower.com/david-cox.html', sessions: 29, engagementRate: '83.51%', eventsPerSession: '6.18' },
-  { url: 'hummermower.com/clients-capabilities.html', sessions: 27, engagementRate: '88.89%', eventsPerSession: '6.02' },
-];
-
-const april2025BlogData = [
-  { title: "April '25 Market Letter", views: 82, duration: '00:07:19', scrollDepth: 12 },
-  { title: 'June Wrigley Field Event Announcement', views: 76, duration: '00:06:42', scrollDepth: 14 },
-  { title: "1Q '25 Market Letter", views: 33, duration: '00:04:12', scrollDepth: 8 },
-  { title: 'Tax Planning Guide: 2025 Update', views: 28, duration: '00:05:37', scrollDepth: 11 },
-  { title: 'Retirement Planning Strategies', views: 19, duration: '00:04:21', scrollDepth: 9 },
-];
-
 // Q1 2025 Data (from previous steps)
 const q12025OverallStats = {
   users: '1,277', usersChange: '-18.1%', comparisonPeriod: 'vs Q1 2024',
@@ -104,9 +74,9 @@ const q12025TopPagesData = [
 const q12025BlogData = [
   { title: 'February Market Letter', views: 190, duration: '00:08:28', scrollDepth: 10 },
   { title: '2025 Tax Reference Guide', views: 88, duration: '00:05:31', scrollDepth: 11 },
-  { title: "1Q '25 Market Letter", views: 72, duration: '00:05:19', scrollDepth: 9 },
-  { title: "Lorraine's Monthly Update", views: 18, duration: '00:02:48', scrollDepth: 7 },
-  { title: "New Year's Financial Checklist", views: 11, duration: '00:01:57', scrollDepth: 9 },
+  { title: '1Q ’25 Market Letter', views: 72, duration: '00:05:19', scrollDepth: 9 },
+  { title: 'Lorraine’s Monthly Update', views: 18, duration: '00:02:48', scrollDepth: 7 },
+  { title: 'New Year’s Financial Checklist', views: 11, duration: '00:01:57', scrollDepth: 9 },
 ];
 
 // 2024 Data (extracted from PDF)
@@ -129,10 +99,10 @@ const year2024TopPagesData = [
 ];
 
 const year2024BlogData = [
-  { title: "Q1 '24 Market Letter: Pain Trade", views: 96, duration: '00:02:36', scrollDepth: 9 },
-  { title: "Network's Down – Now What?", views: 62, duration: '00:02:49', scrollDepth: 9 },
-  { title: "Phishing 2.0: Fake Text Messages", views: 57, duration: '00:05:28', scrollDepth: 10 },
-  { title: "2024 Tax Reference Guide", views: 54, duration: '00:03:14', scrollDepth: 11 },
+  { title: 'Q1 ’24 Market Letter: Pain Trade', views: 96, duration: '00:02:36', scrollDepth: 9 },
+  { title: 'Network’s Down – Now What?', views: 62, duration: '00:02:49', scrollDepth: 9 },
+  { title: 'Phishing 2.0: Fake Text Messages', views: 57, duration: '00:05:28', scrollDepth: 10 },
+  { title: '2024 Tax Reference Guide', views: 54, duration: '00:03:14', scrollDepth: 11 },
   // Removed 'BLOG | Hummer Mower Associates' entry
 ];
 
@@ -156,11 +126,11 @@ const year2023TopPagesData = [
 ];
 
 const year2023BlogData = [
-  { title: "Dog Days of Summer", views: 140, duration: '00:15:17', scrollDepth: 10 },
-  { title: "Q3 '23 Market Letter: Worries...", views: 85, duration: '00:03:07', scrollDepth: 9 },
-  { title: "Becky's Best Vol. XI: Our Flavorful Christmas Tradition", views: 65, duration: '00:05:07', scrollDepth: 9 },
-  { title: "Becky's Best Vol. X – Happy Fall", views: 56, duration: '00:03:07', scrollDepth: 9 },
-  { title: "Tax Planning – We All Need It", views: 51, duration: '00:04:14', scrollDepth: 9 },
+  { title: 'Dog Days of Summer', views: 140, duration: '00:15:17', scrollDepth: 10 },
+  { title: 'Q3 ’23 Market Letter: Worries...', views: 85, duration: '00:03:07', scrollDepth: 9 },
+  { title: 'Becky’s Best Vol. XI: Our Flavorful Christmas Tradition', views: 65, duration: '00:05:07', scrollDepth: 9 },
+  { title: 'Becky’s Best Vol. X – Happy Fall', views: 56, duration: '00:03:07', scrollDepth: 9 },
+  { title: 'Tax Planning – We All Need It', views: 51, duration: '00:04:14', scrollDepth: 9 },
 ];
 
 // --- End Static Data Definitions ---
@@ -421,15 +391,6 @@ function WebsiteAnalyticsPage() {
       )}
 
       {/* --- Static PDF Report Summaries --- */}
-      {/* April 2025 Summary */}
-      <PdfReportSummary
-        periodTitle="April 2025"
-        overallStats={april2025OverallStats}
-        topPagesData={april2025TopPagesData}
-        blogData={april2025BlogData}
-        pdfPath="/reports/April 2025 MTD 0428.pdf"
-      />
-      
       {/* Q1 2025 Summary */}
       <PdfReportSummary
         periodTitle="Q1 2025"
