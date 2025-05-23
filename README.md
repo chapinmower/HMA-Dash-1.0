@@ -13,7 +13,7 @@ A comprehensive marketing analytics and project management dashboard for Hummer 
 
 The dashboard is deployed on GitHub Pages and can be accessed at:
 
-[https://hmausername.github.io/HMA-Marketing-Dashboard](https://hmausername.github.io/HMA-Marketing-Dashboard)
+[https://chapinmower.github.io/HMA-Dash-1.0](https://chapinmower.github.io/HMA-Dash-1.0)
 
 ## Local Development
 
