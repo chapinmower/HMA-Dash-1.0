@@ -67,11 +67,11 @@ const emailAnalytics = {
     },
     {
       period: "March 2025",
-      opens: 1234,
-      clicks: 567,
-      clickThroughRate: "45.9%",
-      openRate: "20.1%",
-      customEngagement: 789
+      opens: 530,
+      clicks: 111,
+      clickThroughRate: "12.1%",
+      openRate: "57.9%",
+      customEngagement: 530
     }
   ],
   campaigns: [

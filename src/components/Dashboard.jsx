@@ -54,13 +54,15 @@ function Dashboard() {
         if (!websiteResponse.ok) throw new Error('Failed to load website analytics');
         const websiteData = await websiteResponse.json();
         
-        // Update state with the latest data (first item in summaries array)
+        // Update state with March 2025 data specifically
         if (emailData.summaries && emailData.summaries.length > 0) {
-          setEmailMetrics(emailData.summaries[0]);
+          // Find March 2025 data (second item in array) or fall back to first item
+          const marchData = emailData.summaries.find(item => item.period === "March 2025") || emailData.summaries[1] || emailData.summaries[0];
+          setEmailMetrics(marchData);
           
           // Set last updated timestamp if available
-          if (emailData.summaries[0].lastUpdated) {
-            setLastUpdated(new Date(emailData.summaries[0].lastUpdated));
+          if (marchData.lastUpdated) {
+            setLastUpdated(new Date(marchData.lastUpdated));
           }
         }
         
