@@ -13,32 +13,8 @@ if (!fs.existsSync(dataDir)) {
   console.log(`Created directory: ${dataDir}`);
 }
 
-// Generate website analytics data
+// Website analytics - real reports only, no fake data
 const websiteAnalytics = {
-  summaries: [
-    {
-      period: "April 2025",
-      visits: 6245,
-      pageViews: 15421,
-      avgSessionDuration: "2:37",
-      bounceRate: "36.8%",
-      lastUpdated: new Date().toISOString()
-    },
-    {
-      period: "March 2025",
-      visits: 5623,
-      pageViews: 12478,
-      avgSessionDuration: "2:45",
-      bounceRate: "38.2%"
-    }
-  ],
-  topPages: [
-    { url: "/services", views: 1243, change: "+5.2%" },
-    { url: "/about", views: 857, change: "+2.7%" },
-    { url: "/contact", views: 642, change: "+1.3%" },
-    { url: "/blog/tax-updates-2025", views: 511, change: "+12.5%" },
-    { url: "/team", views: 386, change: "-1.2%" }
-  ],
   reports: [
     { 
       name: "HMA Google Analytics 2024 Calendar Year", 
@@ -49,29 +25,46 @@ const websiteAnalytics = {
       name: "April 2025 MTD 0428", 
       url: "/reports/April 2025 MTD 0428.pdf",
       date: "2025-04-28"
+    },
+    { 
+      name: "April 25 Google Analytics", 
+      url: "/reports/April 25 Google Analytics.pdf",
+      date: "2025-04-25"
+    },
+    { 
+      name: "HMA Google Analytics 2023 Calendar Year", 
+      url: "/reports/HMA Google Analytics 2023 Calendar Year.pdf",
+      date: "2024-01-15"
+    },
+    { 
+      name: "Hummer Mower Website Report GA4", 
+      url: "/reports/Hummer_Mower_Website_Report_GA4.pdf",
+      date: "2024-12-01"
     }
   ]
 };
 
-// Generate email analytics data
+// Generate email analytics data - REAL DATA from deduplicated HTML reports
 const emailAnalytics = {
   summaries: [
     {
       period: "April 2025",
-      opens: 1568,
-      clicks: 621,
-      clickThroughRate: "39.6%",
-      openRate: "22.3%",
-      customEngagement: 834,
+      opens: 541,
+      clicks: 36,
+      clickThroughRate: "4.27%", // From campaign overview report
+      openRate: "64.25%", // From campaign overview report
+      customEngagement: 541,
+      totalSent: 842, // Total recipients across 4 campaigns
       lastUpdated: new Date().toISOString()
     },
     {
-      period: "March 2025",
-      opens: 530,
-      clicks: 111,
-      clickThroughRate: "12.1%",
-      openRate: "57.9%",
-      customEngagement: 530
+      period: "March 2025", 
+      opens: 526,
+      clicks: 193,
+      clickThroughRate: "26.2%", // From deduplicated analysis
+      openRate: "71.4%", // From deduplicated analysis
+      customEngagement: 526,
+      totalSent: 737 // Unique recipients across campaigns
     }
   ],
   campaigns: [

@@ -2,24 +2,24 @@
   "members": [
     {
       "id": 1,
-      "name": "Grove Mower",
-      "role": "Managing Partner",
-      "email": "grove@hummermower.com",
-      "photo": "/assets/team/grove-mower.jpg"
+      "name": "Jane Doe",
+      "role": "Marketing Manager",
+      "email": "jane.doe@hummermower.com",
+      "photo": "/assets/team/jane-doe.jpg"
     },
     {
       "id": 2,
-      "name": "Ryan Ross",
-      "role": "Financial Advisor",
-      "email": "ryan@hummermower.com",
-      "photo": "/assets/team/ryan-ross.jpg"
+      "name": "John Smith",
+      "role": "Content Specialist",
+      "email": "john.smith@hummermower.com",
+      "photo": "/assets/team/john-smith.jpg"
     },
     {
       "id": 3,
-      "name": "Chapin Mower",
-      "role": "Marketing Coordinator",
-      "email": "chapin@hummermower.com",
-      "photo": "/assets/team/chapin-mower.jpg"
+      "name": "Sarah Johnson",
+      "role": "Digital Marketing Coordinator",
+      "email": "sarah.johnson@hummermower.com",
+      "photo": "/assets/team/sarah-johnson.jpg"
     }
   ]
 }
