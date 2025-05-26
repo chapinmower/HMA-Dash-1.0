@@ -1,5 +1,5 @@
 /**
- * This script generates static data files for the HMA Marketing Dashboard from real analytics data
+ * This script generates static data files for the HMA Marketing Dashboard
  * Run with: node scripts/generate-static-data.js
  */
 
@@ -13,386 +13,471 @@ if (!fs.existsSync(dataDir)) {
   console.log(`Created directory: ${dataDir}`);
 }
 
-// Path to real analytics data
-const analyticsPath = '/Volumes/Crispy Memes LLC/HMA_Marketing_Dashboard/analytics/Data';
-
-// Helper function to parse CSV data
-function parseCSV(csvContent) {
-  const lines = csvContent.split('\n');
-  const headers = lines[0].split(',');
-  const data = [];
-  
-  for (let i = 1; i < lines.length; i++) {
-    if (lines[i].trim()) {
-      const values = lines[i].split(',');
-      const row = {};
-      headers.forEach((header, index) => {
-        row[header.trim()] = values[index] ? values[index].trim() : '';
-      });
-      data.push(row);
-    }
-  }
-  return data;
-}
-
-// Read real email data from CSV files
-function generateEmailAnalytics() {
-  // Use the actual April 2025 data from your HTML report
-  const emailAnalytics = {
-    totalMetrics: {
-      totalOpens: 541,  // 310 + 95 + 53 + 83 (from HTML report)
-      totalClicks: 36,  // 31 + 0 + 5 + 0 (from HTML report)
-      overallClickRate: "6.7%",
-      overallOpenRate: "59.9%",
-      engagementRate: "30.1%",
+// Generate website analytics data
+const websiteAnalytics = {
+  summaries: [
+    {
+      period: "April 2025",
+      visits: 6245,
+      pageViews: 15421,
+      avgSessionDuration: "2:37",
+      bounceRate: "36.8%",
       lastUpdated: new Date().toISOString()
     },
-    summaries: [
+    {
+      period: "March 2025",
+      visits: 5623,
+      pageViews: 12478,
+      avgSessionDuration: "2:45",
+      bounceRate: "38.2%"
+    }
+  ],
+  topPages: [
+    { url: "/services", views: 1243, change: "+5.2%" },
+    { url: "/about", views: 857, change: "+2.7%" },
+    { url: "/contact", views: 642, change: "+1.3%" },
+    { url: "/blog/tax-updates-2025", views: 511, change: "+12.5%" },
+    { url: "/team", views: 386, change: "-1.2%" }
+  ],
+  reports: [
+    { 
+      name: "HMA Google Analytics 2024 Calendar Year", 
+      url: "/reports/HMA Google Analytics 2024 Calendar Year.pdf",
+      date: "2025-01-15"
+    },
+    { 
+      name: "April 2025 MTD 0428", 
+      url: "/reports/April 2025 MTD 0428.pdf",
+      date: "2025-04-28"
+    }
+  ]
+};
+
+// Generate email analytics data
+const emailAnalytics = {
+  summaries: [
+    {
+      period: "April 2025",
+      opens: 1568,
+      clicks: 621,
+      clickThroughRate: "39.6%",
+      openRate: "22.3%",
+      customEngagement: 834,
+      lastUpdated: new Date().toISOString()
+    },
+    {
+      period: "March 2025",
+      opens: 530,
+      clicks: 111,
+      clickThroughRate: "12.1%",
+      openRate: "57.9%",
+      customEngagement: 530
+    }
+  ],
+  campaigns: [
+    {
+      id: 1,
+      name: "April Newsletter",
+      date: "2025-04-15",
+      opens: 687,
+      clicks: 234,
+      ctr: "34.1%",
+      topLinks: [
+        { url: "example.com/tax-updates", clicks: 87 },
+        { url: "example.com/market-insights", clicks: 65 },
+        { url: "example.com/retirement-planning", clicks: 42 }
+      ]
+    },
+    {
+      id: 2,
+      name: "March Newsletter",
+      date: "2025-03-15",
+      opens: 532,
+      clicks: 187,
+      ctr: "35.2%",
+      topLinks: [
+        { url: "example.com/article1", clicks: 42 },
+        { url: "example.com/article2", clicks: 37 }
+      ]
+    }
+  ]
+};
+
+// Generate LinkedIn analytics data
+const linkedinAnalytics = {
+  summaries: [
+    {
+      period: "April 2025",
+      impressions: 4562,
+      engagements: 623,
+      followers: 1324,
+      clickThroughRate: "3.2%",
+      lastUpdated: new Date().toISOString()
+    },
+    {
+      period: "March 2025",
+      impressions: 3245,
+      engagements: 567,
+      followers: 1243,
+      clickThroughRate: "2.8%"
+    }
+  ],
+  topPosts: [
+    {
+      id: 1,
+      title: "Tax Planning Strategies for 2025",
+      date: "2025-04-10",
+      impressions: 1243,
+      engagements: 136
+    },
+    {
+      id: 2,
+      title: "Market Insights: Q2 Outlook",
+      date: "2025-04-05",
+      impressions: 958,
+      engagements: 87
+    }
+  ]
+};
+
+// Generate contacts and engagement data
+const contactsData = {
+  contacts: [
+    {
+      id: 1,
+      name: "Jamie Harper",
+      email: "jamie.harper1@comcast.net",
+      company: "Harper Consulting",
+      phone: "555-123-4567",
+      status: "Client",
+      lastEngagement: "2025-04-15"
+    },
+    {
+      id: 2,
+      name: "Donna Harper",
+      email: "jdjl.harper@comcast.net",
+      company: "Harper Consulting",
+      phone: "555-987-6543",
+      status: "Client",
+      lastEngagement: "2025-04-10"
+    },
+    {
+      id: 3,
+      name: "John Drennan",
+      email: "jpdren1@gmail.com",
+      company: "Drennan Industries",
+      phone: "555-333-1111",
+      status: "Client",
+      lastEngagement: "2025-04-15"
+    },
+    {
+      id: 4,
+      name: "Susan Barclay",
+      email: "barclays2001@yahoo.com",
+      company: "Barclay Financial",
+      phone: "555-444-2222",
+      status: "Client",
+      lastEngagement: "2025-04-12"
+    },
+    {
+      id: 5,
+      name: "Ryan Ross",
+      email: "ryjross@gmail.com",
+      company: "Ross Investments",
+      phone: "555-555-3333",
+      status: "Client",
+      lastEngagement: "2025-04-10"
+    },
+    {
+      id: 6,
+      name: "Mr. Adelmann",
+      email: "jadelmann@openlands.com",
+      company: "Openlands",
+      phone: "555-666-4444",
+      status: "Prospect",
+      lastEngagement: "2025-04-01"
+    },
+    {
+      id: 7,
+      name: "Neo Ahuja",
+      email: "nishchay.ahuja@togrp.com",
+      company: "TOGRP",
+      phone: "555-777-5555",
+      status: "Prospect",
+      lastEngagement: "2025-04-01"
+    },
+    {
+      id: 8,
+      name: "Joe Arnold",
+      email: "josephcarnold@hotmail.com",
+      company: "Arnold & Associates",
+      phone: "555-888-6666",
+      status: "Prospect",
+      lastEngagement: "2025-03-28"
+    },
+    {
+      id: 9,
+      name: "Dennis Johnson",
+      email: "djjohnson929@gmail.com",
+      company: "Johnson Consulting",
+      phone: "555-999-7777",
+      status: "Prospect",
+      lastEngagement: "2025-03-25"
+    },
+    {
+      id: 10,
+      name: "Grove Mower",
+      email: "grove@hummermower.com",
+      company: "Hummer Mower",
+      phone: "555-000-8888",
+      status: "Internal",
+      lastEngagement: "2025-04-15"
+    }
+  ],
+  engagementEvents: {
+    "1": [
       {
-        period: "April 2025",
-        opens: 541,
-        clicks: 36,
-        clickThroughRate: "6.7%",
-        openRate: "59.9%",
-        customEngagement: 541,
-        lastUpdated: new Date().toISOString()
-      }
-    ],
-    campaigns: [
-      {
-        id: 1,
-        name: "April Newsletter",
-        date: "2025-04-25",
-        recipients: 537,
-        opens: 310,
-        clicks: 31,
-        openRate: "57.73%",
-        ctr: "5.77%",
-        topLinks: [
-          { url: "February Market Letter", clicks: 16 },
-          { url: "De-Influencing: How to Avoid Overspending in a Digital World", clicks: 15 }
-        ]
-      },
-      {
-        id: 2,
-        name: "ATTN: New Client Portal",
+        id: 101,
+        type: "Email Click",
         date: "2025-04-15",
-        recipients: 112,
-        opens: 95,
-        clicks: 0,
-        openRate: "84.82%",
-        ctr: "0.00%",
-        topLinks: []
+        details: "Clicked on Tax Planning article in April Newsletter"
       },
       {
-        id: 3,
-        name: "Well-th Vault Primaries Round 2",
-        date: "2025-04-10",
-        recipients: 125,
-        opens: 83,
-        clicks: 0,
-        openRate: "66.40%",
-        ctr: "0.00%",
-        topLinks: []
+        id: 102,
+        type: "Email Open",
+        date: "2025-04-15",
+        details: "Opened April Newsletter"
       },
       {
-        id: 4,
-        name: "RSVP: June 18 Double Header With HMA!",
+        id: 103,
+        type: "Email Click",
+        date: "2025-04-15",
+        details: "Clicked RSVP button for June 18 event"
+      },
+      {
+        id: 104,
+        type: "Website Visit",
+        date: "2025-04-12",
+        details: "Visited /services page"
+      },
+      {
+        id: 105,
+        type: "Email Open",
         date: "2025-04-05",
-        recipients: 68,
-        opens: 53,
-        clicks: 5,
-        openRate: "77.94%",
-        ctr: "7.35%",
-        topLinks: [
-          { url: "RSVP: Event Registration Form", clicks: 3 },
-          { url: "Calendar: Add To Calendar", clicks: 1 },
-          { url: "Map: Event Location", clicks: 1 }
-        ]
+        details: "Opened Client Portal announcement"
       }
-    ]
-  };
-  
-  return emailAnalytics;
-}
-
-// Generate website analytics from available data
-function generateWebsiteAnalytics() {
-  const websiteAnalytics = {
-    summaries: [
+    ],
+    "2": [
       {
-        period: "April 2025",
-        sessions: 6245,
-        visits: 6245,
-        pageViews: 15421,
-        avgSessionDuration: "2:37",
-        bounceRate: "36.8%",
-        lastUpdated: new Date().toISOString()
-      }
-    ],
-    topPages: [
-      { url: "/services", views: 1243, change: "+5.2%" },
-      { url: "/about", views: 857, change: "+2.7%" },
-      { url: "/contact", views: 642, change: "+1.3%" },
-      { url: "/blog/tax-updates-2025", views: 511, change: "+12.5%" },
-      { url: "/team", views: 386, change: "-1.2%" }
-    ],
-    reports: [
-      { 
-        name: "HMA Google Analytics 2024 Calendar Year", 
-        url: "/reports/HMA Google Analytics 2024 Calendar Year.pdf",
-        date: "2025-01-15"
+        id: 201,
+        type: "Email Click",
+        date: "2025-04-15",
+        details: "Clicked RSVP button for June 18 event"
       },
-      { 
-        name: "April 2025 MTD 0428", 
-        url: "/reports/April 2025 MTD 0428.pdf",
-        date: "2025-04-28"
-      }
-    ]
-  };
-  
-  return websiteAnalytics;
-}
-
-// Generate LinkedIn analytics
-function generateLinkedInAnalytics() {
-  const linkedinAnalytics = {
-    summaries: [
       {
-        period: "April 2025",
-        impressions: 4562,
-        engagements: 623,
-        followers: 1324,
-        clickThroughRate: "3.2%",
-        lastUpdated: new Date().toISOString()
+        id: 202,
+        type: "Email Open",
+        date: "2025-04-15",
+        details: "Opened April Newsletter"
+      },
+      {
+        id: 203,
+        type: "Email Open",
+        date: "2025-04-05",
+        details: "Opened Client Portal announcement"
       }
     ],
-    topPosts: [
+    "3": [
       {
-        id: 1,
-        title: "Tax Planning Strategies for 2025",
+        id: 301,
+        type: "Email Click",
+        date: "2025-04-15",
+        details: "Clicked RSVP button for June 18 event"
+      },
+      {
+        id: 302,
+        type: "Email Open",
+        date: "2025-04-15",
+        details: "Opened April Newsletter"
+      },
+      {
+        id: 303,
+        type: "Email Open",
+        date: "2025-04-05",
+        details: "Opened Client Portal announcement"
+      }
+    ],
+    "4": [
+      {
+        id: 401,
+        type: "Email Open",
+        date: "2025-04-15",
+        details: "Opened April Newsletter"
+      },
+      {
+        id: 402,
+        type: "Email Open",
+        date: "2025-04-15",
+        details: "Opened RSVP for June 18 event"
+      },
+      {
+        id: 403,
+        type: "Email Open",
+        date: "2025-04-05",
+        details: "Opened Client Portal announcement"
+      }
+    ],
+    "5": [
+      {
+        id: 501,
+        type: "Email Open",
         date: "2025-04-10",
-        impressions: 1243,
-        engagements: 136
+        details: "Opened April Newsletter"
+      },
+      {
+        id: 502,
+        type: "Email Open",
+        date: "2025-04-05",
+        details: "Opened Client Portal announcement"
       }
     ]
-  };
-  
-  return linkedinAnalytics;
-}
+  }
+};
 
-// Generate contacts data
-function generateContactsData() {
-  const contactsData = {
-    contacts: [
-      {
-        id: 1,
-        name: "Susan Barclay",
-        email: "barclays2001@yahoo.com",
-        company: "Barclay Financial",
-        phone: "555-444-2222",
-        status: "Client",
-        lastEngagement: "2025-04-25"
-      },
-      {
-        id: 2,
-        name: "Ryan Ross",
-        email: "ryjross@gmail.com",
-        company: "Ross Investments",
-        phone: "555-555-3333",
-        status: "Client",
-        lastEngagement: "2025-04-25"
-      },
-      {
-        id: 3,
-        name: "Grove Mower",
-        email: "grove@hummermower.com",
-        company: "Hummer Mower",
-        phone: "555-000-8888",
-        status: "Internal",
-        lastEngagement: "2025-04-25"
-      },
-      {
-        id: 4,
-        name: "Chapin Mower",
-        email: "chapin@hummermower.com",
-        company: "Hummer Mower",
-        phone: "555-000-8889",
-        status: "Internal",
-        lastEngagement: "2025-04-25"
-      }
-    ],
-    engagementEvents: {
-      "1": [
+// Generate project data
+const projectsData = {
+  projects: [
+    {
+      id: 1,
+      name: "June 18 2025 Event Campaign",
+      description: "A comprehensive marketing campaign for the June 18 client appreciation event",
+      startDate: "2025-05-01",
+      endDate: "2025-06-18",
+      status: "In Progress",
+      completionPercentage: 35,
+      tasks: [
         {
           id: 101,
-          type: "Email Open",
-          date: "2025-04-25",
-          details: "Opened April Newsletter"
+          title: "Design event invitation",
+          description: "Create digital and print invitations for the event",
+          status: "Completed",
+          progress: 100,
+          due_date: "2025-05-10"
+        },
+        {
+          id: 102,
+          title: "Send invitations to client list",
+          description: "Email invitations to all clients and follow up with print copies",
+          status: "In Progress",
+          progress: 50,
+          due_date: "2025-05-20"
+        },
+        {
+          id: 103,
+          title: "Order event materials",
+          description: "Order banners, handouts, and promotional items",
+          status: "Not Started",
+          progress: 0,
+          due_date: "2025-05-25"
         }
-      ],
-      "2": [
+      ]
+    },
+    {
+      id: 2,
+      name: "Q3 2025 Market Letter",
+      description: "Quarterly market insights letter for clients",
+      startDate: "2025-06-01",
+      endDate: "2025-07-15",
+      status: "Planned",
+      completionPercentage: 5,
+      tasks: [
         {
           id: 201,
-          type: "Email Open",
-          date: "2025-04-25",
-          details: "Opened April Newsletter"
+          title: "Draft market analysis",
+          description: "Research and write market analysis section",
+          status: "Not Started",
+          progress: 0,
+          due_date: "2025-06-15"
+        },
+        {
+          id: 202,
+          title: "Design newsletter template",
+          description: "Update design for Q3 theme",
+          status: "Not Started",
+          progress: 0,
+          due_date: "2025-06-20"
         }
       ]
     }
-  };
-  
-  return contactsData;
-}
-
-// Generate projects data based on real HMA projects
-function generateProjectsData() {
-  const projectsData = {
-    projects: [
-      {
-        id: 1,
-        name: "June 2025 Client Appreciation Event",
-        description: "Annual client appreciation event featuring market updates and networking",
-        startDate: "2025-04-01",
-        endDate: "2025-06-18",
-        status: "In Progress",
-        completionPercentage: 75,
-        tasks: [
-          {
-            id: 101,
-            title: "Design event invitation",
-            description: "Create digital and print invitations for the event",
-            status: "Completed",
-            progress: 100,
-            due_date: "2025-04-15"
-          },
-          {
-            id: 102,
-            title: "Send invitations to client list",
-            description: "Email invitations to all clients and follow up with print copies",
-            status: "Completed",
-            progress: 100,
-            due_date: "2025-05-01"
-          },
-          {
-            id: 103,
-            title: "Event setup and execution",
-            description: "Final event setup and day-of coordination",
-            status: "Not Started",
-            progress: 0,
-            due_date: "2025-06-18"
-          }
-        ]
-      },
-      {
-        id: 2,
-        name: "Q2 2025 Newsletter Campaign",
-        description: "Monthly newsletter series covering tax updates, market insights, and firm news",
-        startDate: "2025-04-01",
-        endDate: "2025-06-30",
-        status: "In Progress",
-        completionPercentage: 67,
-        tasks: [
-          {
-            id: 201,
-            title: "April newsletter content and design",
-            description: "Create April newsletter with tax deadline reminders",
-            status: "Completed",
-            progress: 100,
-            due_date: "2025-04-25"
-          },
-          {
-            id: 202,
-            title: "May newsletter content and design", 
-            description: "Create May newsletter with market updates",
-            status: "In Progress",
-            progress: 70,
-            due_date: "2025-05-31"
-          }
-        ]
-      }
-    ]
-  };
-  
-  return projectsData;
-}
+  ]
+};
 
 // Generate team data
-function generateTeamData() {
-  const teamData = {
-    members: [
-      {
-        id: 1,
-        name: "Grove Mower",
-        role: "Managing Partner",
-        email: "grove@hummermower.com",
-        photo: "/assets/team/grove-mower.jpg"
-      },
-      {
-        id: 2,
-        name: "Ryan Ross",
-        role: "Financial Advisor",
-        email: "ryan@hummermower.com",
-        photo: "/assets/team/ryan-ross.jpg"
-      },
-      {
-        id: 3,
-        name: "Chapin Mower",
-        role: "Marketing Coordinator",
-        email: "chapin@hummermower.com",
-        photo: "/assets/team/chapin-mower.jpg"
-      }
-    ]
-  };
-  
-  return teamData;
-}
+const teamData = {
+  members: [
+    {
+      id: 1,
+      name: "Jane Doe",
+      role: "Marketing Manager",
+      email: "jane.doe@hummermower.com",
+      photo: "/assets/team/jane-doe.jpg"
+    },
+    {
+      id: 2,
+      name: "John Smith",
+      role: "Content Specialist",
+      email: "john.smith@hummermower.com",
+      photo: "/assets/team/john-smith.jpg"
+    },
+    {
+      id: 3,
+      name: "Sarah Johnson",
+      role: "Digital Marketing Coordinator",
+      email: "sarah.johnson@hummermower.com",
+      photo: "/assets/team/sarah-johnson.jpg"
+    }
+  ]
+};
 
 // Write all the data files
 try {
-  const websiteAnalytics = generateWebsiteAnalytics();
   fs.writeFileSync(
     path.join(dataDir, 'website_analytics.json'),
     JSON.stringify(websiteAnalytics, null, 2)
   );
   console.log('Generated website_analytics.json');
 
-  const emailAnalytics = generateEmailAnalytics();
   fs.writeFileSync(
     path.join(dataDir, 'email_analytics.json'),
     JSON.stringify(emailAnalytics, null, 2)
   );
   console.log('Generated email_analytics.json');
 
-  const linkedinAnalytics = generateLinkedInAnalytics();
   fs.writeFileSync(
     path.join(dataDir, 'linkedin_analytics.json'),
     JSON.stringify(linkedinAnalytics, null, 2)
   );
   console.log('Generated linkedin_analytics.json');
 
-  const contactsData = generateContactsData();
   fs.writeFileSync(
     path.join(dataDir, 'contacts.json'),
     JSON.stringify(contactsData, null, 2)
   );
   console.log('Generated contacts.json');
 
-  const projectsData = generateProjectsData();
   fs.writeFileSync(
     path.join(dataDir, 'projects.json'),
     JSON.stringify(projectsData, null, 2)
   );
   console.log('Generated projects.json');
 
-  const teamData = generateTeamData();
   fs.writeFileSync(
     path.join(dataDir, 'team.json'),
     JSON.stringify(teamData, null, 2)
   );
   console.log('Generated team.json');
 
-  console.log('Successfully generated all static data files from real HMA analytics!');
+  console.log('Successfully generated all static data files!');
 } catch (error) {
   console.error('Error generating static data files:', error);
 }

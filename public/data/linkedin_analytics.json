@@ -6,7 +6,14 @@
       "engagements": 623,
       "followers": 1324,
       "clickThroughRate": "3.2%",
-      "lastUpdated": "2025-05-26T19:19:08.090Z"
+      "lastUpdated": "2025-05-26T22:11:40.726Z"
+    },
+    {
+      "period": "March 2025",
+      "impressions": 3245,
+      "engagements": 567,
+      "followers": 1243,
+      "clickThroughRate": "2.8%"
     }
   ],
   "topPosts": [
@@ -16,6 +23,13 @@
       "date": "2025-04-10",
       "impressions": 1243,
       "engagements": 136
+    },
+    {
+      "id": 2,
+      "title": "Market Insights: Q2 Outlook",
+      "date": "2025-04-05",
+      "impressions": 958,
+      "engagements": 87
     }
   ]
 }

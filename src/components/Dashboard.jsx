@@ -9,12 +9,11 @@ import {
   Paper,
   Button,
   Alert,
-  Divider,
 } from '@mui/material';
 import { ArrowForward as ArrowForwardIcon } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
+import BlogPerformance from './BlogPerformance';
 import ProjectTimeline from './ProjectTimeline';
-import HistoricalMetricsWidget from './widgets/HistoricalMetricsWidget';
 
 function Dashboard() {
   const [emailMetrics, setEmailMetrics] = useState({
@@ -33,12 +32,6 @@ function Dashboard() {
     bounceRate: 'N/A',
     period: 'N/A'
   });
-
-  const [contactMetrics, setContactMetrics] = useState({
-    totalContacts: 'N/A',
-    totalEngagementEvents: 'N/A',
-    totalClicks: 'N/A'
-  });
   
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -51,8 +44,8 @@ function Dashboard() {
         setLoading(true);
         setError(null);
         
-        // Fetch email data from historical metrics (more accurate)
-        const emailResponse = await fetch(`${process.env.PUBLIC_URL}/data/historical_email_metrics.json`);
+        // Fetch email data
+        const emailResponse = await fetch(`${process.env.PUBLIC_URL}/data/email_analytics.json`);
         if (!emailResponse.ok) throw new Error('Failed to load email analytics');
         const emailData = await emailResponse.json();
         
@@ -60,71 +53,26 @@ function Dashboard() {
         const websiteResponse = await fetch(`${process.env.PUBLIC_URL}/data/website_analytics.json`);
         if (!websiteResponse.ok) throw new Error('Failed to load website analytics');
         const websiteData = await websiteResponse.json();
-
-        // Fetch contact data
-        const contactResponse = await fetch(`${process.env.PUBLIC_URL}/data/contacts.json`);
-        if (!contactResponse.ok) throw new Error('Failed to load contact data');
-        const contactData = await contactResponse.json();
         
-        // Update state with historical data - use March 2025 data
-        if (emailData.monthlyMetrics && emailData.monthlyMetrics.length > 0) {
-          // Find March 2025 data specifically
-          const marchData = emailData.monthlyMetrics.find(month => month.period === '2025-03');
+        // Update state with March 2025 data specifically
+        if (emailData.summaries && emailData.summaries.length > 0) {
+          // Find March 2025 data (second item in array) or fall back to first item
+          const marchData = emailData.summaries.find(item => item.period === "March 2025") || emailData.summaries[1] || emailData.summaries[0];
+          setEmailMetrics(marchData);
           
-          if (marchData) {
-            setEmailMetrics({
-              opens: marchData.totalOpened,
-              clicks: marchData.totalClicked,
-              clickThroughRate: `${(marchData.clickRate * 100).toFixed(1)}%`,
-              openRate: `${(marchData.openRate * 100).toFixed(1)}%`,
-              customEngagement: `${(marchData.openRate * 100).toFixed(1)}%`,
-              period: marchData.periodLabel
-            });
-          } else {
-            // Fallback to latest month if March 2025 not found
-            const latest = emailData.monthlyMetrics[0]; // First item is most recent
-            setEmailMetrics({
-              opens: latest.totalOpened,
-              clicks: latest.totalClicked,
-              clickThroughRate: `${(latest.clickRate * 100).toFixed(1)}%`,
-              openRate: `${(latest.openRate * 100).toFixed(1)}%`,
-              customEngagement: `${(latest.openRate * 100).toFixed(1)}%`,
-              period: latest.periodLabel
-            });
+          // Set last updated timestamp if available
+          if (marchData.lastUpdated) {
+            setLastUpdated(new Date(marchData.lastUpdated));
           }
-          
-          // Set last updated to current time since this is historical data
-          setLastUpdated(new Date());
         }
         
         if (websiteData.summaries && websiteData.summaries.length > 0) {
-          const latest = websiteData.summaries[websiteData.summaries.length - 1];
-          setWebsiteMetrics({
-            visits: latest.sessions,
-            pageViews: latest.pageViews,
-            avgSessionDuration: latest.avgSessionDuration,
-            bounceRate: latest.bounceRate,
-            period: latest.period
-          });
+          setWebsiteMetrics(websiteData.summaries[0]);
           
           // If email data doesn't have timestamp but website does, use that
-          if (!lastUpdated && latest.lastUpdated) {
-            setLastUpdated(new Date(latest.lastUpdated));
+          if (!lastUpdated && websiteData.summaries[0].lastUpdated) {
+            setLastUpdated(new Date(websiteData.summaries[0].lastUpdated));
           }
-        }
-
-        // Process contact engagement data
-        if (contactData.contacts && contactData.engagementEvents) {
-          const totalContacts = contactData.contacts.length;
-          const allEvents = Object.values(contactData.engagementEvents).flat();
-          const totalEngagementEvents = allEvents.length;
-          const totalClicks = allEvents.filter(event => event.type === 'Email Click').length;
-
-          setContactMetrics({
-            totalContacts,
-            totalEngagementEvents,
-            totalClicks
-          });
         }
       } catch (err) {
         console.error('Error fetching dashboard data:', err);
@@ -278,80 +226,10 @@ function Dashboard() {
             View Reports
           </Button>
         </Box>
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card variant="outlined">
-              <CardContent>
-                <Typography variant="h5" component="div">{contactMetrics.totalContacts}</Typography>
-                <Typography color="text.secondary">Total Contacts</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card variant="outlined">
-              <CardContent>
-                <Typography variant="h5" component="div">{contactMetrics.totalEngagementEvents}</Typography>
-                <Typography color="text.secondary">Total Engagement Events</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card variant="outlined">
-              <CardContent>
-                <Typography variant="h5" component="div">{contactMetrics.totalClicks}</Typography>
-                <Typography color="text.secondary">Email Link Clicks</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-      </Paper>
-
-      {/* Historical Metrics Overview Section */}
-      <Paper sx={{ p: 3, mb: 4 }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-          <Typography variant="h6">Historical Performance Metrics</Typography>
-          <Button 
-            component={Link} 
-            to="/analytics" 
-            endIcon={<ArrowForwardIcon />}
-            size="small"
-          >
-            View All Analytics
-          </Button>
-        </Box>
-        
-        <Divider sx={{ mb: 3 }} />
-        
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6} md={3}>
-            <HistoricalMetricsWidget 
-              metricType="email" 
-              metric="openRate" 
-              title="Email Performance" 
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <HistoricalMetricsWidget 
-              metricType="email" 
-              metric="clickRate" 
-              title="Email Clicks" 
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <HistoricalMetricsWidget 
-              metricType="website" 
-              metric="visitors" 
-              title="Website Traffic" 
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <HistoricalMetricsWidget 
-              metricType="engagement" 
-              metric="averageEngagementScore" 
-              title="Contact Engagement" 
-            />
-          </Grid>
-        </Grid>
+        <Typography variant="body1">
+          View detailed reports on contact engagement including email opens, clicks, and interaction metrics.
+          The April 2025 engagement reports are now available.
+        </Typography>
       </Paper>
 
       {/* Ongoing Projects Section */}
