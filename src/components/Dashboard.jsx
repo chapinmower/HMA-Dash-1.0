@@ -51,8 +51,8 @@ function Dashboard() {
         setLoading(true);
         setError(null);
         
-        // Fetch email data
-        const emailResponse = await fetch(`${process.env.PUBLIC_URL}/data/email_analytics.json`);
+        // Fetch email data from historical metrics (more accurate)
+        const emailResponse = await fetch(`${process.env.PUBLIC_URL}/data/historical_email_metrics.json`);
         if (!emailResponse.ok) throw new Error('Failed to load email analytics');
         const emailData = await emailResponse.json();
         
@@ -66,36 +66,35 @@ function Dashboard() {
         if (!contactResponse.ok) throw new Error('Failed to load contact data');
         const contactData = await contactResponse.json();
         
-        // Update state with total metrics or latest data
-        if (emailData.totalMetrics) {
-          setEmailMetrics({
-            opens: emailData.totalMetrics.totalOpens,
-            clicks: emailData.totalMetrics.totalClicks,
-            clickThroughRate: emailData.totalMetrics.overallClickRate,
-            openRate: emailData.totalMetrics.overallOpenRate,
-            customEngagement: emailData.totalMetrics.engagementRate,
-            period: 'Year to Date'
-          });
+        // Update state with historical data - use March 2025 data
+        if (emailData.monthlyMetrics && emailData.monthlyMetrics.length > 0) {
+          // Find March 2025 data specifically
+          const marchData = emailData.monthlyMetrics.find(month => month.period === '2025-03');
           
-          // Set last updated timestamp
-          if (emailData.totalMetrics.lastUpdated) {
-            setLastUpdated(new Date(emailData.totalMetrics.lastUpdated));
+          if (marchData) {
+            setEmailMetrics({
+              opens: marchData.totalOpened,
+              clicks: marchData.totalClicked,
+              clickThroughRate: `${(marchData.clickRate * 100).toFixed(1)}%`,
+              openRate: `${(marchData.openRate * 100).toFixed(1)}%`,
+              customEngagement: `${(marchData.openRate * 100).toFixed(1)}%`,
+              period: marchData.periodLabel
+            });
+          } else {
+            // Fallback to latest month if March 2025 not found
+            const latest = emailData.monthlyMetrics[0]; // First item is most recent
+            setEmailMetrics({
+              opens: latest.totalOpened,
+              clicks: latest.totalClicked,
+              clickThroughRate: `${(latest.clickRate * 100).toFixed(1)}%`,
+              openRate: `${(latest.openRate * 100).toFixed(1)}%`,
+              customEngagement: `${(latest.openRate * 100).toFixed(1)}%`,
+              period: latest.periodLabel
+            });
           }
-        } else if (emailData.summaries && emailData.summaries.length > 0) {
-          // Fallback to latest monthly data
-          const latest = emailData.summaries[emailData.summaries.length - 1];
-          setEmailMetrics({
-            opens: latest.opens,
-            clicks: latest.clicks,
-            clickThroughRate: latest.clickThroughRate,
-            openRate: latest.openRate,
-            customEngagement: latest.openRate,
-            period: latest.period
-          });
           
-          if (latest.lastUpdated) {
-            setLastUpdated(new Date(latest.lastUpdated));
-          }
+          // Set last updated to current time since this is historical data
+          setLastUpdated(new Date());
         }
         
         if (websiteData.summaries && websiteData.summaries.length > 0) {
