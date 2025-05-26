@@ -352,6 +352,7 @@ function EmailAnalyticsPage() {
           <Tab label="Historical Trends" />
           <Tab label="Campaign Summary" />
           <Tab label="Email Data Files" />
+          <Tab label="Monthly Widgets" />
           <Tab label="Full Report" />
         </Tabs>
       </Box>
@@ -442,8 +443,36 @@ function EmailAnalyticsPage() {
         </Box>
       )}
 
-      {/* Tab 4: HTML Report Display Section */}
+      {/* Tab 4: Monthly Widgets */}
       {tabValue === 3 && (
+        <Box>
+          <Typography variant="h6" gutterBottom>
+            Monthly Clout Widgets - Dec 2024 through Apr 2025
+          </Typography>
+          <Typography variant="body1" paragraph>
+            Interactive email performance widgets showing detailed analytics for each month.
+          </Typography>
+          <Box 
+            sx={{ 
+              border: '1px solid #e0e0e0',
+              borderRadius: 1,
+              overflow: 'hidden',
+              height: '800px'
+            }}
+          >
+            <iframe 
+              src="/widgets/monthly-clout-widgets.html"
+              width="100%"
+              height="100%"
+              style={{ border: 'none' }}
+              title="Monthly Clout Widgets"
+            />
+          </Box>
+        </Box>
+      )}
+
+      {/* Tab 5: HTML Report Display Section */}
+      {tabValue === 4 && (
         <Box>
           <Typography variant="h6" gutterBottom>
             April 2025 Campaign Overview - Full Report
