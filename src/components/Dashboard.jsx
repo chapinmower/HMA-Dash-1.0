@@ -9,11 +9,13 @@ import {
   Paper,
   Button,
   Alert,
+  Divider,
 } from '@mui/material';
 import { ArrowForward as ArrowForwardIcon } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import BlogPerformance from './BlogPerformance';
 import ProjectTimeline from './ProjectTimeline';
+import HistoricalMetricsWidget from './widgets/HistoricalMetricsWidget';
 
 function Dashboard() {
   const [emailMetrics, setEmailMetrics] = useState({
@@ -25,14 +27,8 @@ function Dashboard() {
     period: 'N/A'
   });
   
-  const [websiteMetrics, setWebsiteMetrics] = useState({
-    visits: 'N/A',
-    pageViews: 'N/A',
-    avgSessionDuration: 'N/A',
-    bounceRate: 'N/A',
-    period: 'N/A'
-  });
   
+  const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
@@ -49,30 +45,32 @@ function Dashboard() {
         if (!emailResponse.ok) throw new Error('Failed to load email analytics');
         const emailData = await emailResponse.json();
         
-        // Fetch website data
-        const websiteResponse = await fetch(`${process.env.PUBLIC_URL}/data/website_analytics.json`);
-        if (!websiteResponse.ok) throw new Error('Failed to load website analytics');
-        const websiteData = await websiteResponse.json();
         
-        // Update state with March 2025 data specifically
+        // Fetch projects data
+        const projectsResponse = await fetch(`${process.env.PUBLIC_URL}/data/projects.json`);
+        if (!projectsResponse.ok) throw new Error('Failed to load projects data');
+        const projectsData = await projectsResponse.json();
+        
+        // Update state with most recent data (first item in each array)
         if (emailData.summaries && emailData.summaries.length > 0) {
-          // Find March 2025 data (second item in array) or fall back to first item
-          const marchData = emailData.summaries.find(item => item.period === "March 2025") || emailData.summaries[1] || emailData.summaries[0];
-          setEmailMetrics(marchData);
+          // Use the most recent data (first item in the array)
+          const mostRecentEmailData = emailData.summaries[0];
+          setEmailMetrics(mostRecentEmailData);
           
           // Set last updated timestamp if available
-          if (marchData.lastUpdated) {
-            setLastUpdated(new Date(marchData.lastUpdated));
+          if (mostRecentEmailData.lastUpdated) {
+            setLastUpdated(new Date(mostRecentEmailData.lastUpdated));
           }
         }
         
-        if (websiteData.summaries && websiteData.summaries.length > 0) {
-          setWebsiteMetrics(websiteData.summaries[0]);
-          
-          // If email data doesn't have timestamp but website does, use that
-          if (!lastUpdated && websiteData.summaries[0].lastUpdated) {
-            setLastUpdated(new Date(websiteData.summaries[0].lastUpdated));
-          }
+        
+        // Set active/ongoing projects
+        if (projectsData.projects && projectsData.projects.length > 0) {
+          // Filter for active projects and take the first 3
+          const activeProjects = projectsData.projects
+            .filter(project => project.status === 'In Progress')
+            .slice(0, 3);
+          setProjects(activeProjects);
         }
       } catch (err) {
         console.error('Error fetching dashboard data:', err);
@@ -160,11 +158,11 @@ function Dashboard() {
         </Grid>
       </Paper>
       
-      {/* Website Performance Section */}
+      {/* Website Analytics Reports Section */}
       <Paper sx={{ p: 3, mb: 4 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
           <Typography variant="h6">
-            Website Performance {websiteMetrics.period ? `(${websiteMetrics.period})` : ''}
+            Website Analytics Reports
           </Typography>
           <Button 
             component={Link} 
@@ -172,43 +170,113 @@ function Dashboard() {
             endIcon={<ArrowForwardIcon />}
             size="small"
           >
-            View Details
+            View All Reports
           </Button>
         </Box>
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6} md={3}>
-            <Card variant="outlined">
-              <CardContent>
-                <Typography variant="h5" component="div">{websiteMetrics.visits}</Typography>
-                <Typography color="text.secondary">Visits</Typography>
-              </CardContent>
-            </Card>
+        <Typography variant="body1" sx={{ mb: 2 }}>
+          View detailed Google Analytics reports for website performance, traffic, and user engagement metrics.
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6} md={4}>
+            <Button
+              variant="outlined"
+              fullWidth
+              href="/reports/April 2025 MTD 0428.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              April 2025 MTD Report
+            </Button>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Card variant="outlined">
-              <CardContent>
-                <Typography variant="h5" component="div">{websiteMetrics.pageViews}</Typography>
-                <Typography color="text.secondary">Page Views</Typography>
-              </CardContent>
-            </Card>
+          <Grid item xs={12} sm={6} md={4}>
+            <Button
+              variant="outlined"
+              fullWidth
+              href="/reports/April 25 Google Analytics.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              April 25 GA Report
+            </Button>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Card variant="outlined">
-              <CardContent>
-                <Typography variant="h5" component="div">{websiteMetrics.avgSessionDuration}</Typography>
-                <Typography color="text.secondary">Avg. Session Duration</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Card variant="outlined">
-              <CardContent>
-                <Typography variant="h5" component="div">{websiteMetrics.bounceRate}</Typography>
-                <Typography color="text.secondary">Bounce Rate</Typography>
-              </CardContent>
-            </Card>
+          <Grid item xs={12} sm={6} md={4}>
+            <Button
+              variant="outlined"
+              fullWidth
+              href="/reports/HMA Google Analytics 2024 Calendar Year.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              2024 Annual Report
+            </Button>
           </Grid>
         </Grid>
+      </Paper>
+
+      {/* Active Projects Overview */}
+      <Paper sx={{ p: 3, mb: 4 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+          <Typography variant="h6">
+            Active Projects
+          </Typography>
+          <Button 
+            component={Link} 
+            to="/projects" 
+            endIcon={<ArrowForwardIcon />}
+            size="small"
+          >
+            View All Projects
+          </Button>
+        </Box>
+        {projects.length > 0 ? (
+          <Grid container spacing={3}>
+            {projects.map((project) => (
+              <Grid item xs={12} md={4} key={project.id}>
+                <Card variant="outlined">
+                  <CardContent>
+                    <Typography variant="h6" component="div" gutterBottom>
+                      {project.name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                      {project.description}
+                    </Typography>
+                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                      <Typography variant="body2" sx={{ mr: 1 }}>
+                        Progress: {project.completionPercentage}%
+                      </Typography>
+                      <Box sx={{ width: '100%', ml: 1 }}>
+                        <Box
+                          sx={{
+                            height: 8,
+                            backgroundColor: '#e0e0e0',
+                            borderRadius: 4,
+                            position: 'relative'
+                          }}
+                        >
+                          <Box
+                            sx={{
+                              height: '100%',
+                              backgroundColor: 'primary.main',
+                              borderRadius: 4,
+                              width: `${project.completionPercentage}%`,
+                            }}
+                          />
+                        </Box>
+                      </Box>
+                    </Box>
+                    <Typography variant="body2" color="text.secondary">
+                      Due: {new Date(project.endDate).toLocaleDateString()}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        ) : (
+          <Typography variant="body1" color="text.secondary">
+            No active projects at this time.
+          </Typography>
+        )}
       </Paper>
 
       {/* Contact Engagement Section - Link to Reports */}
