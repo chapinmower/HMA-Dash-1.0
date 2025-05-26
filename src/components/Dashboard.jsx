@@ -13,7 +13,6 @@ import {
 } from '@mui/material';
 import { ArrowForward as ArrowForwardIcon } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import BlogPerformance from './BlogPerformance';
 import ProjectTimeline from './ProjectTimeline';
 import HistoricalMetricsWidget from './widgets/HistoricalMetricsWidget';
 
@@ -33,6 +32,12 @@ function Dashboard() {
     avgSessionDuration: 'N/A',
     bounceRate: 'N/A',
     period: 'N/A'
+  });
+
+  const [contactMetrics, setContactMetrics] = useState({
+    totalContacts: 'N/A',
+    totalEngagementEvents: 'N/A',
+    totalClicks: 'N/A'
   });
   
   const [loading, setLoading] = useState(true);
@@ -55,6 +60,11 @@ function Dashboard() {
         const websiteResponse = await fetch(`${process.env.PUBLIC_URL}/data/website_analytics.json`);
         if (!websiteResponse.ok) throw new Error('Failed to load website analytics');
         const websiteData = await websiteResponse.json();
+
+        // Fetch contact data
+        const contactResponse = await fetch(`${process.env.PUBLIC_URL}/data/contacts.json`);
+        if (!contactResponse.ok) throw new Error('Failed to load contact data');
+        const contactData = await contactResponse.json();
         
         // Update state with total metrics or latest data
         if (emailData.totalMetrics) {
@@ -102,6 +112,20 @@ function Dashboard() {
           if (!lastUpdated && latest.lastUpdated) {
             setLastUpdated(new Date(latest.lastUpdated));
           }
+        }
+
+        // Process contact engagement data
+        if (contactData.contacts && contactData.engagementEvents) {
+          const totalContacts = contactData.contacts.length;
+          const allEvents = Object.values(contactData.engagementEvents).flat();
+          const totalEngagementEvents = allEvents.length;
+          const totalClicks = allEvents.filter(event => event.type === 'Email Click').length;
+
+          setContactMetrics({
+            totalContacts,
+            totalEngagementEvents,
+            totalClicks
+          });
         }
       } catch (err) {
         console.error('Error fetching dashboard data:', err);
@@ -259,36 +283,30 @@ function Dashboard() {
           <Grid item xs={12} sm={6} md={4}>
             <Card variant="outlined">
               <CardContent>
-                <Typography variant="h5" component="div">717</Typography>
-                <Typography color="text.secondary">Total Email Recipients</Typography>
+                <Typography variant="h5" component="div">{contactMetrics.totalContacts}</Typography>
+                <Typography color="text.secondary">Total Contacts</Typography>
               </CardContent>
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <Card variant="outlined">
               <CardContent>
-                <Typography variant="h5" component="div">1,949</Typography>
-                <Typography color="text.secondary">Email Opens</Typography>
+                <Typography variant="h5" component="div">{contactMetrics.totalEngagementEvents}</Typography>
+                <Typography color="text.secondary">Total Engagement Events</Typography>
               </CardContent>
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <Card variant="outlined">
               <CardContent>
-                <Typography variant="h5" component="div">276</Typography>
-                <Typography color="text.secondary">Link Clicks</Typography>
+                <Typography variant="h5" component="div">{contactMetrics.totalClicks}</Typography>
+                <Typography color="text.secondary">Email Link Clicks</Typography>
               </CardContent>
             </Card>
           </Grid>
         </Grid>
       </Paper>
 
-      {/* Ongoing Projects Section */}
-      <ProjectTimeline />
-
-      <Typography variant="body2" color="text.secondary" sx={{ mt: 4, textAlign: 'center' }}>
-        Last updated: {lastUpdated ? lastUpdated.toLocaleString() : new Date().toLocaleDateString()}
-      </Typography>
       {/* Historical Metrics Overview Section */}
       <Paper sx={{ p: 3, mb: 4 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
@@ -336,6 +354,13 @@ function Dashboard() {
           </Grid>
         </Grid>
       </Paper>
+
+      {/* Ongoing Projects Section */}
+      <ProjectTimeline />
+
+      <Typography variant="body2" color="text.secondary" sx={{ mt: 4, textAlign: 'center' }}>
+        Last updated: {lastUpdated ? lastUpdated.toLocaleString() : new Date().toLocaleDateString()}
+      </Typography>
     </Box>
   );
 }

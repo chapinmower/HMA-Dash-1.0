@@ -21,12 +21,16 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  IconButton
+  IconButton,
+  Chip
 } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import EmailIcon from '@mui/icons-material/Email';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import TrendingDownIcon from '@mui/icons-material/TrendingDown';
+import HistoricalTrends from './HistoricalTrends';
 
 // Available email data files
 const emailDataFiles = [
@@ -102,38 +106,121 @@ const campaignSummaryData = [
   }
 ];
 
+// Helper function to format percentage with trend
+const formatPercentageWithTrend = (value, change) => {
+  const isPositive = change > 0;
+  const TrendIcon = isPositive ? TrendingUpIcon : TrendingDownIcon;
+  const color = isPositive ? 'success' : 'error';
+  
+  return (
+    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+      <Typography variant="h5">{(value * 100).toFixed(1)}%</Typography>
+      <Chip 
+        icon={<TrendIcon />}
+        label={`${isPositive ? '+' : ''}${change.toFixed(1)}%`}
+        size="small"
+        color={color}
+        variant="outlined"
+      />
+    </Box>
+  );
+};
+
+// Helper function to format number with trend
+const formatNumberWithTrend = (value, change) => {
+  const isPositive = change > 0;
+  const TrendIcon = isPositive ? TrendingUpIcon : TrendingDownIcon;
+  const color = isPositive ? 'success' : 'error';
+  
+  return (
+    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+      <Typography variant="h5">{value.toLocaleString()}</Typography>
+      <Chip 
+        icon={<TrendIcon />}
+        label={`${isPositive ? '+' : ''}${change.toFixed(1)}%`}
+        size="small"
+        color={color}
+        variant="outlined"
+      />
+    </Box>
+  );
+};
+
 function EmailAnalyticsPage() {
   const [reportHtml, setReportHtml] = useState(null);
   const [loadingHtml, setLoadingHtml] = useState(true);
   const [errorHtml, setErrorHtml] = useState(null);
   const [tabValue, setTabValue] = useState(0);
   const [emailMetrics, setEmailMetrics] = useState(null);
+  const [historicalData, setHistoricalData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Calculate aggregated metrics
+  // Load historical email data and calculate current metrics
   useEffect(() => {
-    const calculateMetrics = () => {
-      // Calculate total metrics across all campaigns
-      const totalRecipients = campaignSummaryData.reduce((sum, campaign) => sum + campaign.recipients, 0);
-      const totalOpens = campaignSummaryData.reduce((sum, campaign) => sum + campaign.opens, 0);
-      const totalClicks = campaignSummaryData.reduce((sum, campaign) => sum + campaign.clicks, 0);
-      
-      // Calculate rates
-      const avgOpenRate = (totalOpens / totalRecipients * 100).toFixed(2) + '%';
-      const avgClickRate = (totalClicks / totalRecipients * 100).toFixed(2) + '%';
-      const avgClickToOpenRate = (totalClicks / totalOpens * 100).toFixed(2) + '%';
-      
-      setEmailMetrics({
-        totalRecipients,
-        totalOpens,
-        totalClicks,
-        avgOpenRate,
-        avgClickRate,
-        avgClickToOpenRate,
-        period: 'April 2025'
-      });
+    const loadEmailData = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch('/data/historical_email_metrics.json');
+        const data = await response.json();
+        
+        if (data.monthlyMetrics && data.monthlyMetrics.length > 0) {
+          // Sort by date descending to get latest first
+          const sortedData = data.monthlyMetrics.sort((a, b) => new Date(b.startDate) - new Date(a.startDate));
+          setHistoricalData(sortedData);
+          
+          // Get current month data (most recent)
+          const currentMonth = sortedData[0];
+          const previousMonth = sortedData[1];
+          
+          setEmailMetrics({
+            currentMonth,
+            previousMonth,
+            totalSent: currentMonth.totalSent,
+            totalOpened: currentMonth.totalOpened,
+            totalClicked: currentMonth.totalClicked,
+            openRate: currentMonth.openRate,
+            clickRate: currentMonth.clickRate,
+            clickToOpenRate: currentMonth.clickToOpenRate,
+            period: currentMonth.periodLabel
+          });
+        } else {
+          // Fallback to calculating from campaign data if historical data not available
+          const totalRecipients = campaignSummaryData.reduce((sum, campaign) => sum + campaign.recipients, 0);
+          const totalOpens = campaignSummaryData.reduce((sum, campaign) => sum + campaign.opens, 0);
+          const totalClicks = campaignSummaryData.reduce((sum, campaign) => sum + campaign.clicks, 0);
+          
+          setEmailMetrics({
+            totalSent: totalRecipients,
+            totalOpened: totalOpens,
+            totalClicked: totalClicks,
+            openRate: totalOpens / totalRecipients,
+            clickRate: totalClicks / totalRecipients,
+            clickToOpenRate: totalClicks / totalOpens,
+            period: 'April 2025'
+          });
+        }
+      } catch (error) {
+        console.error('Error loading historical email data:', error);
+        // Fallback to static calculation
+        const totalRecipients = campaignSummaryData.reduce((sum, campaign) => sum + campaign.recipients, 0);
+        const totalOpens = campaignSummaryData.reduce((sum, campaign) => sum + campaign.opens, 0);
+        const totalClicks = campaignSummaryData.reduce((sum, campaign) => sum + campaign.clicks, 0);
+        
+        setEmailMetrics({
+          totalSent: totalRecipients,
+          totalOpened: totalOpens,
+          totalClicked: totalClicks,
+          openRate: totalOpens / totalRecipients,
+          clickRate: totalClicks / totalRecipients,
+          clickToOpenRate: totalClicks / totalOpens,
+          period: 'April 2025'
+        });
+      } finally {
+        setLoading(false);
+      }
     };
     
-    calculateMetrics();
+    loadEmailData();
   }, []);
 
   // Path to the HTML report file in the public directory
@@ -179,17 +266,27 @@ function EmailAnalyticsPage() {
       </Typography>
 
       {/* Summary Metrics */}
-      {emailMetrics && (
+      {loading ? (
+        <Box sx={{ display: 'flex', justifyContent: 'center', my: 4 }}>
+          <CircularProgress />
+        </Box>
+      ) : emailMetrics && (
         <Box sx={{ mb: 4 }}>
           <Typography variant="h6" gutterBottom>
-            April 2025 Email Campaign Summary
+            {emailMetrics.period} Email Campaign Summary
           </Typography>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6} md={2}>
               <Card variant="outlined">
                 <CardContent>
-                  <Typography color="text.secondary" variant="subtitle2">Total Recipients</Typography>
-                  <Typography variant="h5">{emailMetrics.totalRecipients}</Typography>
+                  <Typography color="text.secondary" variant="subtitle2">Total Sent</Typography>
+                  {emailMetrics.currentMonth ? 
+                    formatNumberWithTrend(
+                      emailMetrics.totalSent, 
+                      emailMetrics.currentMonth.totalSentChange?.momChange || 0
+                    ) : 
+                    <Typography variant="h5">{emailMetrics.totalSent?.toLocaleString()}</Typography>
+                  }
                 </CardContent>
               </Card>
             </Grid>
@@ -197,7 +294,7 @@ function EmailAnalyticsPage() {
               <Card variant="outlined">
                 <CardContent>
                   <Typography color="text.secondary" variant="subtitle2">Total Opens</Typography>
-                  <Typography variant="h5">{emailMetrics.totalOpens}</Typography>
+                  <Typography variant="h5">{emailMetrics.totalOpened?.toLocaleString()}</Typography>
                 </CardContent>
               </Card>
             </Grid>
@@ -205,23 +302,35 @@ function EmailAnalyticsPage() {
               <Card variant="outlined">
                 <CardContent>
                   <Typography color="text.secondary" variant="subtitle2">Total Clicks</Typography>
-                  <Typography variant="h5">{emailMetrics.totalClicks}</Typography>
+                  <Typography variant="h5">{emailMetrics.totalClicked?.toLocaleString()}</Typography>
                 </CardContent>
               </Card>
             </Grid>
             <Grid item xs={12} sm={6} md={2}>
               <Card variant="outlined">
                 <CardContent>
-                  <Typography color="text.secondary" variant="subtitle2">Avg. Open Rate</Typography>
-                  <Typography variant="h5">{emailMetrics.avgOpenRate}</Typography>
+                  <Typography color="text.secondary" variant="subtitle2">Open Rate</Typography>
+                  {emailMetrics.currentMonth ? 
+                    formatPercentageWithTrend(
+                      emailMetrics.openRate, 
+                      emailMetrics.currentMonth.openRateChange?.momChange || 0
+                    ) : 
+                    <Typography variant="h5">{(emailMetrics.openRate * 100).toFixed(1)}%</Typography>
+                  }
                 </CardContent>
               </Card>
             </Grid>
             <Grid item xs={12} sm={6} md={2}>
               <Card variant="outlined">
                 <CardContent>
-                  <Typography color="text.secondary" variant="subtitle2">Avg. Click Rate</Typography>
-                  <Typography variant="h5">{emailMetrics.avgClickRate}</Typography>
+                  <Typography color="text.secondary" variant="subtitle2">Click Rate</Typography>
+                  {emailMetrics.currentMonth ? 
+                    formatPercentageWithTrend(
+                      emailMetrics.clickRate, 
+                      emailMetrics.currentMonth.clickRateChange?.momChange || 0
+                    ) : 
+                    <Typography variant="h5">{(emailMetrics.clickRate * 100).toFixed(1)}%</Typography>
+                  }
                 </CardContent>
               </Card>
             </Grid>
@@ -229,7 +338,7 @@ function EmailAnalyticsPage() {
               <Card variant="outlined">
                 <CardContent>
                   <Typography color="text.secondary" variant="subtitle2">Click-to-Open</Typography>
-                  <Typography variant="h5">{emailMetrics.avgClickToOpenRate}</Typography>
+                  <Typography variant="h5">{(emailMetrics.clickToOpenRate * 100).toFixed(1)}%</Typography>
                 </CardContent>
               </Card>
             </Grid>
@@ -240,14 +349,25 @@ function EmailAnalyticsPage() {
       {/* Tabs Navigation */}
       <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 3 }}>
         <Tabs value={tabValue} onChange={handleTabChange} aria-label="email analytics tabs">
+          <Tab label="Historical Trends" />
           <Tab label="Campaign Summary" />
           <Tab label="Email Data Files" />
           <Tab label="Full Report" />
         </Tabs>
       </Box>
 
-      {/* Tab 1: Campaign Summary Table */}
+      {/* Tab 1: Historical Trends */}
       {tabValue === 0 && (
+        <Box>
+          <Typography variant="h6" gutterBottom>
+            Email Performance Trends
+          </Typography>
+          <HistoricalTrends metricType="email" />
+        </Box>
+      )}
+
+      {/* Tab 2: Campaign Summary Table */}
+      {tabValue === 1 && (
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="campaign summary table">
             <TableHead>
@@ -281,8 +401,8 @@ function EmailAnalyticsPage() {
         </TableContainer>
       )}
 
-      {/* Tab 2: Email Data Files */}
-      {tabValue === 1 && (
+      {/* Tab 3: Email Data Files */}
+      {tabValue === 2 && (
         <Box>
           <Typography variant="body1" paragraph>
             The following email analytics data files are available for detailed analysis. 
@@ -322,8 +442,8 @@ function EmailAnalyticsPage() {
         </Box>
       )}
 
-      {/* Tab 3: HTML Report Display Section */}
-      {tabValue === 2 && (
+      {/* Tab 4: HTML Report Display Section */}
+      {tabValue === 3 && (
         <Box>
           <Typography variant="h6" gutterBottom>
             April 2025 Campaign Overview - Full Report

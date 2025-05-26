@@ -2,18 +2,12 @@
   "summaries": [
     {
       "period": "April 2025",
+      "sessions": 6245,
       "visits": 6245,
       "pageViews": 15421,
       "avgSessionDuration": "2:37",
       "bounceRate": "36.8%",
-      "lastUpdated": "2025-05-20T01:53:43.928Z"
-    },
-    {
-      "period": "March 2025",
-      "visits": 5623,
-      "pageViews": 12478,
-      "avgSessionDuration": "2:45",
-      "bounceRate": "38.2%"
+      "lastUpdated": "2025-05-26T19:19:08.082Z"
     }
   ],
   "topPages": [

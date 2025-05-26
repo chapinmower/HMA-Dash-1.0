@@ -2,200 +2,56 @@
   "contacts": [
     {
       "id": 1,
-      "name": "Jamie Harper",
-      "email": "jamie.harper1@comcast.net",
-      "company": "Harper Consulting",
-      "phone": "555-123-4567",
-      "status": "Client",
-      "lastEngagement": "2025-04-15"
-    },
-    {
-      "id": 2,
-      "name": "Donna Harper",
-      "email": "jdjl.harper@comcast.net",
-      "company": "Harper Consulting",
-      "phone": "555-987-6543",
-      "status": "Client",
-      "lastEngagement": "2025-04-10"
-    },
-    {
-      "id": 3,
-      "name": "John Drennan",
-      "email": "jpdren1@gmail.com",
-      "company": "Drennan Industries",
-      "phone": "555-333-1111",
-      "status": "Client",
-      "lastEngagement": "2025-04-15"
-    },
-    {
-      "id": 4,
       "name": "Susan Barclay",
       "email": "barclays2001@yahoo.com",
       "company": "Barclay Financial",
       "phone": "555-444-2222",
       "status": "Client",
-      "lastEngagement": "2025-04-12"
+      "lastEngagement": "2025-04-25"
     },
     {
-      "id": 5,
+      "id": 2,
       "name": "Ryan Ross",
       "email": "ryjross@gmail.com",
       "company": "Ross Investments",
       "phone": "555-555-3333",
       "status": "Client",
-      "lastEngagement": "2025-04-10"
+      "lastEngagement": "2025-04-25"
     },
     {
-      "id": 6,
-      "name": "Mr. Adelmann",
-      "email": "jadelmann@openlands.com",
-      "company": "Openlands",
-      "phone": "555-666-4444",
-      "status": "Prospect",
-      "lastEngagement": "2025-04-01"
-    },
-    {
-      "id": 7,
-      "name": "Neo Ahuja",
-      "email": "nishchay.ahuja@togrp.com",
-      "company": "TOGRP",
-      "phone": "555-777-5555",
-      "status": "Prospect",
-      "lastEngagement": "2025-04-01"
-    },
-    {
-      "id": 8,
-      "name": "Joe Arnold",
-      "email": "josephcarnold@hotmail.com",
-      "company": "Arnold & Associates",
-      "phone": "555-888-6666",
-      "status": "Prospect",
-      "lastEngagement": "2025-03-28"
-    },
-    {
-      "id": 9,
-      "name": "Dennis Johnson",
-      "email": "djjohnson929@gmail.com",
-      "company": "Johnson Consulting",
-      "phone": "555-999-7777",
-      "status": "Prospect",
-      "lastEngagement": "2025-03-25"
-    },
-    {
-      "id": 10,
+      "id": 3,
       "name": "Grove Mower",
       "email": "grove@hummermower.com",
       "company": "Hummer Mower",
       "phone": "555-000-8888",
       "status": "Internal",
-      "lastEngagement": "2025-04-15"
+      "lastEngagement": "2025-04-25"
+    },
+    {
+      "id": 4,
+      "name": "Chapin Mower",
+      "email": "chapin@hummermower.com",
+      "company": "Hummer Mower",
+      "phone": "555-000-8889",
+      "status": "Internal",
+      "lastEngagement": "2025-04-25"
     }
   ],
   "engagementEvents": {
     "1": [
       {
         "id": 101,
-        "type": "Email Click",
-        "date": "2025-04-15",
-        "details": "Clicked on Tax Planning article in April Newsletter"
-      },
-      {
-        "id": 102,
         "type": "Email Open",
-        "date": "2025-04-15",
+        "date": "2025-04-25",
         "details": "Opened April Newsletter"
-      },
-      {
-        "id": 103,
-        "type": "Email Click",
-        "date": "2025-04-15",
-        "details": "Clicked RSVP button for June 18 event"
-      },
-      {
-        "id": 104,
-        "type": "Website Visit",
-        "date": "2025-04-12",
-        "details": "Visited /services page"
-      },
-      {
-        "id": 105,
-        "type": "Email Open",
-        "date": "2025-04-05",
-        "details": "Opened Client Portal announcement"
       }
     ],
     "2": [
       {
         "id": 201,
-        "type": "Email Click",
-        "date": "2025-04-15",
-        "details": "Clicked RSVP button for June 18 event"
-      },
-      {
-        "id": 202,
         "type": "Email Open",
-        "date": "2025-04-15",
+        "date": "2025-04-25",
         "details": "Opened April Newsletter"
-      },
-      {
-        "id": 203,
-        "type": "Email Open",
-        "date": "2025-04-05",
-        "details": "Opened Client Portal announcement"
-      }
-    ],
-    "3": [
-      {
-        "id": 301,
-        "type": "Email Click",
-        "date": "2025-04-15",
-        "details": "Clicked RSVP button for June 18 event"
-      },
-      {
-        "id": 302,
-        "type": "Email Open",
-        "date": "2025-04-15",
-        "details": "Opened April Newsletter"
-      },
-      {
-        "id": 303,
-        "type": "Email Open",
-        "date": "2025-04-05",
-        "details": "Opened Client Portal announcement"
-      }
-    ],
-    "4": [
-      {
-        "id": 401,
-        "type": "Email Open",
-        "date": "2025-04-15",
-        "details": "Opened April Newsletter"
-      },
-      {
-        "id": 402,
-        "type": "Email Open",
-        "date": "2025-04-15",
-        "details": "Opened RSVP for June 18 event"
-      },
-      {
-        "id": 403,
-        "type": "Email Open",
-        "date": "2025-04-05",
-        "details": "Opened Client Portal announcement"
-      }
-    ],
-    "5": [
-      {
-        "id": 501,
-        "type": "Email Open",
-        "date": "2025-04-10",
-        "details": "Opened April Newsletter"
-      },
-      {
-        "id": 502,
-        "type": "Email Open",
-        "date": "2025-04-05",
-        "details": "Opened Client Portal announcement"
       }
     ]
   }

@@ -1,61 +1,87 @@
 {
+  "totalMetrics": {
+    "totalOpens": 541,
+    "totalClicks": 36,
+    "overallClickRate": "6.7%",
+    "overallOpenRate": "59.9%",
+    "engagementRate": "30.1%",
+    "lastUpdated": "2025-05-26T19:19:08.089Z"
+  },
   "summaries": [
     {
       "period": "April 2025",
-      "opens": 1568,
-      "clicks": 621,
-      "clickThroughRate": "39.6%",
-      "openRate": "22.3%",
-      "customEngagement": 834,
-      "lastUpdated": "2025-05-20T01:53:43.929Z"
-    },
-    {
-      "period": "March 2025",
-      "opens": 1234,
-      "clicks": 567,
-      "clickThroughRate": "45.9%",
-      "openRate": "20.1%",
-      "customEngagement": 789
+      "opens": 541,
+      "clicks": 36,
+      "clickThroughRate": "6.7%",
+      "openRate": "59.9%",
+      "customEngagement": 541,
+      "lastUpdated": "2025-05-26T19:19:08.089Z"
     }
   ],
   "campaigns": [
     {
       "id": 1,
       "name": "April Newsletter",
-      "date": "2025-04-15",
-      "opens": 687,
-      "clicks": 234,
-      "ctr": "34.1%",
+      "date": "2025-04-25",
+      "recipients": 537,
+      "opens": 310,
+      "clicks": 31,
+      "openRate": "57.73%",
+      "ctr": "5.77%",
       "topLinks": [
         {
-          "url": "example.com/tax-updates",
-          "clicks": 87
+          "url": "February Market Letter",
+          "clicks": 16
         },
         {
-          "url": "example.com/market-insights",
-          "clicks": 65
-        },
-        {
-          "url": "example.com/retirement-planning",
-          "clicks": 42
+          "url": "De-Influencing: How to Avoid Overspending in a Digital World",
+          "clicks": 15
         }
       ]
     },
     {
       "id": 2,
-      "name": "March Newsletter",
-      "date": "2025-03-15",
-      "opens": 532,
-      "clicks": 187,
-      "ctr": "35.2%",
+      "name": "ATTN: New Client Portal",
+      "date": "2025-04-15",
+      "recipients": 112,
+      "opens": 95,
+      "clicks": 0,
+      "openRate": "84.82%",
+      "ctr": "0.00%",
+      "topLinks": []
+    },
+    {
+      "id": 3,
+      "name": "Well-th Vault Primaries Round 2",
+      "date": "2025-04-10",
+      "recipients": 125,
+      "opens": 83,
+      "clicks": 0,
+      "openRate": "66.40%",
+      "ctr": "0.00%",
+      "topLinks": []
+    },
+    {
+      "id": 4,
+      "name": "RSVP: June 18 Double Header With HMA!",
+      "date": "2025-04-05",
+      "recipients": 68,
+      "opens": 53,
+      "clicks": 5,
+      "openRate": "77.94%",
+      "ctr": "7.35%",
       "topLinks": [
         {
-          "url": "example.com/article1",
-          "clicks": 42
+          "url": "RSVP: Event Registration Form",
+          "clicks": 3
         },
         {
-          "url": "example.com/article2",
-          "clicks": 37
+          "url": "Calendar: Add To Calendar",
+          "clicks": 1
+        },
+        {
+          "url": "Map: Event Location",
+          "clicks": 1
         }
       ]
     }
