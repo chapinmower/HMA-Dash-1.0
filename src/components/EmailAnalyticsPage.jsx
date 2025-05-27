@@ -461,7 +461,7 @@ function EmailAnalyticsPage() {
             }}
           >
             <iframe 
-              src="/widgets/monthly-clout-widgets.html"
+              src={`${process.env.PUBLIC_URL}/widgets/monthly-clout-widgets.html`}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
