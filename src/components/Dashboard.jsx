@@ -45,6 +45,16 @@ function Dashboard() {
         if (!emailResponse.ok) throw new Error('Failed to load email analytics');
         const emailData = await emailResponse.json();
         
+        // Fetch last updated timestamp
+        try {
+          const timestampResponse = await fetch(`${process.env.PUBLIC_URL}/data/last_updated.json`);
+          if (timestampResponse.ok) {
+            const timestampData = await timestampResponse.json();
+            setLastUpdated(timestampData.timestamp);
+          }
+        } catch (err) {
+          console.log('No timestamp file found');
+        }
         
         // Fetch projects data
         const projectsResponse = await fetch(`${process.env.PUBLIC_URL}/data/projects.json`);
@@ -93,9 +103,16 @@ function Dashboard() {
 
   return (
     <Box sx={{ p: 3 }}>
-      <Typography variant="h4" component="h1" gutterBottom>
-        HMA Marketing Dashboard
-      </Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', mb: 2 }}>
+        <Typography variant="h4" component="h1">
+          HMA Marketing Dashboard
+        </Typography>
+        {lastUpdated && (
+          <Typography variant="caption" color="text.secondary">
+            Last updated: {new Date(lastUpdated).toLocaleString()}
+          </Typography>
+        )}
+      </Box>
       
       {error && <Alert severity="error" sx={{ mb: 3 }}>{error}</Alert>}
 
