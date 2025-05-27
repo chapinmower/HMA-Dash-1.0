@@ -2,20 +2,22 @@
   "summaries": [
     {
       "period": "April 2025",
-      "opens": 1568,
-      "clicks": 621,
-      "clickThroughRate": "39.6%",
-      "openRate": "22.3%",
-      "customEngagement": 834,
-      "lastUpdated": "2025-05-23T21:38:52.978Z"
+      "opens": 541,
+      "clicks": 36,
+      "clickThroughRate": "4.27%",
+      "openRate": "64.25%",
+      "customEngagement": 541,
+      "totalSent": 842,
+      "lastUpdated": "2025-05-27T16:01:10.915Z"
     },
     {
       "period": "March 2025",
-      "opens": 1234,
-      "clicks": 567,
-      "clickThroughRate": "45.9%",
-      "openRate": "20.1%",
-      "customEngagement": 789
+      "opens": 526,
+      "clicks": 193,
+      "clickThroughRate": "26.2%",
+      "openRate": "71.4%",
+      "customEngagement": 526,
+      "totalSent": 737
     }
   ],
   "campaigns": [

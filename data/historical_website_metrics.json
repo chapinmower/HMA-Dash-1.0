@@ -5,21 +5,24 @@
       "periodLabel": "May 2025",
       "startDate": "2025-05-01",
       "endDate": "2025-05-31",
-      "visitors": 3842,
-      "pageViews": 9506,
-      "bounceRate": 0.31,
-      "avgSessionDuration": 196,
-      "visitorsChange": {
-        "momChange": 12.8,
-        "yoyChange": 22.3
+      "visitors": 5987,
+      "sessions": 6245,
+      "pageViews": 14876,
+      "avgSessionDuration": "2:42",
+      "bounceRate": 0.378,
+      "newVisitorRate": 0.64,
+      "returningVisitorRate": 0.36,
+      "visitorChange": {
+        "momChange": 8.2,
+        "yoyChange": 15.7
       },
-      "pageViewsChange": {
-        "momChange": 8.6,
-        "yoyChange": 19.7
+      "sessionChange": {
+        "momChange": 7.9,
+        "yoyChange": 14.3
       },
-      "bounceRateChange": {
-        "momChange": -5.7,
-        "yoyChange": -12.4
+      "pageViewChange": {
+        "momChange": 6.4,
+        "yoyChange": 12.8
       }
     },
     {
@@ -27,21 +30,24 @@
       "periodLabel": "April 2025",
       "startDate": "2025-04-01",
       "endDate": "2025-04-30",
-      "visitors": 3405,
-      "pageViews": 8753,
-      "bounceRate": 0.329,
-      "avgSessionDuration": 188,
-      "visitorsChange": {
-        "momChange": 8.2,
-        "yoyChange": 17.6
+      "visitors": 5532,
+      "sessions": 5789,
+      "pageViews": 13967,
+      "avgSessionDuration": "2:37",
+      "bounceRate": 0.368,
+      "newVisitorRate": 0.62,
+      "returningVisitorRate": 0.38,
+      "visitorChange": {
+        "momChange": 4.7,
+        "yoyChange": 11.2
       },
-      "pageViewsChange": {
-        "momChange": 10.3,
-        "yoyChange": 15.2
+      "sessionChange": {
+        "momChange": 3.8,
+        "yoyChange": 10.8
       },
-      "bounceRateChange": {
-        "momChange": -4.1,
-        "yoyChange": -10.1
+      "pageViewChange": {
+        "momChange": 5.1,
+        "yoyChange": 13.4
       }
     },
     {
@@ -49,87 +55,24 @@
       "periodLabel": "March 2025",
       "startDate": "2025-03-01",
       "endDate": "2025-03-31",
-      "visitors": 3148,
-      "pageViews": 7935,
-      "bounceRate": 0.343,
-      "avgSessionDuration": 182,
-      "visitorsChange": {
-        "momChange": -5.3,
-        "yoyChange": 13.8
+      "visitors": 5284,
+      "sessions": 5578,
+      "pageViews": 13289,
+      "avgSessionDuration": "2:45",
+      "bounceRate": 0.382,
+      "newVisitorRate": 0.59,
+      "returningVisitorRate": 0.41,
+      "visitorChange": {
+        "momChange": -2.1,
+        "yoyChange": 8.4
       },
-      "pageViewsChange": {
-        "momChange": -4.7,
-        "yoyChange": 11.3
+      "sessionChange": {
+        "momChange": -1.8,
+        "yoyChange": 9.1
       },
-      "bounceRateChange": {
-        "momChange": 2.1,
-        "yoyChange": -8.5
-      }
-    },
-    {
-      "period": "2025-02",
-      "periodLabel": "February 2025",
-      "startDate": "2025-02-01",
-      "endDate": "2025-02-28",
-      "visitors": 3324,
-      "pageViews": 8329,
-      "bounceRate": 0.336,
-      "avgSessionDuration": 175,
-      "visitorsChange": {
-        "momChange": 10.8,
-        "yoyChange": 21.2
-      },
-      "pageViewsChange": {
-        "momChange": 12.4,
-        "yoyChange": 18.6
-      },
-      "bounceRateChange": {
-        "momChange": -5.6,
-        "yoyChange": -11.8
-      }
-    },
-    {
-      "period": "2025-01",
-      "periodLabel": "January 2025",
-      "startDate": "2025-01-01",
-      "endDate": "2025-01-31",
-      "visitors": 3000,
-      "pageViews": 7409,
-      "bounceRate": 0.356,
-      "avgSessionDuration": 168,
-      "visitorsChange": {
-        "momChange": 3.4,
-        "yoyChange": 16.5
-      },
-      "pageViewsChange": {
-        "momChange": 2.7,
-        "yoyChange": 13.2
-      },
-      "bounceRateChange": {
-        "momChange": -1.9,
-        "yoyChange": -9.6
-      }
-    },
-    {
-      "period": "2024-12",
-      "periodLabel": "December 2024",
-      "startDate": "2024-12-01",
-      "endDate": "2024-12-31",
-      "visitors": 2902,
-      "pageViews": 7214,
-      "bounceRate": 0.363,
-      "avgSessionDuration": 165,
-      "visitorsChange": {
-        "momChange": -1.2,
-        "yoyChange": 14.7
-      },
-      "pageViewsChange": {
-        "momChange": -0.8,
-        "yoyChange": 11.5
-      },
-      "bounceRateChange": {
-        "momChange": 0.6,
-        "yoyChange": -8.3
+      "pageViewChange": {
+        "momChange": -0.9,
+        "yoyChange": 11.7
       }
     }
   ]
