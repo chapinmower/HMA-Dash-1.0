@@ -314,33 +314,68 @@
       },
       {
         "id": 6,
-        "name": "Q4 2025 Tax Season Campaign",
-        "description": "Comprehensive campaign to promote tax services for the upcoming season",
-        "startDate": "2025-09-01",
+        "name": "Podcast",
+        "description": "Launch HMA podcast series for financial education and client engagement",
+        "startDate": "2025-07-01",
         "endDate": "2025-12-31",
         "status": "Planned",
         "completionPercentage": 0,
         "tasks": [
           {
             "id": 601,
-            "title": "Market Research & Strategy Development",
-            "description": "Research tax law changes and develop campaign strategy",
+            "title": "Podcast Strategy & Planning",
+            "description": "Develop podcast concept, format, and content strategy",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-07-15"
+          },
+          {
+            "id": 602,
+            "title": "Equipment & Setup",
+            "description": "Purchase recording equipment and set up recording space",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-08-01"
+          },
+          {
+            "id": 603,
+            "title": "Content Creation & Launch",
+            "description": "Record initial episodes and launch podcast",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-09-01"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Prospect Event",
+        "description": "Host prospect engagement event to attract new clients",
+        "startDate": "2025-08-01",
+        "endDate": "2025-10-31",
+        "status": "Planned",
+        "completionPercentage": 0,
+        "tasks": [
+          {
+            "id": 701,
+            "title": "Event Planning & Coordination",
+            "description": "Plan venue, format, and logistics for prospect event",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-08-31"
+          },
+          {
+            "id": 702,
+            "title": "Marketing & Outreach",
+            "description": "Develop marketing campaign to attract prospects",
             "status": "Not Started",
             "progress": 0,
             "due_date": "2025-09-15"
           },
           {
-            "id": 602,
-            "title": "Create Tax Guide Materials",
-            "description": "Develop comprehensive tax guide for clients",
-            "status": "Not Started",
-            "progress": 0,
-            "due_date": "2025-10-01"
-          },
-          {
-            "id": 603,
-            "title": "Launch Digital Campaign",
-            "description": "Launch social media and email marketing campaign",
+            "id": 703,
+            "title": "Event Execution",
+            "description": "Host successful prospect engagement event",
             "status": "Not Started",
             "progress": 0,
             "due_date": "2025-10-15"
@@ -348,145 +383,73 @@
         ]
       },
       {
-        "id": 7,
-        "name": "Summer 2025 Financial Planning Workshop Series",
-        "description": "Series of workshops for clients on financial planning and investment strategies",
-        "startDate": "2025-07-01",
-        "endDate": "2025-08-31",
-        "status": "Planned",
-        "completionPercentage": 5,
-        "tasks": [
-          {
-            "id": 701,
-            "title": "Workshop Content Development",
-            "description": "Create curriculum and materials for workshop series",
-            "status": "Not Started",
-            "progress": 0,
-            "due_date": "2025-06-15"
-          },
-          {
-            "id": 702,
-            "title": "Venue Booking & Setup",
-            "description": "Secure venues and arrange logistics for workshops",
-            "status": "Not Started",
-            "progress": 0,
-            "due_date": "2025-06-30"
-          },
-          {
-            "id": 703,
-            "title": "Marketing & Registration",
-            "description": "Promote workshops and manage client registration",
-            "status": "Not Started",
-            "progress": 0,
-            "due_date": "2025-07-10"
-          }
-        ]
-      },
-      {
         "id": 8,
-        "name": "2024 Year-End Client Appreciation Event",
-        "description": "Annual client appreciation event held in December 2024",
-        "startDate": "2024-10-01",
-        "endDate": "2024-12-15",
-        "status": "Completed",
-        "completionPercentage": 100,
-        "completedDate": "2024-12-15",
+        "name": "Salesforce Clean Up & Segmentation",
+        "description": "Organize and segment client database in Salesforce for better targeting",
+        "startDate": "2025-06-15",
+        "endDate": "2025-09-30",
+        "status": "Planned",
+        "completionPercentage": 0,
         "tasks": [
           {
             "id": 801,
-            "title": "Event Planning & Coordination",
-            "description": "Plan venue, catering, and entertainment for client event",
-            "status": "Completed",
-            "progress": 100,
-            "due_date": "2024-11-01"
+            "title": "Data Audit & Cleanup",
+            "description": "Review and clean up existing client data in Salesforce",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-07-15"
           },
           {
             "id": 802,
-            "title": "Client Invitations",
-            "description": "Design and send invitations to all clients",
-            "status": "Completed",
-            "progress": 100,
-            "due_date": "2024-11-15"
+            "title": "Client Segmentation",
+            "description": "Create client segments based on demographics and service needs",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-08-15"
           },
           {
             "id": 803,
-            "title": "Event Execution",
-            "description": "Host successful client appreciation event",
-            "status": "Completed",
-            "progress": 100,
-            "due_date": "2024-12-10"
+            "title": "Implementation & Training",
+            "description": "Implement new segmentation system and train team",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-09-30"
           }
         ]
       },
       {
         "id": 9,
-        "name": "Q1 2025 Market Newsletter Series",
-        "description": "Quarterly market insights newsletter campaign for Q1 2025",
-        "startDate": "2024-12-01",
-        "endDate": "2025-03-31",
+        "name": "New Client Portal",
+        "description": "Developed and launched new client portal for improved service delivery",
+        "startDate": "2024-09-01",
+        "endDate": "2025-01-31",
         "status": "Completed",
         "completionPercentage": 100,
-        "completedDate": "2025-03-31",
+        "completedDate": "2025-01-31",
         "tasks": [
           {
             "id": 901,
-            "title": "January Market Analysis",
-            "description": "Research and write January market analysis",
-            "status": "Completed",
-            "progress": 100,
-            "due_date": "2025-01-15"
-          },
-          {
-            "id": 902,
-            "title": "February Market Update",
-            "description": "Create February market update newsletter",
-            "status": "Completed",
-            "progress": 100,
-            "due_date": "2025-02-15"
-          },
-          {
-            "id": 903,
-            "title": "March Quarterly Summary",
-            "description": "Compile Q1 quarterly market summary",
-            "status": "Completed",
-            "progress": 100,
-            "due_date": "2025-03-31"
-          }
-        ]
-      },
-      {
-        "id": 10,
-        "name": "Website Analytics Integration Project",
-        "description": "Implemented comprehensive analytics tracking and dashboard integration",
-        "startDate": "2024-11-01",
-        "endDate": "2025-02-28",
-        "status": "Completed",
-        "completionPercentage": 100,
-        "completedDate": "2025-02-28",
-        "tasks": [
-          {
-            "id": 1001,
-            "title": "Analytics Setup",
-            "description": "Configure Google Analytics and tracking systems",
+            "title": "Portal Design & Development",
+            "description": "Design and develop new client portal interface",
             "status": "Completed",
             "progress": 100,
             "due_date": "2024-12-01"
           },
           {
-            "id": 1002,
-            "title": "Dashboard Development",
-            "description": "Build marketing analytics dashboard",
+            "id": 902,
+            "title": "Testing & Security Review",
+            "description": "Comprehensive testing and security audit of portal",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-01-15"
+          },
+          {
+            "id": 903,
+            "title": "Client Training & Launch",
+            "description": "Train clients on new portal and complete launch",
             "status": "Completed",
             "progress": 100,
             "due_date": "2025-01-31"
-          },
-          {
-            "id": 1003,
-            "title": "Team Training",
-            "description": "Train team on new analytics tools and dashboard",
-            "status": "Completed",
-            "progress": 100,
-            "due_date": "2025-02-28"
           }
         ]
       }
