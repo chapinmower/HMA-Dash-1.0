@@ -3,35 +3,152 @@
       {
         "id": 1,
         "name": "June 18 2025 Event Campaign",
-        "description": "A comprehensive marketing campaign for the June 18 client appreciation event",
-        "startDate": "2025-05-01",
+        "description": "Client appreciation event featuring Cubs photographers at American Airlines Conference Center with 58 confirmed attendees",
+        "startDate": "2025-04-01",
         "endDate": "2025-06-18",
         "status": "In Progress",
-        "completionPercentage": 35,
+        "completionPercentage": 70,
+        "venue": "American Airlines Conference Center - Home Plate Room & Outdoor Terrace",
+        "attendees": "58 confirmed of 75 capacity (77% response rate)",
+        "budget": "$16,717.72 total",
         "tasks": [
           {
             "id": 101,
-            "title": "Design event invitation",
-            "description": "Create digital and print invitations for the event",
+            "title": "Secure Event Venue",
+            "description": "Booked American Airlines Conference Center - Home Plate Room & Outdoor Terrace at 1101 W. Waveland Ave, Chicago, IL 60613",
             "status": "Completed",
             "progress": 100,
-            "due_date": "2025-05-10"
+            "due_date": "2025-04-15",
+            "completed_date": "2025-04-10",
+            "category": "venue",
+            "priority": "high"
           },
           {
             "id": 102,
-            "title": "Send invitations to client list",
-            "description": "Email invitations to all clients and follow up with print copies",
-            "status": "In Progress",
-            "progress": 50,
-            "due_date": "2025-05-20"
+            "title": "Confirm Featured Speakers",
+            "description": "Secured Stephen Green (Cubs photographer 1982-2022), Paul Natkin (moderator), and Ron Vesely as speakers",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-04-20",
+            "completed_date": "2025-04-18",
+            "category": "content",
+            "priority": "high"
           },
           {
             "id": 103,
-            "title": "Order event materials",
-            "description": "Order banners, handouts, and promotional items",
+            "title": "Design Event Schedule",
+            "description": "Created detailed 4-hour timeline: 5:30 PM reception, 6:00 PM panel, 7:00 PM Cubs game viewing, 9:30 PM conclusion",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-04-25",
+            "completed_date": "2025-04-22",
+            "category": "planning",
+            "priority": "high"
+          },
+          {
+            "id": 104,
+            "title": "Plan Catering Menu",
+            "description": "Finalized comprehensive menu: salad bar, hot dogs, sliders, antipasti, crudité, ice cream bar, beer & wine package",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-05-01",
+            "completed_date": "2025-04-28",
+            "category": "catering",
+            "priority": "high"
+          },
+          {
+            "id": 105,
+            "title": "Calculate Event Budget",
+            "description": "Detailed cost breakdown completed: $16,717.72 total (food $4,980, beverage $2,625, service/rental $6,200, taxes/fees $2,912.72)",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-05-05",
+            "completed_date": "2025-05-02",
+            "category": "budget",
+            "priority": "high"
+          },
+          {
+            "id": 106,
+            "title": "Plan Room Configuration",
+            "description": "Designed theater-style seating for panel (6-7 PM) transitioning to cocktail tables for game viewing (7-9:30 PM)",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-05-10",
+            "completed_date": "2025-05-08",
+            "category": "logistics",
+            "priority": "medium"
+          },
+          {
+            "id": 107,
+            "title": "Coordinate A/V Requirements",
+            "description": "Arranged built-in screen/projector, 2 TVs for Cubs game, wireless mics, MacBook connectivity, WiFi access",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-05-15",
+            "completed_date": "2025-05-12",
+            "category": "technology",
+            "priority": "high"
+          },
+          {
+            "id": 108,
+            "title": "Send Initial Invitations",
+            "description": "Invitations sent to client database - confirmed 58 attendees of 75 capacity (77% response rate)",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-05-20",
+            "completed_date": "2025-05-18",
+            "category": "marketing",
+            "priority": "high"
+          },
+          {
+            "id": 109,
+            "title": "Final RSVP Follow-up",
+            "description": "Send reminder emails and make follow-up calls to maximize attendance",
+            "status": "In Progress",
+            "progress": 75,
+            "due_date": "2025-06-10",
+            "category": "marketing",
+            "priority": "high"
+          },
+          {
+            "id": 110,
+            "title": "Event Day Materials Preparation",
+            "description": "Prepare name tags, welcome packets, speaker bios, and event signage",
+            "status": "In Progress",
+            "progress": 60,
+            "due_date": "2025-06-15",
+            "category": "materials",
+            "priority": "medium"
+          },
+          {
+            "id": 111,
+            "title": "Coordinate Day-of Logistics",
+            "description": "Final venue walkthrough, staff briefing, and contingency planning",
             "status": "Not Started",
             "progress": 0,
-            "due_date": "2025-05-25"
+            "due_date": "2025-06-17",
+            "category": "logistics",
+            "priority": "high"
+          },
+          {
+            "id": 112,
+            "title": "Post-Event Follow-up",
+            "description": "Thank you emails, feedback survey, and event photo sharing",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-06-25",
+            "category": "follow-up",
+            "priority": "medium"
+          },
+          {
+            "id": 113,
+            "title": "Event Success Analysis",
+            "description": "Analyze attendance, feedback, and ROI for future event planning",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-06-30",
+            "category": "analysis",
+            "priority": "low"
           }
         ]
       },
