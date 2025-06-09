@@ -1,0 +1,574 @@
+{
+    "projects": [
+      {
+        "id": 1,
+        "name": "June 18 2025 Event Campaign",
+        "description": "Client appreciation event featuring Cubs photographers at American Airlines Conference Center with 58 confirmed attendees",
+        "startDate": "2025-04-01",
+        "endDate": "2025-06-18",
+        "status": "In Progress",
+        "completionPercentage": 70,
+        "venue": "American Airlines Conference Center - Home Plate Room & Outdoor Terrace",
+        "attendees": "58 confirmed of 75 capacity (77% response rate)",
+        "budget": "$16,717.72 total",
+        "tasks": [
+          {
+            "id": 101,
+            "title": "Secure Event Venue",
+            "description": "Booked American Airlines Conference Center - Home Plate Room & Outdoor Terrace at 1101 W. Waveland Ave, Chicago, IL 60613",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-04-15",
+            "completed_date": "2025-04-10",
+            "category": "venue",
+            "priority": "high"
+          },
+          {
+            "id": 102,
+            "title": "Confirm Featured Speakers",
+            "description": "Secured Stephen Green (Cubs photographer 1982-2022), Paul Natkin (moderator), and Ron Vesely as speakers",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-04-20",
+            "completed_date": "2025-04-18",
+            "category": "content",
+            "priority": "high"
+          },
+          {
+            "id": 103,
+            "title": "Design Event Schedule",
+            "description": "Created detailed 4-hour timeline: 5:30 PM reception, 6:00 PM panel, 7:00 PM Cubs game viewing, 9:30 PM conclusion",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-04-25",
+            "completed_date": "2025-04-22",
+            "category": "planning",
+            "priority": "high"
+          },
+          {
+            "id": 104,
+            "title": "Plan Catering Menu",
+            "description": "Finalized comprehensive menu: salad bar, hot dogs, sliders, antipasti, crudité, ice cream bar, beer & wine package",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-05-01",
+            "completed_date": "2025-04-28",
+            "category": "catering",
+            "priority": "high"
+          },
+          {
+            "id": 105,
+            "title": "Calculate Event Budget",
+            "description": "Detailed cost breakdown completed: $16,717.72 total (food $4,980, beverage $2,625, service/rental $6,200, taxes/fees $2,912.72)",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-05-05",
+            "completed_date": "2025-05-02",
+            "category": "budget",
+            "priority": "high"
+          },
+          {
+            "id": 106,
+            "title": "Plan Room Configuration",
+            "description": "Designed theater-style seating for panel (6-7 PM) transitioning to cocktail tables for game viewing (7-9:30 PM)",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-05-10",
+            "completed_date": "2025-05-08",
+            "category": "logistics",
+            "priority": "medium"
+          },
+          {
+            "id": 107,
+            "title": "Coordinate A/V Requirements",
+            "description": "Arranged built-in screen/projector, 2 TVs for Cubs game, wireless mics, MacBook connectivity, WiFi access",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-05-15",
+            "completed_date": "2025-05-12",
+            "category": "technology",
+            "priority": "high"
+          },
+          {
+            "id": 108,
+            "title": "Send Initial Invitations",
+            "description": "Invitations sent to client database - confirmed 58 attendees of 75 capacity (77% response rate)",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-05-20",
+            "completed_date": "2025-05-18",
+            "category": "marketing",
+            "priority": "high"
+          },
+          {
+            "id": 109,
+            "title": "Final RSVP Follow-up",
+            "description": "Send reminder emails and make follow-up calls to maximize attendance",
+            "status": "In Progress",
+            "progress": 75,
+            "due_date": "2025-06-10",
+            "category": "marketing",
+            "priority": "high"
+          },
+          {
+            "id": 110,
+            "title": "Event Day Materials Preparation",
+            "description": "Prepare name tags, welcome packets, speaker bios, and event signage",
+            "status": "In Progress",
+            "progress": 60,
+            "due_date": "2025-06-15",
+            "category": "materials",
+            "priority": "medium"
+          },
+          {
+            "id": 111,
+            "title": "Coordinate Day-of Logistics",
+            "description": "Final venue walkthrough, staff briefing, and contingency planning",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-06-17",
+            "category": "logistics",
+            "priority": "high"
+          },
+          {
+            "id": 112,
+            "title": "Post-Event Follow-up",
+            "description": "Thank you emails, feedback survey, and event photo sharing",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-06-25",
+            "category": "follow-up",
+            "priority": "medium"
+          },
+          {
+            "id": 113,
+            "title": "Event Success Analysis",
+            "description": "Analyze attendance, feedback, and ROI for future event planning",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-06-30",
+            "category": "analysis",
+            "priority": "low"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Monthly Newsletter",
+        "description": "Production and distribution of monthly client newsletters",
+        "startDate": "2025-01-01",
+        "endDate": "2025-12-31",
+        "status": "In Progress",
+        "completionPercentage": 35,
+        "dueDate": "2025-06-30",
+        "tasks": [
+          {
+            "id": 201,
+            "title": "January Newsletter",
+            "description": "Create and distribute January newsletter",
+            "status": "Completed",
+            "progress": 100
+          },
+          {
+            "id": 202,
+            "title": "February Newsletter",
+            "description": "Create and distribute February newsletter",
+            "status": "Completed",
+            "progress": 100
+          },
+          {
+            "id": 203,
+            "title": "March Newsletter",
+            "description": "Create and distribute March newsletter",
+            "status": "Completed",
+            "progress": 100
+          },
+          {
+            "id": 204,
+            "title": "April Newsletter",
+            "description": "Create and distribute April newsletter",
+            "status": "Completed",
+            "progress": 100
+          },
+          {
+            "id": 205,
+            "title": "May Newsletter",
+            "description": "Create and distribute May newsletter",
+            "status": "Completed",
+            "progress": 100
+          },
+          {
+            "id": 206,
+            "title": "June Newsletter Content Creation",
+            "description": "Write and compile content for June newsletter",
+            "status": "In Progress",
+            "progress": 50,
+            "due_date": "2025-06-15"
+          },
+          {
+            "id": 207,
+            "title": "June Newsletter Design/Layout",
+            "description": "Design and layout June newsletter",
+            "status": "In Progress",
+            "progress": 30,
+            "due_date": "2025-06-20"
+          },
+          {
+            "id": 208,
+            "title": "June Newsletter Review & Approval",
+            "description": "Review and approve June newsletter",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-06-25"
+          },
+          {
+            "id": 209,
+            "title": "June Newsletter Distribution",
+            "description": "Send June newsletter to distribution list",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-06-30"
+          },
+          {
+            "id": 210,
+            "title": "July-December Newsletter Planning",
+            "description": "Plan content calendar for remaining newsletters",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-07-15"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Website Re-Design",
+        "description": "Complete redesign and modernization of HMA website",
+        "startDate": "2025-03-01",
+        "endDate": "2025-12-31",
+        "status": "In Progress",
+        "completionPercentage": 15,
+        "tasks": [
+          {
+            "id": 301,
+            "title": "Current Website Audit",
+            "description": "Analyze current website strengths and weaknesses",
+            "status": "Completed",
+            "progress": 100
+          },
+          {
+            "id": 302,
+            "title": "Competitor Analysis",
+            "description": "Research competitor websites and best practices",
+            "status": "Completed",
+            "progress": 100
+          },
+          {
+            "id": 303,
+            "title": "Design Mockups & Wireframes",
+            "description": "Create visual mockups and wireframes for new design",
+            "status": "In Progress",
+            "progress": 40,
+            "due_date": "2025-07-30"
+          },
+          {
+            "id": 304,
+            "title": "Content Inventory & Updates",
+            "description": "Audit and update all website content",
+            "status": "In Progress",
+            "progress": 25,
+            "due_date": "2025-08-15"
+          },
+          {
+            "id": 305,
+            "title": "Developer Selection/Coordination",
+            "description": "Select and coordinate with web development team",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-08-30"
+          },
+          {
+            "id": 306,
+            "title": "Website Build & Testing",
+            "description": "Build new website and conduct thorough testing",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-11-15"
+          },
+          {
+            "id": 307,
+            "title": "Launch & Migration",
+            "description": "Launch new website and migrate from old site",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-12-15"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Marketing Meeting",
+        "description": "Monthly marketing team meetings and coordination",
+        "startDate": "2025-01-01",
+        "endDate": "2025-12-31",
+        "status": "In Progress",
+        "completionPercentage": 40,
+        "nextMeeting": "2025-06-11",
+        "recurring": true,
+        "tasks": [
+          {
+            "id": 401,
+            "title": "May Meeting Minutes & Action Items",
+            "description": "Document and distribute May meeting outcomes",
+            "status": "Completed",
+            "progress": 100
+          },
+          {
+            "id": 402,
+            "title": "June Meeting Agenda Preparation",
+            "description": "Prepare agenda for June marketing meeting",
+            "status": "In Progress",
+            "progress": 75,
+            "due_date": "2025-06-09"
+          },
+          {
+            "id": 403,
+            "title": "Attendee Confirmations",
+            "description": "Confirm attendance for June meeting",
+            "status": "In Progress",
+            "progress": 60,
+            "due_date": "2025-06-10"
+          },
+          {
+            "id": 404,
+            "title": "June Meeting Materials/Presentations",
+            "description": "Prepare presentations and materials for June meeting",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-06-10"
+          },
+          {
+            "id": 405,
+            "title": "June Meeting Execution",
+            "description": "Conduct June marketing meeting",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-06-11"
+          },
+          {
+            "id": 406,
+            "title": "Post-Meeting Follow-up",
+            "description": "Send follow-up communications and action items",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-06-13"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "HMA 'Swag' Inventory",
+        "description": "Management and organization of HMA promotional materials",
+        "startDate": "2025-01-01",
+        "endDate": "2025-12-31",
+        "status": "In Progress",
+        "completionPercentage": 25,
+        "tasks": [
+          {
+            "id": 501,
+            "title": "Current Inventory Count",
+            "description": "Complete count of all promotional items",
+            "status": "Completed",
+            "progress": 100
+          },
+          {
+            "id": 502,
+            "title": "Storage Organization",
+            "description": "Organize storage system for swag items",
+            "status": "Completed",
+            "progress": 100
+          },
+          {
+            "id": 503,
+            "title": "Inventory Tracking System Setup",
+            "description": "Implement system to track swag distribution",
+            "status": "In Progress",
+            "progress": 50,
+            "due_date": "2025-06-30"
+          },
+          {
+            "id": 504,
+            "title": "Vendor Research for Reorders",
+            "description": "Research and compare vendor options",
+            "status": "In Progress",
+            "progress": 30,
+            "due_date": "2025-07-15"
+          },
+          {
+            "id": 505,
+            "title": "Budget Allocation for New Items",
+            "description": "Determine budget for new promotional items",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-07-30"
+          },
+          {
+            "id": 506,
+            "title": "New Product Selection",
+            "description": "Select new promotional items to order",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-08-15"
+          },
+          {
+            "id": 507,
+            "title": "Reorder Placement",
+            "description": "Place orders for new promotional items",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-08-30"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Podcast",
+        "description": "Launch HMA podcast series for financial education and client engagement",
+        "startDate": "2025-07-01",
+        "endDate": "2025-12-31",
+        "status": "Planned",
+        "completionPercentage": 0,
+        "tasks": [
+          {
+            "id": 601,
+            "title": "Podcast Strategy & Planning",
+            "description": "Develop podcast concept, format, and content strategy",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-07-15"
+          },
+          {
+            "id": 602,
+            "title": "Equipment & Setup",
+            "description": "Purchase recording equipment and set up recording space",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-08-01"
+          },
+          {
+            "id": 603,
+            "title": "Content Creation & Launch",
+            "description": "Record initial episodes and launch podcast",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-09-01"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Prospect Event",
+        "description": "Host prospect engagement event to attract new clients",
+        "startDate": "2025-08-01",
+        "endDate": "2025-10-31",
+        "status": "Planned",
+        "completionPercentage": 0,
+        "tasks": [
+          {
+            "id": 701,
+            "title": "Event Planning & Coordination",
+            "description": "Plan venue, format, and logistics for prospect event",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-08-31"
+          },
+          {
+            "id": 702,
+            "title": "Marketing & Outreach",
+            "description": "Develop marketing campaign to attract prospects",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-09-15"
+          },
+          {
+            "id": 703,
+            "title": "Event Execution",
+            "description": "Host successful prospect engagement event",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-10-15"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Salesforce Clean Up & Segmentation",
+        "description": "Organize and segment client database in Salesforce for better targeting",
+        "startDate": "2025-06-15",
+        "endDate": "2025-09-30",
+        "status": "Planned",
+        "completionPercentage": 0,
+        "tasks": [
+          {
+            "id": 801,
+            "title": "Data Audit & Cleanup",
+            "description": "Review and clean up existing client data in Salesforce",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-07-15"
+          },
+          {
+            "id": 802,
+            "title": "Client Segmentation",
+            "description": "Create client segments based on demographics and service needs",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-08-15"
+          },
+          {
+            "id": 803,
+            "title": "Implementation & Training",
+            "description": "Implement new segmentation system and train team",
+            "status": "Not Started",
+            "progress": 0,
+            "due_date": "2025-09-30"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "name": "New Client Portal",
+        "description": "Developed and launched new client portal for improved service delivery",
+        "startDate": "2024-09-01",
+        "endDate": "2025-01-31",
+        "status": "Completed",
+        "completionPercentage": 100,
+        "completedDate": "2025-01-31",
+        "tasks": [
+          {
+            "id": 901,
+            "title": "Portal Design & Development",
+            "description": "Design and develop new client portal interface",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2024-12-01"
+          },
+          {
+            "id": 902,
+            "title": "Testing & Security Review",
+            "description": "Comprehensive testing and security audit of portal",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-01-15"
+          },
+          {
+            "id": 903,
+            "title": "Client Training & Launch",
+            "description": "Train clients on new portal and complete launch",
+            "status": "Completed",
+            "progress": 100,
+            "due_date": "2025-01-31"
+          }
+        ]
+      }
+    ]
+  }

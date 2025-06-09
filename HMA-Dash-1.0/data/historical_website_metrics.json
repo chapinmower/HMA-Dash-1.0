@@ -1,0 +1,79 @@
+{
+  "monthlyMetrics": [
+    {
+      "period": "2025-05",
+      "periodLabel": "May 2025",
+      "startDate": "2025-05-01",
+      "endDate": "2025-05-31",
+      "visitors": 5987,
+      "sessions": 6245,
+      "pageViews": 14876,
+      "avgSessionDuration": "2:42",
+      "bounceRate": 0.378,
+      "newVisitorRate": 0.64,
+      "returningVisitorRate": 0.36,
+      "visitorChange": {
+        "momChange": 8.2,
+        "yoyChange": 15.7
+      },
+      "sessionChange": {
+        "momChange": 7.9,
+        "yoyChange": 14.3
+      },
+      "pageViewChange": {
+        "momChange": 6.4,
+        "yoyChange": 12.8
+      }
+    },
+    {
+      "period": "2025-04",
+      "periodLabel": "April 2025",
+      "startDate": "2025-04-01",
+      "endDate": "2025-04-30",
+      "visitors": 5532,
+      "sessions": 5789,
+      "pageViews": 13967,
+      "avgSessionDuration": "2:37",
+      "bounceRate": 0.368,
+      "newVisitorRate": 0.62,
+      "returningVisitorRate": 0.38,
+      "visitorChange": {
+        "momChange": 4.7,
+        "yoyChange": 11.2
+      },
+      "sessionChange": {
+        "momChange": 3.8,
+        "yoyChange": 10.8
+      },
+      "pageViewChange": {
+        "momChange": 5.1,
+        "yoyChange": 13.4
+      }
+    },
+    {
+      "period": "2025-03",
+      "periodLabel": "March 2025",
+      "startDate": "2025-03-01",
+      "endDate": "2025-03-31",
+      "visitors": 5284,
+      "sessions": 5578,
+      "pageViews": 13289,
+      "avgSessionDuration": "2:45",
+      "bounceRate": 0.382,
+      "newVisitorRate": 0.59,
+      "returningVisitorRate": 0.41,
+      "visitorChange": {
+        "momChange": -2.1,
+        "yoyChange": 8.4
+      },
+      "sessionChange": {
+        "momChange": -1.8,
+        "yoyChange": 9.1
+      },
+      "pageViewChange": {
+        "momChange": -0.9,
+        "yoyChange": 11.7
+      }
+    }
+  ]
+}
