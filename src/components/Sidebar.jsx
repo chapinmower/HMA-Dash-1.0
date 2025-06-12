@@ -27,6 +27,9 @@ import {
   ExpandMore, // Added ExpandMore icon
   Article as ArticleIcon, // Added Article icon for materials
   AddTask as RequestsIcon, // Added Requests icon
+  Timeline as TimelineIcon, // Added Timeline icon
+  TrendingUp as TrendsIcon, // Added Trends icon  
+  Storage as DataIcon, // Added Data Management icon
   // Logout as LogoutIcon, // Removed logout icon import
 } from '@mui/icons-material';
 
@@ -64,6 +67,9 @@ function Sidebar() {
     { text: 'Contact Engagement', icon: <EngagementIcon />, path: '/contact-engagement' }, // Changed to single link
     { text: 'Marketing Materials', icon: <ArticleIcon />, path: '/materials' }, // Added Marketing Materials
     { text: 'Projects', icon: <AssignmentIcon />, path: '/timeline' }, // Changed label to Projects
+    { text: 'Project Tracker', icon: <TimelineIcon />, path: '/project-tracker' }, // Added Project Tracker
+    { text: 'Historical Trends', icon: <TrendsIcon />, path: '/trends' }, // Added Historical Trends
+    { text: 'Data Management', icon: <DataIcon />, path: '/data-management' }, // Added Data Management
     { text: 'Requests', icon: <RequestsIcon />, path: '/requests' },
   ];
 

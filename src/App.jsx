@@ -16,6 +16,9 @@ import LinkedInAnalyticsPage from './components/LinkedInAnalyticsPage';
 import ContactEngagement from './components/ContactEngagement';
 import ProjectTimeline from './components/ProjectTimeline'; // Import ProjectTimeline
 import ProjectDetail from './components/ProjectDetail'; // Import ProjectDetail component
+import HistoricalTrends from './components/HistoricalTrends'; // Import HistoricalTrends
+import ProjectProgressTracker from './components/ProjectProgressTracker'; // Import ProjectProgressTracker
+import DataManagement from './components/DataManagement'; // Import DataManagement
 
 const theme = createTheme({
   palette: {
@@ -53,6 +56,10 @@ function App() {
             <Route path="/timeline" element={<ProjectTimeline />} />
             {/* Add route for individual project details */}
             <Route path="/timeline/:projectId" element={<ProjectDetail />} />
+            {/* Add new dashboard features */}
+            <Route path="/trends" element={<HistoricalTrends />} />
+            <Route path="/project-tracker" element={<ProjectProgressTracker />} />
+            <Route path="/data-management" element={<DataManagement />} />
             {/* Remove explicit /login route, handled by conditional rendering */}
             {/* Catch-all redirects to dashboard if logged in */}
             <Route path="*" element={<Navigate to="/" replace />} />

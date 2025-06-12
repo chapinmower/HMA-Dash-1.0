@@ -1,0 +1,141 @@
+name: Deploy HMA Dashboard
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run weekly data update on Mondays at 9 AM
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+    inputs:
+      update_data:
+        description: 'Update data before deployment'
+        required: false
+        default: 'true'
+        type: boolean
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: |
+        # Copy React package configuration
+        cp react-package.json package.json
+        npm install
+    
+    - name: Update dashboard data
+      if: github.event.inputs.update_data == 'true' || github.event_name == 'schedule'
+      run: |
+        echo "Updating dashboard data..."
+        node scripts/update_dashboard_data.js
+        
+        # Check if there are any changes to commit
+        if [[ -n $(git status --porcelain) ]]; then
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add public/data/
+          git commit -m "📊 Automated data update - $(date '+%Y-%m-%d %H:%M')"
+          git push
+        else
+          echo "No data changes to commit"
+        fi
+    
+    - name: Build React app
+      run: |
+        npm run build
+        
+        # Copy additional static assets
+        cp -r public/reports build/
+        cp -r public/marketing-materials build/
+        
+        # Ensure data directory exists in build
+        mkdir -p build/data
+        cp -r public/data/* build/data/
+      env:
+        CI: false
+        PUBLIC_URL: /HMA-Dash-1.0
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
+        cname: # Add your custom domain if you have one
+        
+  data-quality-check:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: |
+        cp react-package.json package.json
+        npm install
+    
+    - name: Validate JSON data files
+      run: |
+        echo "Validating JSON data files..."
+        
+        for file in public/data/*.json; do
+          if [[ -f "$file" ]]; then
+            echo "Validating $file..."
+            if ! python3 -m json.tool "$file" > /dev/null; then
+              echo "❌ Invalid JSON in $file"
+              exit 1
+            else
+              echo "✅ Valid JSON: $file"
+            fi
+          fi
+        done
+        
+        echo "All JSON files are valid!"
+    
+    - name: Check data consistency
+      run: |
+        echo "Checking data consistency..."
+        
+        # Check if email analytics has required fields
+        if ! grep -q '"opens"' public/data/email_analytics.json; then
+          echo "❌ Missing 'opens' field in email analytics"
+          exit 1
+        fi
+        
+        # Check if website analytics has required fields  
+        if ! grep -q '"visits"' public/data/website_analytics.json; then
+          echo "❌ Missing 'visits' field in website analytics"
+          exit 1
+        fi
+        
+        echo "✅ Data consistency checks passed!"
+    
+    - name: Test build
+      run: |
+        npm run build
+      env:
+        CI: false
+        PUBLIC_URL: /HMA-Dash-1.0

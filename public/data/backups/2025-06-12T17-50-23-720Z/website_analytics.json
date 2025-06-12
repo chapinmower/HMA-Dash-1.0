@@ -1,37 +1,46 @@
 {
   "summaries": [
     {
-      "period": "June 2025",
-      "visits": 7123,
-      "pageViews": 17834,
-      "avgSessionDuration": "2:42",
-      "bounceRate": "34.2%",
-      "lastUpdated": "2025-06-12T17:50:23.726Z"
-    },
-    {
       "period": "April 2025",
       "visits": 6245,
       "pageViews": 15421,
       "avgSessionDuration": "2:37",
       "bounceRate": "36.8%",
       "lastUpdated": "2025-05-26T22:11:40.726Z"
+    },
+    {
+      "period": "March 2025",
+      "visits": 5623,
+      "pageViews": 12478,
+      "avgSessionDuration": "2:45",
+      "bounceRate": "38.2%"
     }
   ],
   "topPages": [
     {
       "url": "/services",
-      "views": 1456,
-      "change": "+8.3%"
+      "views": 1243,
+      "change": "+5.2%"
     },
     {
       "url": "/about",
-      "views": 923,
-      "change": "+4.1%"
+      "views": 857,
+      "change": "+2.7%"
     },
     {
       "url": "/contact",
-      "views": 734,
-      "change": "+2.8%"
+      "views": 642,
+      "change": "+1.3%"
+    },
+    {
+      "url": "/blog/tax-updates-2025",
+      "views": 511,
+      "change": "+12.5%"
+    },
+    {
+      "url": "/team",
+      "views": 386,
+      "change": "-1.2%"
     }
   ],
   "reports": [
