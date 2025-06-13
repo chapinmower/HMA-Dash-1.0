@@ -1,4 +1,39 @@
 {
+  "summaries": [
+    {
+      "period": "June 2025",
+      "visits": 7123,
+      "pageViews": 17834,
+      "avgSessionDuration": "2:42",
+      "bounceRate": "34.2%",
+      "lastUpdated": "2025-06-12T17:50:23.726Z"
+    },
+    {
+      "period": "April 2025",
+      "visits": 6245,
+      "pageViews": 15421,
+      "avgSessionDuration": "2:37",
+      "bounceRate": "36.8%",
+      "lastUpdated": "2025-05-26T22:11:40.726Z"
+    }
+  ],
+  "topPages": [
+    {
+      "url": "/services",
+      "views": 1456,
+      "change": "+8.3%"
+    },
+    {
+      "url": "/about",
+      "views": 923,
+      "change": "+4.1%"
+    },
+    {
+      "url": "/contact",
+      "views": 734,
+      "change": "+2.8%"
+    }
+  ],
   "reports": [
     {
       "name": "HMA Google Analytics 2024 Calendar Year",
@@ -9,21 +44,6 @@
       "name": "April 2025 MTD 0428",
       "url": "/reports/April 2025 MTD 0428.pdf",
       "date": "2025-04-28"
-    },
-    {
-      "name": "April 25 Google Analytics",
-      "url": "/reports/April 25 Google Analytics.pdf",
-      "date": "2025-04-25"
-    },
-    {
-      "name": "HMA Google Analytics 2023 Calendar Year",
-      "url": "/reports/HMA Google Analytics 2023 Calendar Year.pdf",
-      "date": "2024-01-15"
-    },
-    {
-      "name": "Hummer Mower Website Report GA4",
-      "url": "/reports/Hummer_Mower_Website_Report_GA4.pdf",
-      "date": "2024-12-01"
     }
   ]
 }

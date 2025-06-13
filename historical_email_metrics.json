@@ -1,0 +1,154 @@
+{
+  "monthlyMetrics": [
+    {
+      "period": "2025-05",
+      "periodLabel": "May 2025",
+      "startDate": "2025-05-01",
+      "endDate": "2025-05-31",
+      "totalSent": 998,
+      "totalOpened": 587,
+      "totalClicked": 127,
+      "openRate": 0.588,
+      "clickRate": 0.127,
+      "clickToOpenRate": 0.216,
+      "campaignCount": 5,
+      "openRateChange": {
+        "momChange": 2.4,
+        "yoyChange": -1.8
+      },
+      "clickRateChange": {
+        "momChange": 4.1,
+        "yoyChange": 3.7
+      },
+      "totalSentChange": {
+        "momChange": 6.7,
+        "yoyChange": 12.1
+      }
+    },
+    {
+      "period": "2025-04",
+      "periodLabel": "April 2025",
+      "startDate": "2025-04-01",
+      "endDate": "2025-04-30",
+      "totalSent": 935,
+      "totalOpened": 536,
+      "totalClicked": 114,
+      "openRate": 0.573,
+      "clickRate": 0.122,
+      "clickToOpenRate": 0.213,
+      "campaignCount": 5,
+      "openRateChange": {
+        "momChange": -0.7,
+        "yoyChange": -1.2
+      },
+      "clickRateChange": {
+        "momChange": 0.8,
+        "yoyChange": 3.4
+      },
+      "totalSentChange": {
+        "momChange": 2.1,
+        "yoyChange": 9.8
+      }
+    },
+    {
+      "period": "2025-03",
+      "periodLabel": "March 2025",
+      "startDate": "2025-03-01",
+      "endDate": "2025-03-31",
+      "totalSent": 916,
+      "totalOpened": 530,
+      "totalClicked": 111,
+      "openRate": 0.579,
+      "clickRate": 0.121,
+      "clickToOpenRate": 0.209,
+      "campaignCount": 4,
+      "openRateChange": {
+        "momChange": -4.2,
+        "yoyChange": -2.5
+      },
+      "clickRateChange": {
+        "momChange": -0.8,
+        "yoyChange": 2.5
+      },
+      "totalSentChange": {
+        "momChange": -1.5,
+        "yoyChange": 7.8
+      }
+    },
+    {
+      "period": "2025-02",
+      "periodLabel": "February 2025",
+      "startDate": "2025-02-01",
+      "endDate": "2025-02-28",
+      "totalSent": 930,
+      "totalOpened": 562,
+      "totalClicked": 114,
+      "openRate": 0.604,
+      "clickRate": 0.122,
+      "clickToOpenRate": 0.203,
+      "campaignCount": 3,
+      "openRateChange": {
+        "momChange": -3.6,
+        "yoyChange": -0.8
+      },
+      "clickRateChange": {
+        "momChange": -1.6,
+        "yoyChange": 1.7
+      },
+      "totalSentChange": {
+        "momChange": 6.6,
+        "yoyChange": 10.3
+      }
+    },
+    {
+      "period": "2025-01",
+      "periodLabel": "January 2025",
+      "startDate": "2025-01-01",
+      "endDate": "2025-01-31",
+      "totalSent": 873,
+      "totalOpened": 546,
+      "totalClicked": 108,
+      "openRate": 0.625,
+      "clickRate": 0.124,
+      "clickToOpenRate": 0.198,
+      "campaignCount": 4,
+      "openRateChange": {
+        "momChange": 1.8,
+        "yoyChange": 2.5
+      },
+      "clickRateChange": {
+        "momChange": 3.3,
+        "yoyChange": 7.8
+      },
+      "totalSentChange": {
+        "momChange": 1.3,
+        "yoyChange": 15.1
+      }
+    },
+    {
+      "period": "2024-12",
+      "periodLabel": "December 2024",
+      "startDate": "2024-12-01",
+      "endDate": "2024-12-31",
+      "totalSent": 862,
+      "totalOpened": 530,
+      "totalClicked": 103,
+      "openRate": 0.615,
+      "clickRate": 0.120,
+      "clickToOpenRate": 0.194,
+      "campaignCount": 3,
+      "openRateChange": {
+        "momChange": 0.5,
+        "yoyChange": 3.1
+      },
+      "clickRateChange": {
+        "momChange": 1.7,
+        "yoyChange": 6.2
+      },
+      "totalSentChange": {
+        "momChange": -2.7,
+        "yoyChange": 12.6
+      }
+    }
+  ]
+}

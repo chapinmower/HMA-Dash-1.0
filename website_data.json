@@ -1,0 +1,55 @@
+{
+  "users": 1428,
+  "sessions": 1892,
+  "pagesPerSession": 2.8,
+  "avgSessionDuration": "3:24",
+  "trafficSources": [
+    {
+      "source": "Direct",
+      "sessions": 1010,
+      "percentage": 53.4
+    },
+    {
+      "source": "Organic Search",
+      "sessions": 450,
+      "percentage": 23.8
+    },
+    {
+      "source": "Referral",
+      "sessions": 432,
+      "percentage": 22.8
+    }
+  ],
+  "dailyStats": [
+    {
+      "date": "2025-03-01",
+      "users": 45,
+      "sessions": 52,
+      "pagesPerSession": 2.9
+    },
+    {
+      "date": "2025-03-02",
+      "users": 52,
+      "sessions": 58,
+      "pagesPerSession": 2.7
+    },
+    {
+      "date": "2025-03-03",
+      "users": 48,
+      "sessions": 55,
+      "pagesPerSession": 2.8
+    },
+    {
+      "date": "2025-03-04",
+      "users": 50,
+      "sessions": 57,
+      "pagesPerSession": 2.6
+    },
+    {
+      "date": "2025-03-05",
+      "users": 47,
+      "sessions": 54,
+      "pagesPerSession": 3
+    }
+  ]
+}

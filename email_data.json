@@ -1,0 +1,45 @@
+{
+  "campaigns": [
+    {
+      "title": "New Year Update",
+      "sendDate": 45691,
+      "totalRecipients": 412,
+      "opens": 338,
+      "clicks": 9,
+      "unsubscribes": 0,
+      "performance": {
+        "openRate": 82.03883495145631,
+        "clickRate": 2.6627218934911245,
+        "engagementRate": 10.825242718446601
+      }
+    },
+    {
+      "title": "Monthly Update",
+      "sendDate": 45735,
+      "totalRecipients": 414,
+      "opens": 342,
+      "clicks": 18,
+      "unsubscribes": 0,
+      "performance": {
+        "openRate": 82.6086956521739,
+        "clickRate": 5.263157894736842,
+        "engagementRate": 13.429951690821255
+      }
+    }
+  ],
+  "monthlyStats": {
+    "totalRecipients": 826,
+    "totalOpens": 680,
+    "totalClicks": 27,
+    "averageOpenRate": 82.32445520581115,
+    "averageClickRate": 3.9705882352941173,
+    "topPerformingCampaign": "Monthly Update"
+  },
+  "contentPerformance": [
+    {
+      "title": "Market Update - February",
+      "clicks": 27,
+      "clickRate": 3.9705882352941173
+    }
+  ]
+}
