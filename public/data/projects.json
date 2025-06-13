@@ -29,8 +29,8 @@
     },
     {
       "id": 2,
-      "name": "Q3 2025 Market Letter",
-      "description": "Quarterly market insights letter for clients",
+      "name": "Website Revamp",
+      "description": "Complete website redesign and development project",
       "startDate": "2025-06-01",
       "endDate": "2025-07-15",
       "status": "Planned",
@@ -38,19 +38,19 @@
       "tasks": [
         {
           "id": 201,
-          "title": "Draft market analysis",
-          "description": "Research and write market analysis section",
+          "title": "Call with HT WebDev Team",
+          "description": "Initial planning call with development team",
           "status": "Not Started",
           "progress": 0,
           "due_date": "2025-06-15"
         },
         {
           "id": 202,
-          "title": "Design newsletter template",
-          "description": "Update design for Q3 theme",
+          "title": "Fill in templates, create rough visuals",
+          "description": "Prepare templates and visual mockups for the call",
           "status": "Not Started",
           "progress": 0,
-          "due_date": "2025-06-20"
+          "due_date": "2025-06-14"
         }
       ]
     }

@@ -1,61 +1,45 @@
 {
-  "name": "hma-marketing-dashboard",
+  "name": "hma-marketing-dashboard-react",
   "version": "2.0.0",
-  "description": "HMA Marketing Dashboard with enhanced features",
-  "main": "server.js",
+  "description": "HMA Marketing Dashboard React Frontend",
+  "homepage": "https://chapinmower.github.io/HMA-Dash-1.0",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
-    "prod": "NODE_ENV=production node server.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
     "process-analytics": "node scripts/process_analytics_data.js",
-    "update-data": "node scripts/process_real_data.js",
-    "deploy-data": "npm run update-data && git add frontend/public/data/*.json && echo 'Data files updated with real analytics. Ready to commit and push to GitHub Pages.'"
-  },
-  "engines": {
-    "node": "18.x"
+    "update-data": "node scripts/update_dashboard_data.js",
+    "deploy-data": "npm run update-data && npm run build && npm run deploy"
   },
   "dependencies": {
-    "@radix-ui/react-slot": "^1.1.2",
-    "@supabase/supabase-js": "^2.49.4",
-    "axios": "^1.9.0",
-    "cheerio": "^1.0.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
-    "csv-parse": "^5.6.0",
-    "csv-parser": "^3.2.0",
-    "docx": "^9.3.0",
-    "dotenv": "^16.4.7",
-    "express": "^4.18.2",
-    "express-session": "^1.18.1",
-    "mammoth": "^1.9.0",
-    "moment": "^2.30.1",
-    "multer": "^1.4.5-lts.2",
-    "node-cron": "^3.0.3",
-    "nodemailer": "^6.10.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-vis-timeline": "^2.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.0",
+    "react-scripts": "5.0.1",
+    "@mui/material": "^5.15.0",
+    "@mui/icons-material": "^5.15.0",
+    "@mui/lab": "^5.0.0-alpha.170",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "recharts": "^2.15.1",
-    "tailwindcss": "^4.1.0",
-    "vis-timeline": "^7.7.4",
-    "xlsx": "^0.18.5",
-    "xss": "^1.0.15"
+    "moment": "^2.30.1",
+    "chart.js": "^4.4.8",
+    "react-chartjs-2": "^5.2.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "gh-pages": "^6.2.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chapinmower/HMA-Marketing-Dashboard.git"
-  },
-  "keywords": [
-    "dashboard",
-    "marketing",
-    "hma"
-  ],
-  "author": "HMA Team",
-  "license": "UNLICENSED",
-  "private": true
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

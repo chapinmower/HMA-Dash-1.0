@@ -52,8 +52,22 @@ const ProjectProgressTracker = () => {
   const loadProjects = async () => {
     try {
       setLoading(true);
-      const data = await loadStaticData('projects.json');
-      setProjects(data?.projects || []);
+      
+      // First, check if we have projects in localStorage
+      const localProjects = localStorage.getItem('hma_projects');
+      if (localProjects) {
+        const parsedProjects = JSON.parse(localProjects);
+        setProjects(parsedProjects);
+        console.log('Loaded projects from localStorage:', parsedProjects);
+      } else {
+        // If no local storage, load from static JSON
+        const data = await loadStaticData('projects.json');
+        const projectsData = data?.projects || [];
+        setProjects(projectsData);
+        // Save to localStorage for future use
+        localStorage.setItem('hma_projects', JSON.stringify(projectsData));
+        console.log('Loaded projects from JSON and saved to localStorage:', projectsData);
+      }
       
       // Check last updated timestamp
       const timestamp = await loadStaticData('last_updated.json');
@@ -66,6 +80,13 @@ const ProjectProgressTracker = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  // Save projects to localStorage whenever they change
+  const saveProjects = (updatedProjects) => {
+    setProjects(updatedProjects);
+    localStorage.setItem('hma_projects', JSON.stringify(updatedProjects));
+    console.log('Saved projects to localStorage:', updatedProjects);
   };
 
   const getStatusIcon = (status) => {
@@ -400,16 +421,29 @@ const ProjectProgressTracker = () => {
         <Typography variant="h4" component="h1">
           Project Progress Tracker
         </Typography>
-        <Button 
-          variant="contained" 
-          startIcon={<AddIcon />}
-          onClick={() => {
-            // Handle new project creation
-            setEditDialog(true);
-          }}
-        >
-          New Project
-        </Button>
+        <Box display="flex" gap={2}>
+          <Button 
+            variant="outlined" 
+            onClick={async () => {
+              if (window.confirm('This will reload projects from the server. Any local changes not saved to the server will be lost. Continue?')) {
+                localStorage.removeItem('hma_projects');
+                await loadProjects();
+              }
+            }}
+          >
+            Sync from Server
+          </Button>
+          <Button 
+            variant="contained" 
+            startIcon={<AddIcon />}
+            onClick={() => {
+              setSelectedProject(null); // Ensure we're creating a new project
+              setEditDialog(true);
+            }}
+          >
+            New Project
+          </Button>
+        </Box>
       </Box>
 
       {lastUpdated && (
@@ -446,6 +480,145 @@ const ProjectProgressTracker = () => {
       )}
 
       <ProjectDetailDialog />
+      
+      {/* Edit/Create Project Dialog */}
+      <Dialog 
+        open={editDialog} 
+        onClose={() => {
+          setEditDialog(false);
+          setSelectedProject(null);
+        }}
+        maxWidth="md"
+        fullWidth
+      >
+        <DialogTitle>
+          {selectedProject ? 'Edit Project' : 'Create New Project'}
+        </DialogTitle>
+        <DialogContent>
+          <ProjectForm 
+            project={selectedProject}
+            onSave={(projectData) => {
+              if (selectedProject) {
+                // Edit existing project
+                const updatedProjects = projects.map(p => 
+                  p.id === selectedProject.id ? { ...p, ...projectData, lastUpdated: new Date().toISOString() } : p
+                );
+                saveProjects(updatedProjects);
+              } else {
+                // Create new project
+                const newProject = {
+                  ...projectData,
+                  id: Math.max(...projects.map(p => p.id), 0) + 1,
+                  tasks: [],
+                  lastUpdated: new Date().toISOString()
+                };
+                saveProjects([...projects, newProject]);
+              }
+              setEditDialog(false);
+              setSelectedProject(null);
+            }}
+            onCancel={() => {
+              setEditDialog(false);
+              setSelectedProject(null);
+            }}
+          />
+        </DialogContent>
+      </Dialog>
+    </Box>
+  );
+};
+
+// Project Form Component
+const ProjectForm = ({ project, onSave, onCancel }) => {
+  const [formData, setFormData] = useState({
+    name: project?.name || '',
+    description: project?.description || '',
+    startDate: project?.startDate || new Date().toISOString().split('T')[0],
+    endDate: project?.endDate || '',
+    status: project?.status || 'Planned',
+    completionPercentage: project?.completionPercentage || 0
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSave(formData);
+  };
+
+  return (
+    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
+      <TextField
+        fullWidth
+        label="Project Name"
+        value={formData.name}
+        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+        required
+        sx={{ mb: 2 }}
+      />
+      <TextField
+        fullWidth
+        label="Description"
+        value={formData.description}
+        onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+        multiline
+        rows={3}
+        sx={{ mb: 2 }}
+      />
+      <Grid container spacing={2} sx={{ mb: 2 }}>
+        <Grid item xs={6}>
+          <TextField
+            fullWidth
+            label="Start Date"
+            type="date"
+            value={formData.startDate}
+            onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
+            InputLabelProps={{ shrink: true }}
+            required
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            fullWidth
+            label="End Date"
+            type="date"
+            value={formData.endDate}
+            onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
+            InputLabelProps={{ shrink: true }}
+            required
+          />
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} sx={{ mb: 2 }}>
+        <Grid item xs={6}>
+          <FormControl fullWidth>
+            <InputLabel>Status</InputLabel>
+            <Select
+              value={formData.status}
+              onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+              label="Status"
+            >
+              <MenuItem value="Planned">Planned</MenuItem>
+              <MenuItem value="In Progress">In Progress</MenuItem>
+              <MenuItem value="Completed">Completed</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            fullWidth
+            label="Completion %"
+            type="number"
+            value={formData.completionPercentage}
+            onChange={(e) => setFormData({ ...formData, completionPercentage: parseInt(e.target.value) || 0 })}
+            InputProps={{ inputProps: { min: 0, max: 100 } }}
+          />
+        </Grid>
+      </Grid>
+      <Box display="flex" justifyContent="flex-end" gap={2}>
+        <Button onClick={onCancel}>Cancel</Button>
+        <Button type="submit" variant="contained">
+          {project ? 'Save Changes' : 'Create Project'}
+        </Button>
+      </Box>
     </Box>
   );
 };

@@ -2,7 +2,7 @@
 // This version uses local JSON files instead of real API calls
 
 // Utility function to load data from static JSON files
-const loadStaticData = async (dataFile) => {
+export const loadStaticData = async (dataFile) => {
   try {
     const response = await fetch(`${process.env.PUBLIC_URL}/data/${dataFile}`);
     if (!response.ok) {
