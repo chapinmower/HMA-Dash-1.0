@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
@@ -35,13 +35,13 @@ const theme = createTheme({
 function App() {
   // The main app layout
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box sx={{ display: 'flex' }}>
-        <Sidebar />
-        <Box component="main" sx={{ flexGrow: 1, p: 3, mt: 8 }}>
-          {/* Removed basename for local development */}
-          <Routes>
+    <HashRouter>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Box sx={{ display: 'flex' }}>
+          <Sidebar />
+          <Box component="main" sx={{ flexGrow: 1, p: 3, mt: 8 }}>
+            <Routes>
             <Route path="/" element={<Dashboard />} />
             {/* <Route path="/campaigns" element={<Campaigns />} /> */}
             <Route path="/analytics/email" element={<EmailAnalyticsPage />} />
@@ -67,6 +67,7 @@ function App() {
         </Box>
       </Box>
     </ThemeProvider>
+    </HashRouter>
   );
 }
 
