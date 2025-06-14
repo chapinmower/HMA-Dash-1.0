@@ -27,7 +27,10 @@ import {
   DialogActions,
   IconButton,
   Tabs,
-  Tab
+  Tab,
+  Tooltip,
+  Collapse,
+  LinearProgress
 } from '@mui/material';
 import {
   Add as AddIcon,
@@ -37,11 +40,29 @@ import {
   Error as ErrorIcon,
   HighPriority as HighPriorityIcon,
   Delete as DeleteIcon,
-  Edit as EditIcon
+  Edit as EditIcon,
+  AccountTree as AccountTreeIcon,
+  Launch as LaunchIcon,
+  PlayArrow as PlayArrowIcon,
+  ExpandMore as ExpandMoreIcon,
+  ExpandLess as ExpandLessIcon,
+  CalendarToday as CalendarTodayIcon,
+  Message as MessageIcon,
+  Timeline as TimelineIcon,
+  Visibility as VisibilityIcon
 } from '@mui/icons-material';
 
 // Simulated API URL - replace with actual backend endpoint when available
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001/api';
+
+// Partners list for the firm
+const partners = [
+  { id: 'john-h', name: 'John Hummer', department: 'Managing Partner' },
+  { id: 'mary-m', name: 'Mary Mower', department: 'Senior Partner' },
+  { id: 'robert-a', name: 'Robert Associates', department: 'Partner' },
+  { id: 'sarah-j', name: 'Sarah Johnson', department: 'Partner' },
+  { id: 'michael-s', name: 'Michael Smith', department: 'Associate Partner' }
+];
 
 function Requests() {
   // Form state
@@ -51,17 +72,25 @@ function Requests() {
     type: '',
     priority: 'medium',
     dueDate: '',
-    assignedTo: 'chapin-m'
+    assignedTo: 'chapin-m',
+    requestedBy: '',
+    estimatedHours: '',
+    successMetrics: ''
   });
 
   // Application state
   const [requests, setRequests] = useState([]);
+  const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'info' });
   const [confirmDialog, setConfirmDialog] = useState({ open: false, requestId: null });
   const [editMode, setEditMode] = useState(false);
   const [editingRequestId, setEditingRequestId] = useState(null);
-  const [tabValue, setTabValue] = useState(0); // State for tabs (0 = Active, 1 = Completed)
+  const [tabValue, setTabValue] = useState(0); // State for tabs (0 = Active, 1 = In Progress, 2 = Completed)
+  const [expandedCards, setExpandedCards] = useState({});
+  const [convertToProjectDialog, setConvertToProjectDialog] = useState({ open: false, request: null });
+  const [viewMode, setViewMode] = useState('cards');
+  const [selectedPartner, setSelectedPartner] = useState('all');
 
   // Load existing requests on component mount
   useEffect(() => {
@@ -87,17 +116,63 @@ function Requests() {
     setTimeout(() => {
       const mockRequests = [
         {
+          id: 1,
+          title: 'Q2 2025 Newsletter Design Update',
+          description: 'Update the quarterly newsletter template with new branding guidelines and add sections for client spotlights and market insights.',
+          type: 'email',
+          priority: 'high',
+          status: 'in-progress',
+          createdAt: '2025-06-10T09:30:00',
+          dueDate: '2025-06-20',
+          assignedTo: 'chapin-m',
+          requestedBy: 'john-h',
+          estimatedHours: '8-12 hours',
+          successMetrics: 'Higher engagement rates than Q1 newsletter, professional appearance consistent with new brand guidelines',
+          progress: 65,
+          department: 'Marketing',
+          projectId: 'proj-newsletter-q2',
+          updates: [
+            {
+              date: '2025-06-14T10:15:00',
+              message: 'Completed initial design mockups and received approval from John'
+            },
+            {
+              date: '2025-06-13T14:30:00',
+              message: 'Started template restructure with new branding elements'
+            }
+          ]
+        },
+        {
+          id: 2,
+          title: 'Update firm website contact forms',
+          description: 'Modernize the contact forms on our website to improve lead capture and integrate with our CRM system.',
+          type: 'website',
+          priority: 'medium',
+          status: 'pending',
+          createdAt: '2025-06-12T11:15:00',
+          dueDate: '2025-06-25',
+          assignedTo: 'chapin-m',
+          requestedBy: 'mary-m',
+          estimatedHours: '4-6 hours',
+          successMetrics: 'Increased form completion rates and seamless CRM integration',
+          department: 'Business Development'
+        },
+        {
           id: 3, 
-          title: 'Add new client to distribution list',
-          description: 'Need to add Grove Financial to our newsletter distribution list.',
+          title: 'Add Grove Financial to distribution lists',
+          description: 'Add new client Grove Financial to our newsletter and market update distribution lists.',
           type: 'contact',
           priority: 'low',
           status: 'completed',
           createdAt: '2025-05-05T14:45:00',
           dueDate: '2025-05-08',
           assignedTo: 'chapin-m',
+          requestedBy: 'sarah-j',
+          estimatedHours: '1 hour',
+          successMetrics: 'Client successfully added to all relevant communications',
           completedAt: '2025-05-06T11:20:00',
-          notes: 'Added to both newsletter and market update distribution lists'
+          notes: 'Added to both newsletter and market update distribution lists',
+          department: 'Client Relations'
         }
       ];
       
@@ -198,7 +273,10 @@ function Requests() {
         type: '',
         priority: 'medium',
         dueDate: '',
-        assignedTo: 'chapin-m'
+        assignedTo: 'chapin-m',
+        requestedBy: '',
+        estimatedHours: '',
+        successMetrics: ''
       });
       
       setLoading(false);
@@ -213,7 +291,10 @@ function Requests() {
       type: request.type,
       priority: request.priority,
       dueDate: request.dueDate,
-      assignedTo: request.assignedTo
+      assignedTo: request.assignedTo,
+      requestedBy: request.requestedBy || '',
+      estimatedHours: request.estimatedHours || '',
+      successMetrics: request.successMetrics || ''
     });
     setEditMode(true);
     setEditingRequestId(request.id);
@@ -300,7 +381,10 @@ function Requests() {
       type: '',
       priority: 'medium',
       dueDate: '',
-      assignedTo: 'chapin-m'
+      assignedTo: 'chapin-m',
+      requestedBy: '',
+      estimatedHours: '',
+      successMetrics: ''
     });
   };
 
@@ -368,6 +452,99 @@ function Requests() {
       'aria-controls': `requests-tabpanel-${index}`,
     };
   }
+
+  // Helper functions
+  const getFilteredRequests = (status) => {
+    let filtered = requests;
+    
+    // Filter by status
+    if (status === 'active') {
+      filtered = filtered.filter(req => req.status === 'pending');
+    } else if (status === 'in-progress') {
+      filtered = filtered.filter(req => req.status === 'in-progress');
+    } else if (status === 'completed') {
+      filtered = filtered.filter(req => req.status === 'completed');
+    }
+    
+    // Filter by partner if selected
+    if (selectedPartner !== 'all') {
+      filtered = filtered.filter(req => req.requestedBy === selectedPartner);
+    }
+    
+    return filtered;
+  };
+
+  const getDaysUntilDue = (dueDate) => {
+    if (!dueDate) return null;
+    const today = new Date();
+    const due = new Date(dueDate);
+    const diffTime = due - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
+  };
+
+  const formatDateTime = (dateString) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  };
+
+  const getStatusIcon = (status) => {
+    switch (status) {
+      case 'completed': return <CheckCircleIcon />;
+      case 'in-progress': return <TimerIcon />;
+      case 'pending': return <RefreshIcon />;
+      default: return <RefreshIcon />;
+    }
+  };
+
+  const toggleCardExpansion = (requestId) => {
+    setExpandedCards(prev => ({
+      ...prev,
+      [requestId]: !prev[requestId]
+    }));
+  };
+
+  const handleConvertToProject = (request) => {
+    setConvertToProjectDialog({ open: true, request });
+  };
+
+  const confirmProjectConversion = async () => {
+    const request = convertToProjectDialog.request;
+    if (!request) return;
+
+    setLoading(true);
+    
+    // Simulate API call to create project
+    setTimeout(() => {
+      // Update request with project ID and status
+      const updatedRequests = requests.map(req => 
+        req.id === request.id 
+          ? { 
+              ...req, 
+              status: 'in-progress',
+              projectId: `proj-${Date.now()}`,
+              progress: 0,
+              updates: [{
+                date: new Date().toISOString(),
+                message: 'Request converted to project and moved to active development'
+              }]
+            } 
+          : req
+      );
+      
+      setRequests(updatedRequests);
+      setConvertToProjectDialog({ open: false, request: null });
+      showSnackbar('Request successfully converted to project!', 'success');
+      setLoading(false);
+    }, 1000);
+  };
 
   return (
     <Box sx={{ p: 3 }}>
