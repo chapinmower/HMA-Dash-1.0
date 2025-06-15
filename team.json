@@ -2,24 +2,24 @@
   "members": [
     {
       "id": 1,
-      "name": "Jane Doe",
-      "role": "Marketing Manager",
-      "email": "jane.doe@hummermower.com",
-      "photo": "/assets/team/jane-doe.jpg"
+      "name": "Grove N. Mower",
+      "role": "Managing Partner",
+      "email": "grove.mower@hummermower.com",
+      "photo": "/assets/team/grove-mower.jpg"
     },
     {
       "id": 2,
-      "name": "John Smith",
-      "role": "Content Specialist",
-      "email": "john.smith@hummermower.com",
-      "photo": "/assets/team/john-smith.jpg"
+      "name": "Ryan J. Ross",
+      "role": "Partner, CFP®, CPWA®",
+      "email": "ryan.ross@hummermower.com",
+      "photo": "/assets/team/ryan-ross.jpg"
     },
     {
       "id": 3,
-      "name": "Sarah Johnson",
-      "role": "Digital Marketing Coordinator",
-      "email": "sarah.johnson@hummermower.com",
-      "photo": "/assets/team/sarah-johnson.jpg"
+      "name": "Lorraine G. Hutchinson",
+      "role": "Partner, CFP®",
+      "email": "lorraine.hutchinson@hummermower.com",
+      "photo": "/assets/team/lorraine-hutchinson.jpg"
     }
   ]
 }

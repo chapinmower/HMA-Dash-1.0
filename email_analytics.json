@@ -1,6 +1,17 @@
 {
   "summaries": [
     {
+      "period": "May 2025",
+      "opens": 587,
+      "clicks": 127,
+      "clickThroughRate": "21.6%",
+      "openRate": "58.8%",
+      "customEngagement": 714,
+      "totalSent": 998,
+      "campaignCount": 5,
+      "lastUpdated": "2025-06-01T12:00:00.000Z"
+    },
+    {
       "period": "April 2025",
       "opens": 1568,
       "clicks": 621,
@@ -21,6 +32,28 @@
   "campaigns": [
     {
       "id": 1,
+      "name": "May Newsletter",
+      "date": "2025-05-15",
+      "opens": 587,
+      "clicks": 127,
+      "ctr": "21.6%",
+      "topLinks": [
+        {
+          "url": "hummermower.com/market-outlook",
+          "clicks": 45
+        },
+        {
+          "url": "hummermower.com/tax-planning",
+          "clicks": 38
+        },
+        {
+          "url": "hummermower.com/retirement-updates",
+          "clicks": 44
+        }
+      ]
+    },
+    {
+      "id": 2,
       "name": "April Newsletter",
       "date": "2025-04-15",
       "opens": 687,
@@ -28,21 +61,21 @@
       "ctr": "34.1%",
       "topLinks": [
         {
-          "url": "example.com/tax-updates",
+          "url": "hummermower.com/tax-updates",
           "clicks": 87
         },
         {
-          "url": "example.com/market-insights",
+          "url": "hummermower.com/market-insights",
           "clicks": 65
         },
         {
-          "url": "example.com/retirement-planning",
+          "url": "hummermower.com/retirement-planning",
           "clicks": 42
         }
       ]
     },
     {
-      "id": 2,
+      "id": 3,
       "name": "March Newsletter",
       "date": "2025-03-15",
       "opens": 532,
@@ -50,11 +83,11 @@
       "ctr": "35.2%",
       "topLinks": [
         {
-          "url": "example.com/article1",
+          "url": "hummermower.com/quarterly-review",
           "clicks": 42
         },
         {
-          "url": "example.com/article2",
+          "url": "hummermower.com/investment-outlook",
           "clicks": 37
         }
       ]

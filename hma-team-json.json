@@ -1,0 +1,283 @@
+{
+  "company": {
+    "name": "Hummer Mower Associates",
+    "abbreviation": "HMA",
+    "tagline": "The Newest Old Firm in Chicago",
+    "founded": "Founded on the principles of sound advice and excellent service",
+    "address": {
+      "street": "321 N Clark St",
+      "suite": "Suite 1020",
+      "city": "Chicago",
+      "state": "IL",
+      "zip": "60654",
+      "phone": "888.501.3016"
+    }
+  },
+  "team_members": [
+    {
+      "id": 1,
+      "name": "Grove N. Mower",
+      "title": "Managing Partner",
+      "credentials": [],
+      "primary_responsibilities": [
+        "Client relationships",
+        "Strategic planning",
+        "Business development"
+      ],
+      "professional_background": {
+        "years_experience": "Since 1982",
+        "markets": ["New York", "Chicago"],
+        "industry": "Securities business"
+      },
+      "education": [
+        {
+          "degree": "Graduate",
+          "institution": "Brown University"
+        }
+      ],
+      "licenses": [],
+      "professional_affiliations": [
+        "Trustee - The Ragdale Foundation",
+        "Trustee - American Writers Museum"
+      ],
+      "additional_info": {
+        "author": true,
+        "books": ["Hope", "Forty Rod Road"],
+        "location": "Lincoln Park neighborhood, Chicago",
+        "personal": "Lives with dog Vino"
+      },
+      "display_order": 1
+    },
+    {
+      "id": 2,
+      "name": "Ryan J. Ross",
+      "title": "Partner",
+      "credentials": ["CFP®", "CPWA®"],
+      "primary_responsibilities": [
+        "Financial planning initiatives",
+        "Client portfolio management",
+        "Investment committee member"
+      ],
+      "professional_background": {
+        "years_experience": "15 years",
+        "description": "Industry veteran planning to make work a life passion"
+      },
+      "education": [
+        {
+          "degree": "Bachelor of Arts in Business Administration",
+          "concentrations": ["Finance", "Economics"],
+          "institution": "University of Dayton"
+        }
+      ],
+      "licenses": [
+        "Illinois Life Insurance",
+        "Illinois Health Insurance",
+        "Illinois Variable Annuities"
+      ],
+      "professional_affiliations": [
+        "Head of student outreach sub-committee - Chicago Estate Planning Council"
+      ],
+      "additional_info": {
+        "location": "Valparaiso, Indiana",
+        "family": "Wife Andrea, sons Charlie and Teddy"
+      },
+      "display_order": 2
+    },
+    {
+      "id": 3,
+      "name": "Lorraine G. Hutchinson",
+      "title": "Partner",
+      "credentials": ["CFP®"],
+      "primary_responsibilities": [
+        "Family financial goals",
+        "Retirement planning",
+        "College planning",
+        "Insurance planning",
+        "Estate planning"
+      ],
+      "professional_background": {
+        "start_year": "1995",
+        "previous_employer": "Wayne Hummer Investments",
+        "joined_hma": "2022",
+        "origin": "Relocated from Ireland to Chicago in 1995"
+      },
+      "education": [
+        {
+          "degree": "Graduate",
+          "institution": "University College Dublin"
+        }
+      ],
+      "licenses": [
+        "FINRA Series 7",
+        "FINRA Series 63",
+        "FINRA Series 65",
+        "Illinois Life Insurance",
+        "Illinois Health Insurance",
+        "Illinois VA Insurance"
+      ],
+      "professional_affiliations": [],
+      "additional_info": {
+        "location": "Elmhurst",
+        "family": "Three children",
+        "pets": "Dog Nellie",
+        "interests": ["Cooking", "Entertaining", "Travel", "Reading"]
+      },
+      "display_order": 3
+    },
+    {
+      "id": 4,
+      "name": "Kelly M. Manchac",
+      "title": "Partner",
+      "credentials": ["CRPC®", "FPQP™"],
+      "primary_responsibilities": [
+        "Total client experience",
+        "Life-long client relationships",
+        "Client support and advocacy",
+        "Operational liaison",
+        "Problem solving"
+      ],
+      "professional_background": {
+        "start_year": "1999",
+        "previous_employer": "Wayne Hummer Investments",
+        "joined_hma": "2022"
+      },
+      "education": [],
+      "licenses": [
+        "FINRA Series 7",
+        "FINRA Series 63",
+        "FINRA Series 66",
+        "Illinois Life Insurance",
+        "Illinois Health Insurance",
+        "Illinois Variable Annuities Insurance"
+      ],
+      "professional_affiliations": [],
+      "additional_info": {
+        "location": "New Lenox, Illinois",
+        "family": "Husband Stephen",
+        "pets": "Two miniature dachshunds",
+        "interests": ["Live music", "Staying active", "Time with friends and family"]
+      },
+      "display_order": 4
+    },
+    {
+      "id": 5,
+      "name": "David D. Cox",
+      "title": "Partner",
+      "credentials": ["CFA®"],
+      "primary_responsibilities": [
+        "Investment portfolio management",
+        "Managing investments for individuals",
+        "Managing investments for trusts",
+        "Managing investments for family offices",
+        "Managing investments for foundations",
+        "Managing investments for pension plans"
+      ],
+      "professional_background": {
+        "years_experience": "25+ years",
+        "specialty": "Investment management"
+      },
+      "education": [
+        {
+          "degree": "Bachelor of Science in Economics",
+          "institution": "Babson College"
+        }
+      ],
+      "licenses": [],
+      "professional_affiliations": [
+        "CFA Institute - Active Member",
+        "CFA Society of Chicago - Active Member"
+      ],
+      "additional_info": {
+        "location": "Chicago's western suburbs",
+        "family": "Wife Nicole, two children",
+        "property": "Michigan lake house",
+        "interests": ["Travel", "Cooking", "Wine", "History books", "Biographies", "Chicago sports"]
+      },
+      "display_order": 5
+    },
+    {
+      "id": 6,
+      "name": "Jonathan B. Harper",
+      "title": "Financial Planner & Advisor, Partner",
+      "credentials": ["CFP®"],
+      "primary_responsibilities": [
+        "Investment committee work",
+        "Financial planning practice",
+        "Client relationship management"
+      ],
+      "professional_background": {
+        "joined_hma": "January 2020",
+        "previous_employer": "Chicago-based RIA"
+      },
+      "education": [
+        {
+          "degree": "Bachelor of Arts in Economics",
+          "minor": "Spanish",
+          "institution": "Dickinson College",
+          "year": "2016"
+        }
+      ],
+      "licenses": [],
+      "professional_affiliations": [
+        "Board Member and Treasurer - Camp Hope of Illinois"
+      ],
+      "additional_info": {
+        "location": "North Shore suburbs of Chicago",
+        "family": "Wife Lucia",
+        "pets": "Dog Blueberry",
+        "interests": ["Soccer", "Green Bay Packers", "Running", "Restaurants"]
+      },
+      "display_order": 6
+    },
+    {
+      "id": 7,
+      "name": "Chapin H. Mower",
+      "title": "Marketing & Communications, Partner",
+      "credentials": [],
+      "primary_responsibilities": [
+        "Marketing initiatives",
+        "Team operations support",
+        "Next generation client relationships"
+      ],
+      "professional_background": {
+        "joined_hma": "January 2017",
+        "previous_employer": "Tampa Bay Rays",
+        "previous_role": "Sales department"
+      },
+      "education": [
+        {
+          "degree": "Bachelor of Science in Business Administration",
+          "concentration": "Marketing",
+          "institution": "College of Charleston"
+        }
+      ],
+      "licenses": [],
+      "professional_affiliations": [],
+      "additional_info": {
+        "location": "Bucktown neighborhood, Chicago",
+        "activities": [
+          "Coaching middle school boys' basketball",
+          "Boxing",
+          "Golf",
+          "Recreational softball"
+        ]
+      },
+      "display_order": 7
+    }
+  ],
+  "metadata": {
+    "last_updated": "2024",
+    "total_team_members": 7,
+    "data_source": "HMA official documents",
+    "strategic_partner": {
+      "name": "HighTower",
+      "relationship": "Strategic Partner",
+      "founded": "2008",
+      "headquarters": "Chicago",
+      "offices_nationwide": 131,
+      "employees": 700,
+      "advisor_teams": 140,
+      "aum": "$153.7 Billion"
+    }
+  }
+}
