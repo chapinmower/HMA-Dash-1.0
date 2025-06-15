@@ -51,6 +51,8 @@ import {
   Schedule as ScheduleIcon
 } from '@mui/icons-material';
 import { loadStaticData } from '../apiClient';
+import EmailDataImporter from './EmailDataImporter';
+import { DataSync } from '../utils/dataSync';
 
 const DataManagement = () => {
   const [dataFiles, setDataFiles] = useState({});
@@ -61,6 +63,7 @@ const DataManagement = () => {
   const [updateData, setUpdateData] = useState({});
   const [error, setError] = useState(null);
   const [expandedSection, setExpandedSection] = useState(false);
+  const [showImporter, setShowImporter] = useState(false);
 
   const dataTypes = [
     { key: 'email_analytics', name: 'Email Analytics', icon: '📧' },
@@ -242,6 +245,16 @@ const DataManagement = () => {
             >
               Update
             </Button>
+            {dataType === 'email_analytics' && (
+              <Button 
+                size="small" 
+                startIcon={<UploadIcon />}
+                onClick={() => setShowImporter(true)}
+                color="primary"
+              >
+                Import
+              </Button>
+            )}
             <Button 
               size="small" 
               startIcon={<HistoryIcon />}
@@ -466,7 +479,22 @@ const DataManagement = () => {
                 startIcon={<UploadIcon />}
                 onClick={() => {
                   // Handle bulk data upload
-                  console.log('Bulk upload triggered');
+                  const input = document.createElement('input');
+                  input.type = 'file';
+                  input.accept = '.json';
+                  input.onchange = async (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                      try {
+                        const result = await DataSync.importData(file);
+                        alert(result.message);
+                        loadAllData(); // Refresh the data display
+                      } catch (error) {
+                        alert(error.message);
+                      }
+                    }
+                  };
+                  input.click();
                 }}
               >
                 Bulk Upload
@@ -478,14 +506,8 @@ const DataManagement = () => {
                 variant="outlined" 
                 startIcon={<DownloadIcon />}
                 onClick={() => {
-                  // Handle full data export
-                  const allData = { ...dataFiles, lastUpdated };
-                  const blob = new Blob([JSON.stringify(allData, null, 2)], { type: 'application/json' });
-                  const url = URL.createObjectURL(blob);
-                  const a = document.createElement('a');
-                  a.href = url;
-                  a.download = `hma_dashboard_data_${new Date().toISOString().split('T')[0]}.json`;
-                  a.click();
+                  // Handle full data export using DataSync
+                  DataSync.exportAllData();
                 }}
               >
                 Export All
@@ -522,6 +544,27 @@ const DataManagement = () => {
       </Card>
 
       <UpdateDialog />
+
+      {/* Email Data Importer Dialog */}
+      <Dialog
+        open={showImporter}
+        onClose={() => setShowImporter(false)}
+        maxWidth="lg"
+        fullWidth
+      >
+        <DialogTitle>
+          Import Email Analytics Data
+          <IconButton
+            onClick={() => setShowImporter(false)}
+            sx={{ position: 'absolute', right: 8, top: 8 }}
+          >
+            <CancelIcon />
+          </IconButton>
+        </DialogTitle>
+        <DialogContent>
+          <EmailDataImporter />
+        </DialogContent>
+      </Dialog>
     </Box>
   );
 };

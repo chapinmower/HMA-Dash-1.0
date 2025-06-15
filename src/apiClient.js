@@ -143,6 +143,23 @@ const apiClient = {
     if (url.includes('/api/requests')) {
       return { data: await createTaskRequest(data) };
     }
+    if (url.includes('/api/submit/email-summary')) {
+      // For static deployment, save to localStorage as a workaround
+      try {
+        const existingSummaries = JSON.parse(localStorage.getItem('emailSummaries') || '[]');
+        const newSummary = {
+          id: Date.now(),
+          ...data,
+          created_at: new Date().toISOString()
+        };
+        existingSummaries.push(newSummary);
+        localStorage.setItem('emailSummaries', JSON.stringify(existingSummaries));
+        return { data: newSummary };
+      } catch (error) {
+        console.error('Error saving email summary:', error);
+        throw error;
+      }
+    }
     return { data: { id: Date.now(), ...data } };
   },
   put: async (url, data) => {

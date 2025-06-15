@@ -42,7 +42,7 @@ function DataEntryPage() {
           Manually enter the summary statistics for a specific email campaign and period.
         </Typography>
         {/* Pass editingSummary and a function to clear it once editing is done/cancelled */}
-        <EmailSummaryEntryForm key={editingSummary ? editingSummary.id : 'new'} initialData={editingSummary} onEditComplete={() => setEditingSummary(null)} />
+        <EmailSummaryEntryForm initialData={editingSummary} onEditComplete={() => setEditingSummary(null)} />
 
         {/* Add the manager component below the form */}
         <Divider sx={{ my: 4 }} />
