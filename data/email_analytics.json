@@ -10,20 +10,6 @@
       "lastUpdated": "2025-06-12T17:50:23.725Z"
     },
     {
-      "period": "May 2025",
-      "opens": 4588,
-      "clicks": 128,
-      "clickThroughRate": "2.8%",
-      "openRate": "57.7%",
-      "customEngagement": 4716,
-      "totalSent": 7945,
-      "uniqueContacts": 614,
-      "campaignCount": 10,
-      "emailsPerContact": 12.9,
-      "lastUpdated": "2025-06-15T12:00:00.000Z",
-      "dataSource": "Real HMA Clout Data - May 2025"
-    },
-    {
       "period": "April 2025",
       "opens": 1568,
       "clicks": 621,
@@ -43,34 +29,6 @@
       "sent": 3456,
       "openRate": "23.8%",
       "clickThroughRate": "40.6%"
-    },
-    {
-      "id": 2,
-      "name": "May 2025 Campaign Series",
-      "date": "2025-05-30",
-      "opens": 4588,
-      "clicks": 128,
-      "sent": 7945,
-      "openRate": "57.7%",
-      "clickThroughRate": "2.8%",
-      "uniqueContacts": 614,
-      "topCampaigns": [
-        {
-          "date": "05-30-2025",
-          "sends": 7532,
-          "type": "Primary campaign"
-        },
-        {
-          "date": "05-07-2025", 
-          "sends": 112,
-          "type": "Event promotion"
-        },
-        {
-          "date": "05-14-2025",
-          "sends": 75,
-          "type": "Follow-up"
-        }
-      ]
     }
   ]
 }
