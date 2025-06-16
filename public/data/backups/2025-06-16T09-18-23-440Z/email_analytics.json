@@ -1,0 +1,34 @@
+{
+  "summaries": [
+    {
+      "period": "June 2025",
+      "opens": 1823,
+      "clicks": 734,
+      "clickThroughRate": "40.3%",
+      "openRate": "24.1%",
+      "customEngagement": 956,
+      "lastUpdated": "2025-06-12T17:50:23.725Z"
+    },
+    {
+      "period": "April 2025",
+      "opens": 1568,
+      "clicks": 621,
+      "clickThroughRate": "39.6%",
+      "openRate": "22.3%",
+      "customEngagement": 834,
+      "lastUpdated": "2025-05-26T22:11:40.726Z"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": 1,
+      "name": "June Newsletter",
+      "date": "2025-06-15",
+      "opens": 823,
+      "clicks": 334,
+      "sent": 3456,
+      "openRate": "23.8%",
+      "clickThroughRate": "40.6%"
+    }
+  ]
+}
