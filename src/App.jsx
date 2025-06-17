@@ -19,6 +19,7 @@ import ProjectDetail from './components/ProjectDetail'; // Import ProjectDetail 
 import HistoricalTrends from './components/HistoricalTrends'; // Import HistoricalTrends
 import ProjectProgressTracker from './components/ProjectProgressTracker'; // Import ProjectProgressTracker
 import DataManagement from './components/DataManagement'; // Import DataManagement
+import TaskManager from './components/TaskManager'; // Import enhanced TaskManager
 
 const theme = createTheme({
   palette: {
@@ -59,6 +60,7 @@ function App() {
             {/* Add new dashboard features */}
             <Route path="/trends" element={<HistoricalTrends />} />
             <Route path="/project-tracker" element={<ProjectProgressTracker />} />
+            <Route path="/task-manager" element={<TaskManager />} />
             <Route path="/data-management" element={<DataManagement />} />
             {/* Remove explicit /login route, handled by conditional rendering */}
             {/* Catch-all redirects to dashboard if logged in */}
