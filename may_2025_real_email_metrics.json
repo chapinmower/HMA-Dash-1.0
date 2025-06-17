@@ -1,0 +1,76 @@
+{
+  "may_2025_summary": {
+    "period": "May 2025",
+    "opens": 4588,
+    "clicks": 128,
+    "clickThroughRate": "2.8%",
+    "openRate": "57.7%",
+    "customEngagement": 128,
+    "totalSent": 7945,
+    "clickRate": "1.6%",
+    "avgEngagementScore": 7.1,
+    "lastUpdated": "2025-05-31T18:30:00.000Z"
+  },
+  "campaigns": [
+    {
+      "name": "HMA Review Call",
+      "sent": 31,
+      "opens": 20,
+      "clicks": 0,
+      "openRate": "64.5%",
+      "clickRate": "0.0%",
+      "clickToOpenRate": "0.0%",
+      "avgEngagement": 6.5
+    },
+    {
+      "name": "Re: RSVP: June 18 Double Header With HMA!",
+      "sent": 112,
+      "opens": 102,
+      "clicks": 28,
+      "openRate": "91.1%",
+      "clickRate": "25.0%",
+      "clickToOpenRate": "27.5%",
+      "avgEngagement": 23.8
+    },
+    {
+      "name": "RSVP: June 18 Double Header With HMA!",
+      "sent": 219,
+      "opens": 159,
+      "clicks": 45,
+      "openRate": "72.6%",
+      "clickRate": "20.5%",
+      "clickToOpenRate": "28.3%",
+      "avgEngagement": 19.6
+    },
+    {
+      "name": "May Newsletter",
+      "sent": 7532,
+      "opens": 4270,
+      "clicks": 51,
+      "openRate": "56.7%",
+      "clickRate": "0.7%",
+      "clickToOpenRate": "1.2%",
+      "avgEngagement": 6.4
+    },
+    {
+      "name": "Re: HMA Review Call",
+      "sent": 31,
+      "opens": 21,
+      "clicks": 0,
+      "openRate": "67.7%",
+      "clickRate": "0.0%",
+      "clickToOpenRate": "0.0%",
+      "avgEngagement": 6.8
+    },
+    {
+      "name": "Duplicate of RSVP: June 18 Double Header With HMA!",
+      "sent": 20,
+      "opens": 16,
+      "clicks": 4,
+      "openRate": "80.0%",
+      "clickRate": "20.0%",
+      "clickToOpenRate": "25.0%",
+      "avgEngagement": 20.0
+    }
+  ]
+}
