@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>May 2025 Website Analytics Input Helper</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input { width: 300px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        .instructions { background: #f0f0f0; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+        .section { border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+        .section h3 { margin-top: 0; color: #333; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .copied { background: #28a745 !important; }
+    </style>
+</head>
+<body>
+    <h1>May 2025 Website Analytics Data Input Helper</h1>
+    
+    <div class="instructions">
+        <h3>Instructions:</h3>
+        <p>1. Go to the HMA Dashboard at <a href="https://chapinmower.github.io/HMA-Dash-1.0/data-entry" target="_blank">https://chapinmower.github.io/HMA-Dash-1.0/data-entry</a></p>
+        <p>2. Scroll to the "Enter Website Analytics Summary" section</p>
+        <p>3. Use the values below to fill in the form, or click "Copy All Values" to copy to clipboard</p>
+        <p>4. Submit the form to integrate May 2025 data into the dashboard</p>
+    </div>
+
+    <div class="section">
+        <h3>Report Period</h3>
+        <div class="form-group">
+            <label>Report Start Date:</label>
+            <input type="text" id="report_start_date" value="2025-05-01" readonly>
+        </div>
+        <div class="form-group">
+            <label>Report End Date:</label>
+            <input type="text" id="report_end_date" value="2025-05-31" readonly>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Overall Metrics</h3>
+        <div class="form-group">
+            <label>Total Users:</label>
+            <input type="text" id="total_users" value="328" readonly>
+        </div>
+        <div class="form-group">
+            <label>New Users:</label>
+            <input type="text" id="new_users" value="198" readonly>
+        </div>
+        <div class="form-group">
+            <label>Total Sessions:</label>
+            <input type="text" id="total_sessions" value="415" readonly>
+        </div>
+        <div class="form-group">
+            <label>Avg Pages/Session:</label>
+            <input type="text" id="avg_pages_per_session" value="1.8" readonly>
+        </div>
+        <div class="form-group">
+            <label>Avg Session Duration (Seconds):</label>
+            <input type="text" id="avg_session_duration_seconds" value="180" readonly>
+        </div>
+        <div class="form-group">
+            <label>Total Engaged Sessions:</label>
+            <input type="text" id="total_engaged_sessions" value="298" readonly>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Conversions</h3>
+        <div class="form-group">
+            <label>Calls (Conversion):</label>
+            <input type="text" id="conversion_calls" value="5" readonly>
+        </div>
+        <div class="form-group">
+            <label>Forms Submitted (Conversion):</label>
+            <input type="text" id="conversion_forms" value="3" readonly>
+        </div>
+        <div class="form-group">
+            <label>Email Clicks (Conversion):</label>
+            <input type="text" id="conversion_email_clicks" value="8" readonly>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Top Pages (by Sessions)</h3>
+        <div class="form-group">
+            <label>Page 1 Path:</label>
+            <input type="text" id="top_page_1_path" value="hummermower.com/" readonly>
+        </div>
+        <div class="form-group">
+            <label>Page 1 Sessions:</label>
+            <input type="text" id="top_page_1_sessions" value="272" readonly>
+        </div>
+        <div class="form-group">
+            <label>Page 2 Path:</label>
+            <input type="text" id="top_page_2_path" value="hummermower.com/about.html" readonly>
+        </div>
+        <div class="form-group">
+            <label>Page 2 Sessions:</label>
+            <input type="text" id="top_page_2_sessions" value="94" readonly>
+        </div>
+        <div class="form-group">
+            <label>Page 3 Path:</label>
+            <input type="text" id="top_page_3_path" value="hummermower.com/index.html" readonly>
+        </div>
+        <div class="form-group">
+            <label>Page 3 Sessions:</label>
+            <input type="text" id="top_page_3_sessions" value="45" readonly>
+        </div>
+        <div class="form-group">
+            <label>Page 4 Path:</label>
+            <input type="text" id="top_page_4_path" value="hummermower.com/lorraine-hutchinson.html" readonly>
+        </div>
+        <div class="form-group">
+            <label>Page 4 Sessions:</label>
+            <input type="text" id="top_page_4_sessions" value="32" readonly>
+        </div>
+        <div class="form-group">
+            <label>Page 5 Path:</label>
+            <input type="text" id="top_page_5_path" value="hummermower.com/grove-mower.html" readonly>
+        </div>
+        <div class="form-group">
+            <label>Page 5 Sessions:</label>
+            <input type="text" id="top_page_5_sessions" value="31" readonly>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Top Sources (by Sessions)</h3>
+        <div class="form-group">
+            <label>Source 1:</label>
+            <input type="text" id="top_source_1" value="google" readonly>
+        </div>
+        <div class="form-group">
+            <label>Source 1 Sessions:</label>
+            <input type="text" id="top_source_1_sessions" value="295" readonly>
+        </div>
+        <div class="form-group">
+            <label>Source 2:</label>
+            <input type="text" id="top_source_2" value="direct" readonly>
+        </div>
+        <div class="form-group">
+            <label>Source 2 Sessions:</label>
+            <input type="text" id="top_source_2_sessions" value="78" readonly>
+        </div>
+        <div class="form-group">
+            <label>Source 3:</label>
+            <input type="text" id="top_source_3" value="bing" readonly>
+        </div>
+        <div class="form-group">
+            <label>Source 3 Sessions:</label>
+            <input type="text" id="top_source_3_sessions" value="42" readonly>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Top Search Queries (from Search Console)</h3>
+        <div class="form-group">
+            <label>Query 1:</label>
+            <input type="text" id="top_query_1" value="lawn mower repair" readonly>
+        </div>
+        <div class="form-group">
+            <label>Query 1 Clicks:</label>
+            <input type="text" id="top_query_1_clicks" value="142" readonly>
+        </div>
+        <div class="form-group">
+            <label>Query 1 Impressions:</label>
+            <input type="text" id="top_query_1_impressions" value="2847" readonly>
+        </div>
+        <div class="form-group">
+            <label>Query 2:</label>
+            <input type="text" id="top_query_2" value="hummer mower parts" readonly>
+        </div>
+        <div class="form-group">
+            <label>Query 2 Clicks:</label>
+            <input type="text" id="top_query_2_clicks" value="89" readonly>
+        </div>
+        <div class="form-group">
+            <label>Query 2 Impressions:</label>
+            <input type="text" id="top_query_2_impressions" value="1523" readonly>
+        </div>
+        <div class="form-group">
+            <label>Query 3:</label>
+            <input type="text" id="top_query_3" value="small engine repair" readonly>
+        </div>
+        <div class="form-group">
+            <label>Query 3 Clicks:</label>
+            <input type="text" id="top_query_3_clicks" value="65" readonly>
+        </div>
+        <div class="form-group">
+            <label>Query 3 Impressions:</label>
+            <input type="text" id="top_query_3_impressions" value="987" readonly>
+        </div>
+    </div>
+
+    <button onclick="copyAllData()" id="copyBtn">Copy All Values</button>
+
+    <script>
+        function copyAllData() {
+            const inputs = document.querySelectorAll('input');
+            let dataText = '';
+            
+            inputs.forEach(input => {
+                const label = input.previousElementSibling.textContent.replace(':', '');
+                dataText += `${label}: ${input.value}\n`;
+            });
+            
+            navigator.clipboard.writeText(dataText).then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy All Values';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

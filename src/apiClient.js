@@ -160,6 +160,24 @@ const apiClient = {
         throw error;
       }
     }
+    if (url.includes('/submit/website-summary')) {
+      // For static deployment, save website analytics to localStorage
+      try {
+        const existingAnalytics = JSON.parse(localStorage.getItem('websiteAnalytics') || '[]');
+        const newAnalytics = {
+          id: Date.now(),
+          ...data,
+          created_at: new Date().toISOString()
+        };
+        existingAnalytics.push(newAnalytics);
+        localStorage.setItem('websiteAnalytics', JSON.stringify(existingAnalytics));
+        console.log('Website analytics saved to localStorage:', newAnalytics);
+        return { data: newAnalytics };
+      } catch (error) {
+        console.error('Error saving website analytics:', error);
+        throw error;
+      }
+    }
     return { data: { id: Date.now(), ...data } };
   },
   put: async (url, data) => {
