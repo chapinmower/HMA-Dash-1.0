@@ -54,24 +54,26 @@ function Dashboard() {
         if (!websiteResponse.ok) throw new Error('Failed to load website analytics');
         const websiteData = await websiteResponse.json();
         
-        // Update state with March 2025 data specifically
+        // Update state with most recent data
         if (emailData.summaries && emailData.summaries.length > 0) {
-          // Find March 2025 data (second item in array) or fall back to first item
-          const marchData = emailData.summaries.find(item => item.period === "March 2025") || emailData.summaries[1] || emailData.summaries[0];
-          setEmailMetrics(marchData);
+          // Get the most recent email data (first item in array is most recent)
+          const mostRecentEmailData = emailData.summaries[0];
+          setEmailMetrics(mostRecentEmailData);
           
           // Set last updated timestamp if available
-          if (marchData.lastUpdated) {
-            setLastUpdated(new Date(marchData.lastUpdated));
+          if (mostRecentEmailData.lastUpdated) {
+            setLastUpdated(new Date(mostRecentEmailData.lastUpdated));
           }
         }
         
         if (websiteData.summaries && websiteData.summaries.length > 0) {
-          setWebsiteMetrics(websiteData.summaries[0]);
+          // Get the most recent website data (first item in array is most recent)
+          const mostRecentWebsiteData = websiteData.summaries[0];
+          setWebsiteMetrics(mostRecentWebsiteData);
           
           // If email data doesn't have timestamp but website does, use that
-          if (!lastUpdated && websiteData.summaries[0].lastUpdated) {
-            setLastUpdated(new Date(websiteData.summaries[0].lastUpdated));
+          if (!lastUpdated && mostRecentWebsiteData.lastUpdated) {
+            setLastUpdated(new Date(mostRecentWebsiteData.lastUpdated));
           }
         }
       } catch (err) {
