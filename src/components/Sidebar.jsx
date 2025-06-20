@@ -31,6 +31,7 @@ import {
   TrendingUp as TrendsIcon, // Added Trends icon  
   Storage as DataIcon, // Added Data Management icon
   TaskAlt as TaskManagerIcon, // Added Task Manager icon
+  FolderOpen as ProjectsIcon, // Added Projects icon
   // Logout as LogoutIcon, // Removed logout icon import
 } from '@mui/icons-material';
 
@@ -68,7 +69,8 @@ function Sidebar() {
     { text: 'Contact Engagement', icon: <EngagementIcon />, path: '/contact-engagement' }, // Changed to single link
     { text: 'Marketing Materials', icon: <ArticleIcon />, path: '/materials' }, // Added Marketing Materials
     { text: 'Task Manager', icon: <TaskManagerIcon />, path: '/task-manager' }, // Enhanced Task Manager
-    { text: 'Projects', icon: <AssignmentIcon />, path: '/timeline' }, // Changed label to Projects
+    { text: 'Projects', icon: <ProjectsIcon />, path: '/projects' }, // New Projects tab
+    { text: 'Project Timeline', icon: <AssignmentIcon />, path: '/timeline' }, // Changed label to Project Timeline
     { text: 'Project Tracker', icon: <TimelineIcon />, path: '/project-tracker' }, // Added Project Tracker
     { text: 'Requests', icon: <RequestsIcon />, path: '/requests' },
     { text: 'Historical Trends', icon: <TrendsIcon />, path: '/trends' }, // Added Historical Trends

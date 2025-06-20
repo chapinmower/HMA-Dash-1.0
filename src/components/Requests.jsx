@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useProjects } from '../contexts/ProjectContext';
 import {
   Box,
   Typography,
@@ -65,6 +67,10 @@ const partners = [
 ];
 
 function Requests() {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const { convertRequestToProject, createProject } = useProjects();
+  
   // Form state
   const [requestForm, setRequestForm] = useState({
     title: '',
@@ -92,10 +98,16 @@ function Requests() {
   const [viewMode, setViewMode] = useState('cards');
   const [selectedPartner, setSelectedPartner] = useState('all');
 
-  // Load existing requests on component mount
+  // Load existing requests on component mount and handle URL params
   useEffect(() => {
     fetchRequests();
-  }, []);
+    
+    // Check if type parameter is set in URL
+    const typeParam = searchParams.get('type');
+    if (typeParam && typeParam === 'project') {
+      setRequestForm(prev => ({ ...prev, type: 'project' }));
+    }
+  }, [searchParams]);
 
   // Simulate fetching requests from backend
   const fetchRequests = async () => {
@@ -219,25 +231,6 @@ function Requests() {
 
     setLoading(true);
 
-    // In a real application, this would be an API call:
-    // try {
-    //   let response;
-    //   if (editMode) {
-    //     response = await axios.put(`${API_URL}/requests/${editingRequestId}`, requestForm);
-    //     showSnackbar('Request updated successfully', 'success');
-    //   } else {
-    //     response = await axios.post(`${API_URL}/requests`, requestForm);
-    //     showSnackbar('Request submitted successfully', 'success');
-    //   }
-    //   
-    //   fetchRequests(); // Refresh the list
-    // } catch (error) {
-    //   console.error('Error submitting request:', error);
-    //   showSnackbar('Failed to submit request', 'error');
-    // } finally {
-    //   setLoading(false);
-    // }
-
     // For now, simulate API call
     setTimeout(() => {
       if (editMode) {
@@ -262,8 +255,37 @@ function Requests() {
           createdAt: new Date().toISOString(),
           notes: null
         };
+        
+        // Check if this is a Project Request type
+        if (requestForm.type === 'project') {
+          // Create project immediately
+          const project = createProject({
+            name: requestForm.title,
+            description: requestForm.description,
+            priority: requestForm.priority,
+            category: 'Project',
+            assignedTo: requestForm.assignedTo,
+            startDate: new Date().toISOString().split('T')[0],
+            endDate: requestForm.dueDate,
+            requestedBy: requestForm.requestedBy,
+            requestId: newRequest.id
+          });
+          
+          // Update request with project ID
+          newRequest.projectId = project.id;
+          newRequest.status = 'in-progress';
+          
+          showSnackbar('Project request created successfully!', 'success');
+          
+          // Navigate to project detail after a short delay
+          setTimeout(() => {
+            navigate(`/projects/${project.id}`);
+          }, 1500);
+        } else {
+          showSnackbar('Request submitted successfully', 'success');
+        }
+        
         setRequests([newRequest, ...requests]);
-        showSnackbar('Request submitted successfully', 'success');
       }
       
       // Reset form
@@ -523,13 +545,16 @@ function Requests() {
     
     // Simulate API call to create project
     setTimeout(() => {
+      // Use ProjectContext to create the project
+      const project = convertRequestToProject(request);
+      
       // Update request with project ID and status
       const updatedRequests = requests.map(req => 
         req.id === request.id 
           ? { 
               ...req, 
               status: 'in-progress',
-              projectId: `proj-${Date.now()}`,
+              projectId: project.id,
               progress: 0,
               updates: [{
                 date: new Date().toISOString(),
@@ -543,6 +568,11 @@ function Requests() {
       setConvertToProjectDialog({ open: false, request: null });
       showSnackbar('Request successfully converted to project!', 'success');
       setLoading(false);
+      
+      // Navigate to the project detail page
+      setTimeout(() => {
+        navigate(`/projects/${project.id}`);
+      }, 1500);
     }, 1000);
   };
 
