@@ -32,6 +32,7 @@ import {
   PlayArrow as PlayArrowIcon,
   Edit as EditIcon,
   Add as AddIcon,
+  Delete as DeleteIcon,
   Timeline as TimelineIcon,
   Assignment as AssignmentIcon
 } from '@mui/icons-material';
@@ -41,6 +42,8 @@ const ProjectProgressTracker = () => {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
   const [editDialog, setEditDialog] = useState(false);
+  const [taskDialog, setTaskDialog] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
@@ -87,6 +90,93 @@ const ProjectProgressTracker = () => {
     setProjects(updatedProjects);
     localStorage.setItem('hma_projects', JSON.stringify(updatedProjects));
     console.log('Saved projects to localStorage:', updatedProjects);
+  };
+
+  // Generate unique task ID
+  const generateTaskId = () => {
+    const allTasks = projects.flatMap(p => p.tasks || []);
+    const maxId = allTasks.length > 0 ? Math.max(...allTasks.map(t => t.id)) : 0;
+    return maxId + 1;
+  };
+
+  // Add task to project
+  const addTaskToProject = (projectId, taskData) => {
+    const newTask = {
+      ...taskData,
+      id: generateTaskId(),
+      createdAt: new Date().toISOString(),
+      lastUpdated: new Date().toISOString()
+    };
+
+    const updatedProjects = projects.map(project => {
+      if (project.id === projectId) {
+        const updatedTasks = [...(project.tasks || []), newTask];
+        return {
+          ...project,
+          tasks: updatedTasks,
+          lastUpdated: new Date().toISOString()
+        };
+      }
+      return project;
+    });
+
+    saveProjects(updatedProjects);
+    
+    // Update selected project if it's the one being modified
+    if (selectedProject && selectedProject.id === projectId) {
+      const updatedProject = updatedProjects.find(p => p.id === projectId);
+      setSelectedProject(updatedProject);
+    }
+  };
+
+  // Update task in project
+  const updateTaskInProject = (projectId, taskId, taskData) => {
+    const updatedProjects = projects.map(project => {
+      if (project.id === projectId) {
+        const updatedTasks = project.tasks.map(task =>
+          task.id === taskId
+            ? { ...task, ...taskData, lastUpdated: new Date().toISOString() }
+            : task
+        );
+        return {
+          ...project,
+          tasks: updatedTasks,
+          lastUpdated: new Date().toISOString()
+        };
+      }
+      return project;
+    });
+
+    saveProjects(updatedProjects);
+    
+    // Update selected project if it's the one being modified
+    if (selectedProject && selectedProject.id === projectId) {
+      const updatedProject = updatedProjects.find(p => p.id === projectId);
+      setSelectedProject(updatedProject);
+    }
+  };
+
+  // Delete task from project
+  const deleteTaskFromProject = (projectId, taskId) => {
+    const updatedProjects = projects.map(project => {
+      if (project.id === projectId) {
+        const updatedTasks = project.tasks.filter(task => task.id !== taskId);
+        return {
+          ...project,
+          tasks: updatedTasks,
+          lastUpdated: new Date().toISOString()
+        };
+      }
+      return project;
+    });
+
+    saveProjects(updatedProjects);
+    
+    // Update selected project if it's the one being modified
+    if (selectedProject && selectedProject.id === projectId) {
+      const updatedProject = updatedProjects.find(p => p.id === projectId);
+      setSelectedProject(updatedProject);
+    }
   };
 
   const getStatusIcon = (status) => {
@@ -300,15 +390,50 @@ const ProjectProgressTracker = () => {
         {getStatusIcon(task.status)}
       </ListItemIcon>
       <ListItemText
-        primary={task.title}
+        primary={
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Typography variant="subtitle2">{task.title}</Typography>
+            <Box sx={{ display: 'flex', gap: 1 }}>
+              <Tooltip title="Edit Task">
+                <IconButton 
+                  size="small"
+                  onClick={() => {
+                    setSelectedTask(task);
+                    setTaskDialog(true);
+                  }}
+                >
+                  <EditIcon fontSize="small" />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Delete Task">
+                <IconButton 
+                  size="small"
+                  color="error"
+                  onClick={() => {
+                    if (window.confirm('Are you sure you want to delete this task?')) {
+                      deleteTaskFromProject(projectId, task.id);
+                    }
+                  }}
+                >
+                  <DeleteIcon fontSize="small" />
+                </IconButton>
+              </Tooltip>
+            </Box>
+          </Box>
+        }
         secondary={
           <Box>
             <Typography variant="body2" color="text.secondary">
               {task.description}
             </Typography>
-            {task.due_date && (
+            {task.dueDate && (
               <Typography variant="caption" color="text.secondary">
-                Due: {formatDate(task.due_date)}
+                Due: {formatDate(task.dueDate)}
+              </Typography>
+            )}
+            {task.assignedTo && (
+              <Typography variant="caption" color="text.secondary" sx={{ ml: 2 }}>
+                Assigned: {task.assignedTo}
               </Typography>
             )}
             <Box mt={1}>
@@ -324,11 +449,21 @@ const ProjectProgressTracker = () => {
           </Box>
         }
       />
-      <Chip 
-        label={task.status} 
-        color={getStatusColor(task.status)}
-        size="small"
-      />
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, ml: 1 }}>
+        <Chip 
+          label={task.status} 
+          color={getStatusColor(task.status)}
+          size="small"
+        />
+        {task.priority && (
+          <Chip 
+            label={task.priority} 
+            color={task.priority === 'High' ? 'error' : task.priority === 'Medium' ? 'warning' : 'success'}
+            size="small"
+            variant="outlined"
+          />
+        )}
+      </Box>
     </ListItem>
   );
 
@@ -371,15 +506,37 @@ const ProjectProgressTracker = () => {
               </Grid>
             </Grid>
 
-            <Typography variant="h6" gutterBottom>Tasks</Typography>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+              <Typography variant="h6">Tasks</Typography>
+              <Button
+                variant="contained"
+                startIcon={<AddIcon />}
+                size="small"
+                onClick={() => {
+                  setSelectedTask(null);
+                  setTaskDialog(true);
+                }}
+              >
+                Add Task
+              </Button>
+            </Box>
             <List>
-              {selectedProject.tasks?.map(task => (
-                <TaskItem 
-                  key={task.id} 
-                  task={task} 
-                  projectId={selectedProject.id}
-                />
-              ))}
+              {selectedProject.tasks?.length > 0 ? (
+                selectedProject.tasks.map(task => (
+                  <TaskItem 
+                    key={task.id} 
+                    task={task} 
+                    projectId={selectedProject.id}
+                  />
+                ))
+              ) : (
+                <Box sx={{ textAlign: 'center', py: 3 }}>
+                  <AssignmentIcon sx={{ fontSize: 48, color: 'text.secondary', mb: 1 }} />
+                  <Typography variant="body2" color="text.secondary">
+                    No tasks yet. Add your first task to get started.
+                  </Typography>
+                </Box>
+              )}
             </List>
           </Box>
         )}
@@ -480,6 +637,42 @@ const ProjectProgressTracker = () => {
       )}
 
       <ProjectDetailDialog />
+      
+      {/* Add/Edit Task Dialog */}
+      <Dialog 
+        open={taskDialog} 
+        onClose={() => {
+          setTaskDialog(false);
+          setSelectedTask(null);
+        }}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle>
+          {selectedTask ? 'Edit Task' : 'Add New Task'}
+        </DialogTitle>
+        <DialogContent>
+          <TaskForm 
+            task={selectedTask}
+            projectId={selectedProject?.id}
+            onSave={(taskData) => {
+              if (selectedTask) {
+                // Edit existing task
+                updateTaskInProject(selectedProject.id, selectedTask.id, taskData);
+              } else {
+                // Create new task
+                addTaskToProject(selectedProject.id, taskData);
+              }
+              setTaskDialog(false);
+              setSelectedTask(null);
+            }}
+            onCancel={() => {
+              setTaskDialog(false);
+              setSelectedTask(null);
+            }}
+          />
+        </DialogContent>
+      </Dialog>
       
       {/* Edit/Create Project Dialog */}
       <Dialog 
@@ -617,6 +810,139 @@ const ProjectForm = ({ project, onSave, onCancel }) => {
         <Button onClick={onCancel}>Cancel</Button>
         <Button type="submit" variant="contained">
           {project ? 'Save Changes' : 'Create Project'}
+        </Button>
+      </Box>
+    </Box>
+  );
+};
+
+// Task Form Component
+const TaskForm = ({ task, projectId, onSave, onCancel }) => {
+  const [formData, setFormData] = useState({
+    title: task?.title || '',
+    description: task?.description || '',
+    status: task?.status || 'Not Started',
+    priority: task?.priority || 'Medium',
+    progress: task?.progress || 0,
+    dueDate: task?.dueDate || '',
+    estimatedHours: task?.estimatedHours || '',
+    assignedTo: task?.assignedTo || 'Chapin Mower',
+    tags: task?.tags?.join(', ') || ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const taskData = {
+      ...formData,
+      tags: formData.tags.split(',').map(tag => tag.trim()).filter(tag => tag),
+      estimatedHours: parseInt(formData.estimatedHours) || 0
+    };
+    onSave(taskData);
+  };
+
+  return (
+    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
+      <TextField
+        fullWidth
+        label="Task Title"
+        value={formData.title}
+        onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+        required
+        sx={{ mb: 2 }}
+      />
+      <TextField
+        fullWidth
+        label="Description"
+        value={formData.description}
+        onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+        multiline
+        rows={3}
+        sx={{ mb: 2 }}
+      />
+      <Grid container spacing={2} sx={{ mb: 2 }}>
+        <Grid item xs={6}>
+          <FormControl fullWidth>
+            <InputLabel>Status</InputLabel>
+            <Select
+              value={formData.status}
+              onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+              label="Status"
+            >
+              <MenuItem value="Not Started">Not Started</MenuItem>
+              <MenuItem value="In Progress">In Progress</MenuItem>
+              <MenuItem value="Completed">Completed</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={6}>
+          <FormControl fullWidth>
+            <InputLabel>Priority</InputLabel>
+            <Select
+              value={formData.priority}
+              onChange={(e) => setFormData({ ...formData, priority: e.target.value })}
+              label="Priority"
+            >
+              <MenuItem value="Low">Low</MenuItem>
+              <MenuItem value="Medium">Medium</MenuItem>
+              <MenuItem value="High">High</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} sx={{ mb: 2 }}>
+        <Grid item xs={6}>
+          <TextField
+            fullWidth
+            label="Due Date"
+            type="date"
+            value={formData.dueDate}
+            onChange={(e) => setFormData({ ...formData, dueDate: e.target.value })}
+            InputLabelProps={{ shrink: true }}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            fullWidth
+            label="Estimated Hours"
+            type="number"
+            value={formData.estimatedHours}
+            onChange={(e) => setFormData({ ...formData, estimatedHours: e.target.value })}
+            InputProps={{ inputProps: { min: 0 } }}
+          />
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} sx={{ mb: 2 }}>
+        <Grid item xs={6}>
+          <TextField
+            fullWidth
+            label="Progress %"
+            type="number"
+            value={formData.progress}
+            onChange={(e) => setFormData({ ...formData, progress: parseInt(e.target.value) || 0 })}
+            InputProps={{ inputProps: { min: 0, max: 100 } }}
+          />
+        </Grid>
+        <Grid item xs={6}>
+          <TextField
+            fullWidth
+            label="Assigned To"
+            value={formData.assignedTo}
+            onChange={(e) => setFormData({ ...formData, assignedTo: e.target.value })}
+          />
+        </Grid>
+      </Grid>
+      <TextField
+        fullWidth
+        label="Tags (comma separated)"
+        value={formData.tags}
+        onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
+        placeholder="design, urgent, client-facing"
+        sx={{ mb: 2 }}
+      />
+      <Box display="flex" justifyContent="flex-end" gap={2}>
+        <Button onClick={onCancel}>Cancel</Button>
+        <Button type="submit" variant="contained">
+          {task ? 'Save Changes' : 'Add Task'}
         </Button>
       </Box>
     </Box>
