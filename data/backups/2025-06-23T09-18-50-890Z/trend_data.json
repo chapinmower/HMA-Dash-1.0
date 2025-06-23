@@ -1,0 +1,30 @@
+{
+  "email": [
+    {
+      "period": "April 2025",
+      "opens": 1568,
+      "clicks": 621,
+      "openRate": 22.3,
+      "clickThroughRate": 39.6
+    }
+  ],
+  "website": [
+    {
+      "period": "April 2025",
+      "visits": 6245,
+      "pageViews": 15421,
+      "bounceRate": 36.8,
+      "avgSessionDuration": "2:37"
+    }
+  ],
+  "linkedin": [
+    {
+      "period": "April 2025",
+      "impressions": 4562,
+      "engagements": 623,
+      "followers": 1324,
+      "clickThroughRate": 3.2
+    }
+  ],
+  "generatedAt": "2025-06-16T09:18:23.444Z"
+}

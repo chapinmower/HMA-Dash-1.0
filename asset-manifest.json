@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/HMA-Dash-1.0/static/js/main.5eac5ce5.js",
+    "main.js": "/HMA-Dash-1.0/static/js/main.0d359a28.js",
     "index.html": "/HMA-Dash-1.0/index.html",
-    "main.5eac5ce5.js.map": "/HMA-Dash-1.0/static/js/main.5eac5ce5.js.map"
+    "main.0d359a28.js.map": "/HMA-Dash-1.0/static/js/main.0d359a28.js.map"
   },
   "entrypoints": [
-    "static/js/main.5eac5ce5.js"
+    "static/js/main.0d359a28.js"
   ]
 }
