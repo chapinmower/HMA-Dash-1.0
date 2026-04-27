@@ -1,0 +1,25 @@
+{
+  "members": [
+    {
+      "id": 1,
+      "name": "Jane Doe",
+      "role": "Marketing Manager",
+      "email": "jane.doe@hummermower.com",
+      "photo": "/assets/team/jane-doe.jpg"
+    },
+    {
+      "id": 2,
+      "name": "John Smith",
+      "role": "Content Specialist",
+      "email": "john.smith@hummermower.com",
+      "photo": "/assets/team/john-smith.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Sarah Johnson",
+      "role": "Digital Marketing Coordinator",
+      "email": "sarah.johnson@hummermower.com",
+      "photo": "/assets/team/sarah-johnson.jpg"
+    }
+  ]
+}
