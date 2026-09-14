@@ -1,0 +1,177 @@
+[
+  {
+    "projectId": 1,
+    "projectName": "June 18 2025 Event Campaign",
+    "status": "Ongoing",
+    "priority": "High",
+    "startDate": "2025-05-01",
+    "targetDate": "2025-06-18",
+    "actualEndDate": null,
+    "progress": 85,
+    "owner": "Chapin Mower",
+    "team": ["Chapin Mower", "Design Team", "Marketing Team", "Operations Team"],
+    "milestones": [
+      {
+        "id": "m1-101",
+        "name": "Design event invitation templates",
+        "dueDate": "2025-05-15",
+        "status": "completed",
+        "completedDate": "2025-05-15"
+      },
+      {
+        "id": "m1-102",
+        "name": "Develop email campaign workflow",
+        "dueDate": "2025-05-20",
+        "status": "completed",
+        "completedDate": "2025-05-20"
+      },
+      {
+        "id": "m1-103",
+        "name": "Social media promotion strategy",
+        "dueDate": "2025-06-10",
+        "status": "in-progress",
+        "completedDate": null
+      },
+      {
+        "id": "m1-104",
+        "name": "Event logistics coordination",
+        "dueDate": "2025-06-15",
+        "status": "pending",
+        "completedDate": null
+      },
+      {
+        "id": "m1-105",
+        "name": "Final event execution",
+        "dueDate": "2025-06-18",
+        "status": "pending",
+        "completedDate": null
+      }
+    ],
+    "updates": [
+      {
+        "timestamp": "2025-06-12T17:50:23.727Z",
+        "user": "Chapin Mower",
+        "type": "milestone",
+        "message": "Social media content creation 75% complete. Working on final posts for launch week."
+      },
+      {
+        "timestamp": "2025-06-10T14:30:00.000Z",
+        "user": "Marketing Team",
+        "type": "update",
+        "message": "Email campaign sequence finalized and scheduled. Open rates looking promising in early tests."
+      },
+      {
+        "timestamp": "2025-06-08T09:15:00.000Z",
+        "user": "Chapin Mower",
+        "type": "achievement",
+        "message": "Received approval from all partners for final event materials and messaging."
+      },
+      {
+        "timestamp": "2025-05-20T16:45:00.000Z",
+        "user": "Chapin Mower",
+        "type": "milestone",
+        "message": "Email campaign workflow development completed ahead of schedule."
+      },
+      {
+        "timestamp": "2025-05-15T17:30:00.000Z",
+        "user": "Design Team",
+        "type": "milestone",
+        "message": "All invitation templates have been designed and approved."
+      },
+      {
+        "timestamp": "2025-05-01T09:00:00.000Z",
+        "user": "System",
+        "type": "created",
+        "message": "Project created and initial planning completed."
+      }
+    ],
+    "linkedAssets": ["MAT-2025-015", "MAT-2025-016", "MAT-2025-017"],
+    "budget": {
+      "allocated": 15000,
+      "spent": 8500,
+      "currency": "USD"
+    },
+    "metrics": {
+      "expectedROI": "25%",
+      "actualROI": null,
+      "targetAttendees": 150,
+      "confirmedAttendees": 127
+    }
+  },
+  {
+    "projectId": 2,
+    "projectName": "Website Revamp",
+    "status": "Pipeline",
+    "priority": "Medium",
+    "startDate": "2025-06-01",
+    "targetDate": "2025-07-15",
+    "actualEndDate": null,
+    "progress": 5,
+    "owner": "Development Team",
+    "team": ["Development Team", "Chapin Mower", "Design Team"],
+    "milestones": [
+      {
+        "id": "m2-201",
+        "name": "Initial planning call with HT WebDev Team",
+        "dueDate": "2025-06-15",
+        "status": "pending",
+        "completedDate": null
+      },
+      {
+        "id": "m2-202",
+        "name": "Create templates and visual mockups",
+        "dueDate": "2025-06-14",
+        "status": "pending",
+        "completedDate": null
+      },
+      {
+        "id": "m2-203",
+        "name": "Content audit and migration plan",
+        "dueDate": "2025-06-20",
+        "status": "pending",
+        "completedDate": null
+      },
+      {
+        "id": "m2-204",
+        "name": "Design system and wireframes",
+        "dueDate": "2025-06-28",
+        "status": "pending",
+        "completedDate": null
+      },
+      {
+        "id": "m2-205",
+        "name": "Development phase 1",
+        "dueDate": "2025-07-05",
+        "status": "pending",
+        "completedDate": null
+      },
+      {
+        "id": "m2-206",
+        "name": "Testing and launch",
+        "dueDate": "2025-07-15",
+        "status": "pending",
+        "completedDate": null
+      }
+    ],
+    "updates": [
+      {
+        "timestamp": "2025-06-01T09:00:00.000Z",
+        "user": "System",
+        "type": "created",
+        "message": "Website revamp project created and moved to pipeline."
+      }
+    ],
+    "linkedAssets": [],
+    "budget": {
+      "allocated": 25000,
+      "spent": 0,
+      "currency": "USD"
+    },
+    "metrics": {
+      "expectedROI": "40%",
+      "actualROI": null,
+      "targetPageViews": 10000,
+      "currentPageViews": 3200
+    }
+  }
+]
