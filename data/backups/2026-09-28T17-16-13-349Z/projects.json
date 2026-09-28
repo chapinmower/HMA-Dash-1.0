@@ -1,0 +1,58 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "June 18 2025 Event Campaign",
+      "description": "A comprehensive marketing campaign for the June 18 client appreciation event",
+      "startDate": "2025-05-01",
+      "endDate": "2025-06-18",
+      "status": "In Progress",
+      "completionPercentage": 85,
+      "tasks": [
+        {
+          "id": 101,
+          "status": "Completed",
+          "progress": 100
+        },
+        {
+          "id": 102,
+          "status": "Completed",
+          "progress": 100
+        },
+        {
+          "id": 103,
+          "status": "In Progress",
+          "progress": 75
+        }
+      ],
+      "lastUpdated": "2025-06-12T17:50:23.727Z"
+    },
+    {
+      "id": 2,
+      "name": "Website Revamp",
+      "description": "Complete website redesign and development project",
+      "startDate": "2025-06-01",
+      "endDate": "2025-07-15",
+      "status": "Planned",
+      "completionPercentage": 5,
+      "tasks": [
+        {
+          "id": 201,
+          "title": "Call with HT WebDev Team",
+          "description": "Initial planning call with development team",
+          "status": "Not Started",
+          "progress": 0,
+          "due_date": "2025-06-15"
+        },
+        {
+          "id": 202,
+          "title": "Fill in templates, create rough visuals",
+          "description": "Prepare templates and visual mockups for the call",
+          "status": "Not Started",
+          "progress": 0,
+          "due_date": "2025-06-14"
+        }
+      ]
+    }
+  ]
+}
