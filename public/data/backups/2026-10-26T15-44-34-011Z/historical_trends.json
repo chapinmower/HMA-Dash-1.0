@@ -1,0 +1,144 @@
+{
+  "quarterly_trends": {
+    "Q1_2025": {
+      "period": "Q1 2025",
+      "website": {
+        "total_sessions": 18567,
+        "unique_users": 14236,
+        "average_session_duration": "2:38",
+        "bounce_rate": 35.4,
+        "conversion_rate": 2.1
+      },
+      "email": {
+        "total_sent": 12450,
+        "open_rate": 24.8,
+        "click_rate": 3.2,
+        "average_engagement_score": 7.3
+      },
+      "social": {
+        "linkedin_impressions": 8924,
+        "linkedin_engagements": 567,
+        "facebook_reach": 5432,
+        "facebook_engagements": 234
+      }
+    },
+    "Q2_2025": {
+      "period": "Q2 2025",
+      "website": {
+        "total_sessions": 19832,
+        "unique_users": 15472,
+        "average_session_duration": "2:43",
+        "bounce_rate": 32.8,
+        "conversion_rate": 2.4
+      },
+      "email": {
+        "total_sent": 13200,
+        "open_rate": 26.2,
+        "click_rate": 3.7,
+        "average_engagement_score": 7.8
+      },
+      "social": {
+        "linkedin_impressions": 9847,
+        "linkedin_engagements": 623,
+        "facebook_reach": 5892,
+        "facebook_engagements": 287
+      }
+    }
+  },
+  "monthly_trends": {
+    "January_2025": {
+      "website_sessions": 5234,
+      "email_campaigns": 4,
+      "email_open_rate": 23.5,
+      "linkedin_impressions": 2847
+    },
+    "February_2025": {
+      "website_sessions": 6123,
+      "email_campaigns": 4,
+      "email_open_rate": 25.1,
+      "linkedin_impressions": 3024
+    },
+    "March_2025": {
+      "website_sessions": 7210,
+      "email_campaigns": 4,
+      "email_open_rate": 25.8,
+      "linkedin_impressions": 3053
+    },
+    "April_2025": {
+      "website_sessions": 6245,
+      "email_campaigns": 4,
+      "email_open_rate": 26.4,
+      "linkedin_impressions": 3234
+    },
+    "May_2025": {
+      "website_sessions": 415,
+      "email_campaigns": 4,
+      "email_open_rate": 25.9,
+      "linkedin_impressions": 3287
+    },
+    "June_2025": {
+      "website_sessions": 7123,
+      "email_campaigns": 4,
+      "email_open_rate": 26.3,
+      "linkedin_impressions": 3326
+    }
+  },
+  "growth_metrics": {
+    "quarter_over_quarter": {
+      "Q1_to_Q2_2025": {
+        "website_sessions_growth": 6.8,
+        "email_open_rate_growth": 5.6,
+        "linkedin_engagement_growth": 9.9,
+        "overall_digital_growth": 7.4
+      }
+    },
+    "year_over_year": {
+      "2024_to_2025_Q1": {
+        "website_sessions_growth": 12.3,
+        "email_performance_growth": 8.7,
+        "social_engagement_growth": 15.2
+      }
+    }
+  },
+  "key_insights": [
+    {
+      "insight": "Q2 2025 shows steady improvement in website engagement with 2.4% conversion rate",
+      "metric": "conversion_rate",
+      "trend": "positive",
+      "impact": "high"
+    },
+    {
+      "insight": "Email performance improved significantly in Q2 with 26.2% average open rate",
+      "metric": "email_open_rate", 
+      "trend": "positive",
+      "impact": "medium"
+    },
+    {
+      "insight": "May 2025 shows unusually low website traffic - investigate potential issues",
+      "metric": "website_sessions",
+      "trend": "negative",
+      "impact": "high"
+    },
+    {
+      "insight": "LinkedIn engagement continues strong growth trajectory with 9.9% QoQ increase",
+      "metric": "linkedin_engagements",
+      "trend": "positive",
+      "impact": "medium"
+    }
+  ],
+  "forecasts": {
+    "Q3_2025_projections": {
+      "website_sessions": 21500,
+      "email_open_rate": 27.5,
+      "linkedin_impressions": 10200,
+      "estimated_conversions": 516
+    }
+  },
+  "data_sources": [
+    "Google Analytics Q1-Q2 2025",
+    "Clout Email Analytics Reports",
+    "LinkedIn Analytics Dashboard",
+    "HMA Internal Tracking System"
+  ],
+  "last_updated": "2025-06-17T12:00:00.000Z"
+}
