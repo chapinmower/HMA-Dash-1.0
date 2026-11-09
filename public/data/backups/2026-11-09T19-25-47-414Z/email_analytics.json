@@ -1,0 +1,54 @@
+{
+  "summaries": [
+    {
+      "period": "May 2025",
+      "opens": 4588,
+      "clicks": 128,
+      "clickThroughRate": "2.8%",
+      "openRate": "57.7%",
+      "customEngagement": 128,
+      "lastUpdated": "2025-05-31T18:30:00.000Z"
+    },
+    {
+      "period": "April 2025",
+      "opens": 1568,
+      "clicks": 621,
+      "clickThroughRate": "39.6%",
+      "openRate": "22.3%",
+      "customEngagement": 834,
+      "lastUpdated": "2025-05-26T22:11:40.726Z"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": 1,
+      "name": "May Newsletter",
+      "date": "2025-05-15",
+      "opens": 4270,
+      "clicks": 51,
+      "sent": 7532,
+      "openRate": "56.7%",
+      "clickThroughRate": "1.2%"
+    },
+    {
+      "id": 2,
+      "name": "RSVP: June 18 Double Header With HMA!",
+      "date": "2025-05-20",
+      "opens": 159,
+      "clicks": 45,
+      "sent": 219,
+      "openRate": "72.6%",
+      "clickThroughRate": "28.3%"
+    },
+    {
+      "id": 3,
+      "name": "Re: RSVP: June 18 Double Header With HMA!",
+      "date": "2025-05-22",
+      "opens": 102,
+      "clicks": 28,
+      "sent": 112,
+      "openRate": "91.1%",
+      "clickThroughRate": "27.5%"
+    }
+  ]
+}
