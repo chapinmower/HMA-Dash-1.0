@@ -1,0 +1,36 @@
+{
+  "summaries": [
+    {
+      "period": "June 2025",
+      "impressions": 5234,
+      "engagements": 723,
+      "followers": 1387,
+      "clickThroughRate": "3.8%",
+      "lastUpdated": "2025-06-12T17:50:23.727Z"
+    },
+    {
+      "period": "April 2025",
+      "impressions": 4562,
+      "engagements": 623,
+      "followers": 1324,
+      "clickThroughRate": "3.2%",
+      "lastUpdated": "2025-05-26T22:11:40.726Z"
+    }
+  ],
+  "topPosts": [
+    {
+      "id": 1,
+      "title": "Tax Planning Strategies for 2025",
+      "date": "2025-04-10",
+      "impressions": 1243,
+      "engagements": 136
+    },
+    {
+      "id": 2,
+      "title": "Market Insights: Q2 Outlook",
+      "date": "2025-04-05",
+      "impressions": 958,
+      "engagements": 87
+    }
+  ]
+}
